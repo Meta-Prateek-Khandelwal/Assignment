@@ -79,7 +79,7 @@ class Shopping {
 
         for(Map.Entry<Item, Integer> e: itemList.entrySet()){
             totalAmount += e.getKey().getPrice() * e.getValue();
-            System.out.println(e.getKey().getId());
+            // System.out.println(e.getKey().getId());
         }
 
         return totalAmount;
