@@ -2,11 +2,6 @@ import java.util.*;
 
 // this is item class for itemid, name, des, price
 class Item{
-    // int itemId;
-    // String name;
-    // String des;
-    // int price;
-
     private int itemId;
     private String name;
     private String des;
