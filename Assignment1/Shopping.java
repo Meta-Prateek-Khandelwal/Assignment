@@ -5,21 +5,21 @@ import java.util.Map.Entry;
 class Item {
     static private String prefix = "Item_id_";
     static private int itemId = 0;
-    int id;
+    String id;
 
     private String name;
     private String des;
     private double price;
 
-    Item(int id, String name, String des, double price) {
-        this.id = ++itemId;
+    Item(String id, String name, String des, double price) {
+        this.id = prefix+String.valueOf(++itemId);
         this.name = name;
         this.des = des;
         this.price = price;
     }
 
     public String getId() {
-        return prefix + String.valueOf(id);
+        return id;
     }
 
     public String getName() {
@@ -37,10 +37,13 @@ class Item {
 
 // this class work the functionlity like add To Cart, displayQty, update, delete, total bill Ammount
 class Cart {
+    // for this is access all field of item
+    HashMap<String, Item> allItems = new HashMap<>();
     private final HashMap<String, Integer> itemList = new HashMap<>();
 
     void addToCart(Item item, int quantity) {
         itemList.put(item.getId(), itemList.getOrDefault(item.getId(), 0) + quantity);
+        allItems.put(item.getId(), item);
         System.out.println("Item add to cart successfully.");
     }
 
@@ -69,13 +72,13 @@ class Cart {
         System.out.println("Item delete cart successfully.");
     }
 
-    Double displayBill(HashMap<String, Item> allItem) {
+    Double displayBill() {
         double totalAmount = 0;
         
         for (Entry<String, Integer> e : itemList.entrySet()) {
             String itemId = e.getKey();
             int quantity = e.getValue();
-            Item item = allItem.get(itemId);
+            Item item = allItems.get(itemId);
             totalAmount += item.getPrice() * quantity;
         }
 
@@ -84,12 +87,12 @@ class Cart {
 }
 
 public class Shopping {
-    static int id = 0;
+    static String id = "";
 
     // check item is present or not in the store
-    static Item checkItem(int n, ArrayList<Item> list) {
-        for (Item i : list) {
-            if (i.id == n)
+    static Item checkItem(String n, ArrayList<Item> list) {
+            for (Item i : list) {
+                if (i.id.equals(n))
                 return i;
         }
 
@@ -105,10 +108,8 @@ public class Shopping {
         list.add(new Item(id, "Laptop", "Dell XPS 13", 12000));
         list.add(new Item(id, "phone", "Readmi Node 11", 10000));
 
-        // for this is access all field of item
-        HashMap<String, Item> allItems = new HashMap<>();
+        
         for (Item l : list) {
-            allItems.put(l.getId(), l);
             System.out.println("ID: " + l.getId() + ", Name: " + l.getName() + ", Description: " + l.getDes() + ", Price: " + l.getPrice());
         }
 
@@ -118,7 +119,7 @@ public class Shopping {
 
         while (true) {
             System.out.print("Enter the item id : ");
-            int n = sc.nextInt();
+            String n = sc.next();
             Item find = checkItem(n, list);
 
             if (find == null)
@@ -157,7 +158,7 @@ public class Shopping {
                     break;
 
                 case 5:
-                    System.out.println("Total Bill Ammount: " + store.displayBill(allItems));
+                    System.out.println("Total Bill Ammount: " + store.displayBill());
                     break;
 
                 default:
@@ -171,7 +172,7 @@ public class Shopping {
                 break;
         }
 
-        System.out.println("Total Bill Ammount: " + store.displayBill(allItems));
+        System.out.println("Total Bill Ammount: " + store.displayBill());
 
     }
 
