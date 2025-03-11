@@ -11,7 +11,7 @@ class Item {
     private String des;
     private double price;
 
-    Item(String id, String name, String des, double price) {
+    Item(String name, String des, double price) {
         this.id = prefix+String.valueOf(++itemId);
         this.name = name;
         this.des = des;
@@ -102,11 +102,11 @@ public class Shopping {
     public static void main(String[] args) {
         // cretae arrayList for item add
         ArrayList<Item> list = new ArrayList<>();
-        list.add(new Item(id, "milk", "liquid", 20));
-        list.add(new Item(id, "cock", "liquid", 25));
-        list.add(new Item(id, "apple", "fruit", 10));
-        list.add(new Item(id, "Laptop", "Dell XPS 13", 12000));
-        list.add(new Item(id, "phone", "Readmi Node 11", 10000));
+        list.add(new Item("milk", "liquid", 20));
+        list.add(new Item("cock", "liquid", 25));
+        list.add(new Item("apple", "fruit", 10));
+        list.add(new Item("Laptop", "Dell XPS 13", 12000));
+        list.add(new Item("phone", "Readmi Node 11", 10000));
 
         
         for (Item l : list) {
