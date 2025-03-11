@@ -1,11 +1,12 @@
 class ArrOperation {
+    // this function check array not empty
     public static void checkArrayNotEmpty(int[] array) {
         if (array == null || array.length == 0) {
             throw new AssertionError("Array should not be empty!");
         }
     }
 
-    // que-1
+    // max mirror find 
     int findMaxMirror(int[] array) {
         int n = array.length;
 
@@ -38,7 +39,7 @@ class ArrOperation {
         return maxMirror;
     }
 
-    // que-2
+    // count number of clumps - Array two adjacents value count clump
     int numberOfClumps(int[] input) {
         checkArrayNotEmpty(input);
         int n = input.length;
@@ -57,7 +58,7 @@ class ArrOperation {
         return clumps;
     }
 
-    // que-3
+    
     public static void checkArrayUnequalXY(int[] array) {
         int countX = 0;
         int countY = 0;
@@ -101,7 +102,8 @@ class ArrOperation {
         arr[rp] = temp;
     }
 
-    public int[] follow(int[] arr, int x, int y) {
+    // check inside array x is follow y if not follow then swap and follow
+    public int[] follow(int[] arr, int x, int y) {// main fix x and y method
         int n = arr.length;
         checkArrayNotEmpty(arr);
         checkArrayUnequalXY(arr);
@@ -129,8 +131,8 @@ class ArrOperation {
         return arr;
     }
 
-    // que-4
-    public int splitMethod(int[] arr) {
+    // if array sum is split two part of array so return index
+    public int splitMethod(int[] arr) {// main method of split array
         checkArrayNotEmpty(arr);
         int n = arr.length;
         int arrSum = 0;
@@ -156,22 +158,24 @@ public class TestingAndJUnit {
     public static void main(String[] args) {
 
         ArrOperation operation = new ArrOperation();
-
+        // mirror
         int input1[] = { 1, 2, 7, 8, 9, 9, 8, 7 };
         int mirrorLength = operation.findMaxMirror(input1);
         System.out.println(mirrorLength);
 
+        // clump
         int[] input2 = { 1, 2, 2, 3, 4, 4 };
         System.out.println(operation.numberOfClumps(input2));
 
+        // fix x so follow y
         int[] input3 = { 5, 4, 9, 4, 9, 5 };
-
         int[] followed = operation.follow(input3, 4, 5);
-
         for (int i = 0; i < followed.length; i++) {
             System.out.print(followed[i] + " ");
         }
         System.out.println();
+
+        // split array
         int[] arr = { 10, 10 };
         int idx = operation.splitMethod(arr);
         System.out.println(idx);
