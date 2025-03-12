@@ -11,8 +11,8 @@ class Item {
     private String des;
     private double price;
 
-    Item(String id, String name, String des, double price) {
-        this.id = prefix + String.valueOf(++itemId);
+    Item(String name, String des, double price) {
+        this.id = prefix+String.valueOf(++itemId);
         this.name = name;
         this.des = des;
         this.price = price;
@@ -35,11 +35,11 @@ class Item {
     }
 }
 
-// this class work the functionlity like add To Cart, displayQty, update,
-// delete, total bill Ammount
+// this class work the functionlity like add To Cart, displayQty, update, delete, total bill Ammount
 class Cart {
-    private final HashMap<String, Integer> itemList = new HashMap<>();
+    // for this is access all field of item
     HashMap<String, Item> allItems = new HashMap<>();
+    private final HashMap<String, Integer> itemList = new HashMap<>();
 
     void addToCart(Item item, int quantity) {
         itemList.put(item.getId(), itemList.getOrDefault(item.getId(), 0) + quantity);
@@ -49,8 +49,7 @@ class Cart {
 
     int displayQty(Item item) {
         // first we check this item is present
-        if (!itemList.containsKey(item.getId()))
-            return 0;
+        if (!itemList.containsKey(item.getId())) return 0;
         return itemList.get(item.getId());
     }
 
@@ -75,7 +74,7 @@ class Cart {
 
     Double displayBill() {
         double totalAmount = 0;
-
+        
         for (Entry<String, Integer> e : itemList.entrySet()) {
             String itemId = e.getKey();
             int quantity = e.getValue();
@@ -92,8 +91,9 @@ public class Shopping {
 
     // check item is present or not in the store
     static Item checkItem(String n, ArrayList<Item> list) {
-        for (Item i : list) {
-            if (i.id.equals(n)) return i;
+            for (Item i : list) {
+                if (i.id.equals(n))
+                return i;
         }
 
         return null;
@@ -102,17 +102,15 @@ public class Shopping {
     public static void main(String[] args) {
         // cretae arrayList for item add
         ArrayList<Item> list = new ArrayList<>();
-        list.add(new Item(id, "milk", "liquid", 20));
-        list.add(new Item(id, "cock", "liquid", 25));
-        list.add(new Item(id, "apple", "fruit", 10));
-        list.add(new Item(id, "Laptop", "Dell XPS 13", 12000));
-        list.add(new Item(id, "phone", "Readmi Node 11", 10000));
+        list.add(new Item("milk", "liquid", 20));
+        list.add(new Item("cock", "liquid", 25));
+        list.add(new Item("apple", "fruit", 10));
+        list.add(new Item("Laptop", "Dell XPS 13", 12000));
+        list.add(new Item("phone", "Readmi Node 11", 10000));
 
-        // for this is access all field of item
-
+        
         for (Item l : list) {
-            System.out.println("ID: " + l.getId() + ", Name: " + l.getName() + ", Description: " + l.getDes()
-                    + ", Price: " + l.getPrice());
+            System.out.println("ID: " + l.getId() + ", Name: " + l.getName() + ", Description: " + l.getDes() + ", Price: " + l.getPrice());
         }
 
         // for the input purpose
@@ -124,7 +122,8 @@ public class Shopping {
             String n = sc.next();
             Item find = checkItem(n, list);
 
-            if (find == null) break;
+            if (find == null)
+                break;
 
             System.out.println("1: Add to cart: ");
             System.out.println("2: Show quantity for added item: ");
@@ -169,7 +168,8 @@ public class Shopping {
 
             System.out.print("Exit so press -1 other anything: ");
             int ch = sc.nextInt();
-            if (ch == -1) break;
+            if (ch == -1)
+                break;
         }
 
         System.out.println("Total Bill Ammount: " + store.displayBill());
