@@ -1,119 +1,143 @@
 import java.util.Scanner;
 import java.util.PriorityQueue;
 
-class FCFS{
+class FCFS {
 
     // create a array
-    static int[] CT ;
-    static int[] TAT;
-    static int[] AT ;
-    static int[] BT;
-    static int[] WT;
+    static int[] complationTimeArray;
+    static int[] turnArroundTimeArray;
+    static int[] arrivalTimeArray;
+    static int[] burstTimeArray;
+    static int[] waitingTimeArray;
 
-    // methods
-
-    // complation time method
-    static int[] complationTime(PriorityQueue<int[]> pq){
-        CT = new int[n];
-        BT = new int[n];
-        AT = new int[n];
+    /**
+     * complation time method
+     * 
+     * @param accept priortyqueue a FIFO queue, the first tasks added are the first
+     *               retrieved.
+     * @return the completion time array .
+     */
+    static int[] complationTimeMethod(PriorityQueue<int[]> pq) {
+        complationTimeArray = new int[n];
+        turnArroundTimeArray = new int[n];
+        arrivalTimeArray = new int[n];
         int i = 0;
 
-        while(!pq.isEmpty()){
+        while (!pq.isEmpty()) {
             int[] pair = pq.poll();
 
             int arrival = pair[0];
-            AT[i] = arrival;
+            arrivalTimeArray[i] = arrival;
             int burst = pair[1];
-            BT[i] = burst;
+            turnArroundTimeArray[i] = burst;
 
-            if(i == 0){
-                CT[i] = arrival + burst;
-            }else if(CT[i-1] >= arrival){
-                CT[i] = CT[i-1] + burst;
-            }else{
-                CT[i] = arrival + burst;
+            if (i == 0) {
+                complationTimeArray[i] = arrival + burst;
+            } else if (complationTimeArray[i - 1] >= arrival) {
+                complationTimeArray[i] = complationTimeArray[i - 1] + burst;
+            } else {
+                complationTimeArray[i] = arrival + burst;
             }
             i++;
         }
 
-        return CT;
+        return complationTimeArray;
     }
-    
-    // trun around time method
-    static int[] trunArroundTime(int[] CT, int[] AT){
-        TAT = new int[n];
-        
-        // turn arround time = complation time - arrival time
-        for(int i = 0; i < n; i++){
-            TAT[i] = CT[i] - AT[i];
+
+    /**
+     * turn arround time = complation time - arrival time
+     * @param the first array
+     * @param the second array
+     * @return turn arround time in array format.
+     */
+
+    static int[] trunArroundTimeMethod(int[] CT, int[] AT) {
+        turnArroundTimeArray = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            turnArroundTimeArray[i] = CT[i] - AT[i];
         }
 
-        return TAT;
+        return turnArroundTimeArray;
     }
 
-    // waiting time method
-    static int[] waitingTime(int[] TAT, int[] AT){
-        WT = new int[n];
-        // Waiting time = turn Around time - burst time
-        for(int i = 0; i < n; i++){
-            WT[i] = TAT[i] - BT[i];
-        } 
-        return WT;     
-    }
-
-    // avrage waiting time method
-    static float avgWaitingTime(int[] WT){
-        int TWT = 0;
+    /**
+     * Waiting time = turn Around time - burst time
+     * @param the first array turn arround array
+     * @param the second array arrival time
+     * @return waiting time in array format.
+     */
+    static int[] waitingTimeMethod(int[] TAT, int[] AT) {
+        waitingTimeArray = new int[n];
         
-        for(int x: WT){
-            TWT += x;
+        for (int i = 0; i < n; i++) {
+            waitingTimeArray[i] = TAT[i] - turnArroundTimeArray[i];
+        }
+        return waitingTimeArray;
+    }
+
+    /**
+     * turn arround time = complation time - arrival time
+     * @param waiting time in array format
+     * @return avrage waiting time.
+     */
+    static float avgWaitingTimeMethod(int[] waitingTimeArray) {
+        int totalWaitingTime = 0;
+
+        for (int waitTime : waitingTimeArray) {
+            totalWaitingTime += waitTime;
         }
 
-        float AWT = TWT / n;
-        return AWT;
+        float avrageWaitingTime = totalWaitingTime / n;
+        return avrageWaitingTime;
     }
 
-    // maximum waiting time method
-    static int maxWaitingTime(int[] WT){
-        int MWT = 0;
+    /**
+     * maximum waiting time 
+     * @param waiting time array accept 
+     * @return max waiting time.
+     */
+    static int maxWaitingTimeMethod(int[] waitingTimeArray) {
+        int maxWaitingTime = 0;
 
-        for(int x: WT){
-            if(x > MWT) MWT = x;
+        for (int waitTime : waitingTimeArray) {
+            if (waitTime > maxWaitingTime){
+                maxWaitingTime = waitTime;
+            }
         }
-        
-        return MWT;
+
+        return maxWaitingTime;
     }
 
     // size of priority queue
-    static int n ;
+    static int n;
 
     // main method
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         // use priority queue is use
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a,b) -> a[0]-b[0]);
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
 
-        pq.offer(new int[]{0,2});
-        pq.offer(new int[]{1,2});
-        pq.offer(new int[]{5,3});
-        pq.offer(new int[]{6,4});
-        
+        pq.offer(new int[] { 0, 2 });
+        pq.offer(new int[] { 1, 2 });
+        pq.offer(new int[] { 5, 3 });
+        pq.offer(new int[] { 6, 4 });
+
         n = pq.size();
-        
+
         // funtion calling
-        int[] cTime = complationTime(pq);
-        int[] tATime = trunArroundTime(CT, AT);
-        int[] wTime = waitingTime(TAT, AT);
-        float awt = avgWaitingTime(WT);
-        int mwt = maxWaitingTime(WT);
-        
-        System.out.println("CT"+" "+"TAT"+" "+"WT");
-        for(int i = 0; i < n; i++){
-            System.out.println(cTime[i] +"  "+ tATime[i]+"  "+wTime[i]);
+        int[] completionTimeArray = complationTimeMethod(pq);
+        int[] turnArroundTimeArray = trunArroundTimeMethod(complationTimeArray, arrivalTimeArray);
+        int[] waitingTimeArray = waitingTimeMethod(turnArroundTimeArray, arrivalTimeArray);
+        float avgWaitingTime = avgWaitingTimeMethod(waitingTimeArray);
+        int maxWaitingTime = maxWaitingTimeMethod(waitingTimeArray);
+
+        System.out.println("CT" + " " + "TAT" + " " + "WT");
+        for (int i = 0; i < n; i++) {
+            System.out.println(completionTimeArray[i] + "  " + turnArroundTimeArray[i] + "  " + waitingTimeArray[i]);
         }
-        
-        System.out.println("Avrage Waiting Time: "+ awt);
-        System.out.println("Maximum Waiting Time: "+ mwt);
+
+        System.out.println("Avrage Waiting Time: " + avgWaitingTime);
+        System.out.println("Maximum Waiting Time: " + maxWaitingTime);
     }
 }
