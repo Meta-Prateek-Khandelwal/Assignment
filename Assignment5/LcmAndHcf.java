@@ -1,3 +1,5 @@
+package Assignment5;
+
 class HcfLcm{
     
         public int findHcfMethod(int num1, int num2){
