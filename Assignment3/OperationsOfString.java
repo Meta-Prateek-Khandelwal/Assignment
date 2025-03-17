@@ -21,7 +21,9 @@ class Operations{
         if(n != m) return false;
 
         for(int i = 0; i < n; i++){
-            if(s1.charAt(i) != s2.charAt(i)) return false;
+            if(s1.charAt(i) != s2.charAt(i)) {
+                return false;
+            }
         }
 
         return true;
@@ -38,47 +40,51 @@ class Operations{
         return ans;
     }
 
-    String isLowerUpper(String s){
+    String lowerToUpperAndViceVersa(String s){
         int n = s.length();
         String ans = "";
 
         for(int i = 0; i < n; i++){
-            if(lower.containsKey(s.charAt(i))) ans += lower.get(s.charAt(i));
-            else ans += upper.get(s.charAt(i));
+            char ch = s.charAt(i) ;
+            
+            if(ch >= 67 && ch <= 90) {
+                ans += (char)(ch+32);
+            } else if(ch >= 97 && ch <= 121) {
+                ans += (char)(ch-32);
+            }
         }
 
         return ans;
     }
 
     String isLargestWord(String s){
-        ArrayList<String> words = new ArrayList<>();
         String word = "";
         int m = s.length();
-        
+        int len = 0;
+        String largeWord = "";
+
         for(int i = 0; i < m; i++){
             char ch = s.charAt(i);
             if(ch == ' ') {
-                words.add(word);
+                int n = word.length();
+                if(n > len){
+                    len = n;
+                    largeWord = word;
+                }
                 word = "";
                 continue;
             }
             word += ch;
             
-            if(i == m-1) words.add(word);//for the last word
-        }
-        
-        int len = 0;
-        String large = "";
-
-        for(String str: words){
-            int n = str.length();
-            if(n > len){
-                len = n;
-                large = str;
+            //for the last word
+            if(i == m-1) {
+                if(word.length() > len){
+                    largeWord = word;
+                }
             }
         }
 
-        return large;
+        return largeWord;
     }
 }
 
@@ -90,7 +96,7 @@ class OperationsOfString{
         Operations op = new Operations();
         System.out.println("Both Strings are equals : "+op.isCompair(s1, s2));
         System.out.println(s1+" Reverse is : "+op.isReverse(s1));
-        System.out.println(s1+" lowercase characters with uppercase and vice-versa : "+op.isLowerUpper(s1));
+        System.out.println(s1+" lowercase characters with uppercase and vice-versa : "+op.lowerToUpperAndViceVersa(s1));
         System.out.println("Largaest Word inside a string : "+op.isLargestWord("My Name is Prateek Khandelwal"));
     }
 }
