@@ -2,22 +2,8 @@ import java.util.*;
 
 // this class perform all methods
 class Hexa {
-
-    // map store for hex val to decimal val convert
-    private final HashMap<Character, Integer> hexaDecimalToDecimalMap = new HashMap<>();
-
-    Hexa() {
-        hexaDecimalToDecimalMap.put('A', 10);
-        hexaDecimalToDecimalMap.put('B', 11);
-        hexaDecimalToDecimalMap.put('C', 12);
-        hexaDecimalToDecimalMap.put('D', 13);
-        hexaDecimalToDecimalMap.put('E', 14);
-        hexaDecimalToDecimalMap.put('F', 15);
-    }
-
     /**
      * convert decimal to hexadecimal
-     * 
      * @param decimal number
      * @return hexa decimal number
      */
@@ -42,7 +28,6 @@ class Hexa {
 
     /**
      * convert hexadecimal to decimal
-     * 
      * @param hexa decimal number
      * @return decimal number
      */
@@ -53,14 +38,14 @@ class Hexa {
 
         while (n - 1 >= 0) {
             char ch = hex.charAt(i);
-            if (hexaDecimalToDecimalMap.containsKey(ch))
-                dec += hexaDecimalToDecimalMap.get(ch) * Math.pow(16, n - 1);
-            else
+            if (ch >= 'A' && ch <= 'F'){
+                int val = ch-'A' + 10;
+                dec += val * Math.pow(16, n - 1);
+            }else
                 dec += (ch - '0') * Math.pow(16, n - 1);
             n--;
             i++;
         }
-
         return dec;
     }
 
@@ -68,7 +53,7 @@ class Hexa {
      * addtion hexa decimal value
      * 
      * @param the first string is hexa decimal
-     * @param the secound string is decimal number
+     * @param the secound string is hexa number
      * @return integer value
      */
     public int hexAddtionMethod(String s1, String s2) {
@@ -78,8 +63,7 @@ class Hexa {
     }
 
     /**
-     * subscription hexa decimal value
-     * 
+     * subraction hexa decimal value
      * @param the first string is hexa decimal
      * @param the secound string is decimal number
      * @return integer value
@@ -87,14 +71,14 @@ class Hexa {
     public int hexSubtractionMethod(String s1, String s2) {
         int num1 = hexToDec(s1);
         int num2 = hexToDec(s2);
-        if (num1 >= num2)
+        if (num1 >= num2){
             return num1 - num2;
+        }
         return -1;
     }
 
     /**
      * multiplition hexa decimal value
-     * 
      * @param the first string is hexa decimal
      * @param the secound string is decimal number
      * @return integer value
@@ -107,7 +91,6 @@ class Hexa {
 
     /**
      * division hexa decimal
-     * 
      * @param the first string is hexa decimal
      * @param the secound string is decimal number
      * @return integer value
@@ -115,14 +98,14 @@ class Hexa {
     public int hexDivisionMethod(String s1, String s2) {
         int num1 = hexToDec(s1);
         int num2 = hexToDec(s2);
-        if (num1 < num2)
+        if (num1 < num2){
             return 0;
+        }
         return num1 / num2;
     }
 
     /**
      * compair two string if s1 is less and s2 is greater
-     * 
      * @param the first string is hexa decimal
      * @param the secound string is decimal number
      * @return boolean value
@@ -140,22 +123,11 @@ class Hexa {
                 char ch1 = s1.charAt(i);
                 char ch2 = s2.charAt(i);
 
-                int num1;
-                int num2;
-
-                if (!hexaDecimalToDecimalMap.containsKey(ch1) && !hexaDecimalToDecimalMap.containsKey(ch2)) {
-                    num1 = ch1 - '0';
-                    num2 = ch2 - '0';
-                } else {
-                    num1 = hexaDecimalToDecimalMap.get(ch1);
-                    num2 = hexaDecimalToDecimalMap.get(ch2);
-                }
-
-                if (num1 > num2) {
+                if(ch1 > ch2){
                     return true;
-                } else if (num1 < num2) {
+                }else if(ch1 < ch2){
                     return false;
-                } else {
+                }else{
                     continue;
                 }
             }
@@ -165,9 +137,8 @@ class Hexa {
 
     /**
      * compair two string if s1 is less and s2 is greater
-     * 
      * @param the first string is hexa decimal
-     * @param the secound string is decimal number
+     * @param the secound string is hexa decimal 
      * @return boolean value
      */
     boolean isLess(String s1, String s2) {
@@ -183,27 +154,47 @@ class Hexa {
                 char ch1 = s1.charAt(i);
                 char ch2 = s2.charAt(i);
 
-                int num1;
-                int num2;
-
-                if (!hexaDecimalToDecimalMap.containsKey(ch1) && !hexaDecimalToDecimalMap.containsKey(ch2)) {
-                    num1 = ch1 - '0';
-                    num2 = ch2 - '0';
-                } else {
-                    num1 = hexaDecimalToDecimalMap.get(ch1);
-                    num2 = hexaDecimalToDecimalMap.get(ch2);
-                }
-
-                if (num1 > num2) {
+                if(ch1 > ch2){
                     return false;
-                } else if (num1 < num2) {
+                }else if(ch1 < ch2){
                     return true;
-                } else {
+                }else{
                     continue;
                 }
             }
         }
         return false;
+    }
+
+    /**
+     * compair two string if s1 is equal to s2
+     * @param the first string is hexa decimal
+     * @param the secound string is hexa decimal
+     * @return boolean value
+     */
+    boolean isEqual(String s1, String s2) {
+        int n = s1.length();
+        int m = s2.length();
+
+        if (n > m) {
+            return false;
+        } else if (n < m) {
+            return false;
+        } else {
+            for (int i = 0; i < n; i++) {
+                char ch1 = s1.charAt(i);
+                char ch2 = s2.charAt(i);
+
+                if(ch1 > ch2){
+                    return false;
+                }else if(ch1 < ch2){
+                    return false;
+                }else{
+                    continue;
+                }
+            }
+        }
+        return true;
     }
 }
 
@@ -237,9 +228,11 @@ class HexaCal {
 
         if (hexa.isGreater(s1, s2)){
             System.out.println("S1 is greater");
-        }else if (hexa.isLess(s1, s2)){
+        }
+        if (hexa.isLess(s1, s2)){
             System.out.println("S2 is greater");
-        }else{
+        }
+        if(hexa.isEqual(s1, s2)){
             System.out.println("s1 and s2 are equal");
         }
     }

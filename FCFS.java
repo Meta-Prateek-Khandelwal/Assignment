@@ -4,22 +4,21 @@ import java.util.PriorityQueue;
 class FCFS {
 
     // create a array
-    static int[] complationTimeArray;
-    static int[] turnArroundTimeArray;
+    static int[] completionTimeArray;
+    static int[] turnAroundTimeArray;
     static int[] arrivalTimeArray;
     static int[] burstTimeArray;
     static int[] waitingTimeArray;
 
     /**
-     * complation time method
-     * 
+     * completion time method
      * @param accept priortyqueue a FIFO queue, the first tasks added are the first
      *               retrieved.
      * @return the completion time array .
      */
-    static int[] complationTimeMethod(PriorityQueue<int[]> pq) {
-        complationTimeArray = new int[n];
-        turnArroundTimeArray = new int[n];
+    static int[] completionTimeMethod(PriorityQueue<int[]> pq) {
+        completionTimeArray = new int[n];
+        turnAroundTimeArray = new int[n];
         arrivalTimeArray = new int[n];
         int i = 0;
 
@@ -29,36 +28,36 @@ class FCFS {
             int arrival = pair[0];
             arrivalTimeArray[i] = arrival;
             int burst = pair[1];
-            turnArroundTimeArray[i] = burst;
+            turnAroundTimeArray[i] = burst;
 
             if (i == 0) {
-                complationTimeArray[i] = arrival + burst;
-            } else if (complationTimeArray[i - 1] >= arrival) {
-                complationTimeArray[i] = complationTimeArray[i - 1] + burst;
+                completionTimeArray[i] = arrival + burst;
+            } else if (completionTimeArray[i - 1] >= arrival) {
+                completionTimeArray[i] = completionTimeArray[i - 1] + burst;
             } else {
-                complationTimeArray[i] = arrival + burst;
+                completionTimeArray[i] = arrival + burst;
             }
             i++;
         }
 
-        return complationTimeArray;
+        return completionTimeArray;
     }
 
     /**
-     * turn arround time = complation time - arrival time
+     * turn around time = completion time - arrival time
      * @param the first array
      * @param the second array
      * @return turn arround time in array format.
      */
 
-    static int[] trunArroundTimeMethod(int[] CT, int[] AT) {
-        turnArroundTimeArray = new int[n];
+    static int[] turnAroundTimeMethod(int[] CT, int[] AT) {
+        turnAroundTimeArray = new int[n];
 
         for (int i = 0; i < n; i++) {
-            turnArroundTimeArray[i] = CT[i] - AT[i];
+            turnAroundTimeArray[i] = CT[i] - AT[i];
         }
 
-        return turnArroundTimeArray;
+        return turnAroundTimeArray;
     }
 
     /**
@@ -71,7 +70,7 @@ class FCFS {
         waitingTimeArray = new int[n];
         
         for (int i = 0; i < n; i++) {
-            waitingTimeArray[i] = TAT[i] - turnArroundTimeArray[i];
+            waitingTimeArray[i] = TAT[i] - turnAroundTimeArray[i];
         }
         return waitingTimeArray;
     }
@@ -126,8 +125,8 @@ class FCFS {
         n = pq.size();
 
         // funtion calling
-        int[] completionTimeArray = complationTimeMethod(pq);
-        int[] turnArroundTimeArray = trunArroundTimeMethod(complationTimeArray, arrivalTimeArray);
+        int[] completionTimeArray = completionTimeMethod(pq);
+        int[] turnArroundTimeArray = turnAroundTimeMethod(completionTimeArray, arrivalTimeArray);
         int[] waitingTimeArray = waitingTimeMethod(turnArroundTimeArray, arrivalTimeArray);
         float avgWaitingTime = avgWaitingTimeMethod(waitingTimeArray);
         int maxWaitingTime = maxWaitingTimeMethod(waitingTimeArray);
