@@ -1,6 +1,5 @@
 package Assignment3;
-class Area{
-    // initialization 
+class Shape{
     private double width;
     private double height;
     private double radius;
@@ -10,7 +9,12 @@ class Area{
     double getHeight() {return height;}
     double getRadius() {return radius;}
 
-    // triangle area calculate
+    /**
+     * triangle area calculate
+     * @param the first is width
+     * @param the secound is height
+     * @return double vlaue area
+     */
     double triangle(double widht, double height){
         if(widht < 0 || height < 0){
             throw new ArithmeticException("Height and width must be greater then or equal to zero");
@@ -19,7 +23,12 @@ class Area{
         return area;
     }
 
-    // rectangle area calculate
+    /**
+     * rectangle area calculate
+     * @param the first is width
+     * @param the secound is height
+     * @return double vlaue area
+     */
     double rectangle(double widht, double height){
         if(widht < 0 || height < 0){
             throw new ArithmeticException("Height and width must be greater then or equal to zero");
@@ -28,7 +37,12 @@ class Area{
         return area;
     }
 
-    // squre area calculate
+    /**
+     * square area calculate
+     * @param the first is width
+     * @param the secound is height
+     * @return double vlaue area
+     */
     double square(double widht){
         if(widht < 0){
             throw new ArithmeticException("width must be greater then or equal to zero");
@@ -37,7 +51,12 @@ class Area{
         return area;
     }
 
-    // cricle area calculate
+    /**
+     * cricle area calculate
+     * @param the first is width
+     * @param the secound is height
+     * @return double vlaue area
+     */
     double circle(double radius){
         if(radius < 0){
             throw new ArithmeticException("radius must be greater then or equal to zero");
@@ -49,7 +68,7 @@ class Area{
 
 public class AreaCal{
     public static void main(String[] args){
-        Area shape = new Area();
+        Shape shape = new Shape();
         try{
             System.out.println("Triangle Area: "+shape.triangle(5,-1));
         }catch(ArithmeticException e){

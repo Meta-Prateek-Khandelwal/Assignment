@@ -2,7 +2,11 @@ package Assignment3;
 import java.util.*;
 
 class Marksheet{
-
+    /**
+     * avrage grade
+     * @param the Array List 
+     * @return double vlaue
+     */
     double averageGrades(ArrayList<Integer> grades){
         int n = grades.size();
         double sumGrades = 0;
@@ -14,6 +18,11 @@ class Marksheet{
         return (sumGrades / n);
     }
 
+    /**
+     * maximum grade 
+     * @param the array list
+     * @return integer
+     */
     int maxGrades(ArrayList<Integer> grades){
         int maxGrade = 0;
 
@@ -24,6 +33,11 @@ class Marksheet{
         return maxGrade;
     }
 
+    /**
+     * minimum grade 
+     * @param the array list
+     * @return integer
+     */
     int minGrades(ArrayList<Integer> grades){
         int minGrade = Integer.MAX_VALUE;
 
@@ -34,6 +48,11 @@ class Marksheet{
         return minGrade;
     }
 
+    /**
+     * passed percentage
+     * @param the array list
+     * @return idouble value
+     */
     double passedPer(ArrayList<Integer> grades){
         int n = grades.size();
         int pass = 0;

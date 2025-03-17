@@ -2,22 +2,15 @@ package Assignment3;
 import java.util.*;
 
 class Operations{
-    // create hashMap for the convert lower to upper and vice-versa
-    HashMap<Character, Character> lower = new HashMap<>();
-    HashMap<Character, Character> upper = new HashMap<>();
-
-    Operations(){
-        for(int i = 0; i < 26; i++){
-            lower.put((char)(i + 'a'), (char)(i + 'A'));
-            upper.put((char)(i + 'A'), (char)(i + 'a'));
-        }
-    }
-
-    // compair both string is equal or not
+    /**
+     * compair both string is equal or not
+     * @param the first is string
+     * @param the second is string
+     * @return boolean
+     */
     boolean isCompair(String s1, String s2){
         int n = s1.length();
         int m = s2.length();
-
         if(n != m) return false;
 
         for(int i = 0; i < n; i++){
@@ -29,35 +22,50 @@ class Operations{
         return true;
     }
 
-    String isReverse(String s){
+    /**
+     * reverse the string
+     * @param the string
+     * @return string
+     */
+    String reverse(String s){
         int n = s.length();
-        String ans = "";
+        String reverseString = "";
 
         for(int i = n-1; i >= 0; i--){
-            ans += s.charAt(i);
+            reverseString += s.charAt(i);
         }
 
-        return ans;
+        return reverseString;
     }
 
+    /**
+     * lower character change to upper and upper character change to lower
+     * @param the string
+     * @return string
+     */
     String lowerToUpperAndViceVersa(String s){
         int n = s.length();
-        String ans = "";
+        String swapped = "";
 
         for(int i = 0; i < n; i++){
             char ch = s.charAt(i) ;
             
             if(ch >= 67 && ch <= 90) {
-                ans += (char)(ch+32);
+                swapped += (char)(ch+32);
             } else if(ch >= 97 && ch <= 121) {
-                ans += (char)(ch-32);
+                swapped += (char)(ch-32);
             }
         }
 
-        return ans;
+        return swapped;
     }
 
-    String isLargestWord(String s){
+    /**
+     * largest word in a string
+     * @param the string
+     * @return string
+     */
+    String largestWord(String s){
         String word = "";
         int m = s.length();
         int len = 0;
@@ -67,7 +75,7 @@ class Operations{
             char ch = s.charAt(i);
             if(ch == ' ') {
                 int n = word.length();
-                if(n > len){
+                if(n >= len){
                     len = n;
                     largeWord = word;
                 }
@@ -83,7 +91,6 @@ class Operations{
                 }
             }
         }
-
         return largeWord;
     }
 }
@@ -95,8 +102,8 @@ class OperationsOfString{
 
         Operations op = new Operations();
         System.out.println("Both Strings are equals : "+op.isCompair(s1, s2));
-        System.out.println(s1+" Reverse is : "+op.isReverse(s1));
+        System.out.println(s1+" Reverse is : "+op.reverse(s1));
         System.out.println(s1+" lowercase characters with uppercase and vice-versa : "+op.lowerToUpperAndViceVersa(s1));
-        System.out.println("Largaest Word inside a string : "+op.isLargestWord("My Name is Prateek Khandelwal"));
+        System.out.println("Largaest Word inside a string : "+op.largestWord("My Name is Prateek Khandelwal"));
     }
 }
