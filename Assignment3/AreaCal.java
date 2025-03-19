@@ -1,5 +1,5 @@
 package Assignment3;
-class Shape{
+class AreaCalculate{
     private double width;
     private double height;
     private double radius;
@@ -15,7 +15,7 @@ class Shape{
      * @param the secound is height
      * @return double vlaue area
      */
-    double triangle(double widht, double height){
+    double triangleArea(double widht, double height){
         if(widht < 0 || height < 0){
             throw new ArithmeticException("Height and width must be greater then or equal to zero");
         }
@@ -29,7 +29,7 @@ class Shape{
      * @param the secound is height
      * @return double vlaue area
      */
-    double rectangle(double widht, double height){
+    double rectangleArea(double widht, double height){
         if(widht < 0 || height < 0){
             throw new ArithmeticException("Height and width must be greater then or equal to zero");
         }
@@ -43,7 +43,7 @@ class Shape{
      * @param the secound is height
      * @return double vlaue area
      */
-    double square(double widht){
+    double squareArea(double widht){
         if(widht < 0){
             throw new ArithmeticException("width must be greater then or equal to zero");
         }
@@ -57,7 +57,7 @@ class Shape{
      * @param the secound is height
      * @return double vlaue area
      */
-    double circle(double radius){
+    double circleArea(double radius){
         if(radius < 0){
             throw new ArithmeticException("radius must be greater then or equal to zero");
         }
@@ -68,24 +68,24 @@ class Shape{
 
 public class AreaCal{
     public static void main(String[] args){
-        Shape shape = new Shape();
+        AreaCalculate shape = new AreaCalculate();
         try{
-            System.out.println("Triangle Area: "+shape.triangle(5,-1));
+            System.out.println("Triangle Area: "+shape.triangleArea(5,-1));
         }catch(ArithmeticException e){
             System.out.println("Exception: "+ e.getMessage());
         }
         try{
-            System.out.println("Rectangle Area: "+shape.rectangle(5,4));
+            System.out.println("Rectangle Area: "+shape.rectangleArea(5,4));
         }catch(ArithmeticException e){
             System.out.println("Exception: "+ e.getMessage());
         }
         try{
-            System.out.println("Square Area: "+shape.square(-5));
+            System.out.println("Square Area: "+shape.squareArea(-5));
         }catch(ArithmeticException e){
             System.out.println("Exception: "+ e.getMessage());
         }
         try{
-            System.out.println("Circle Area: "+shape.circle(7));
+            System.out.println("Circle Area: "+shape.circleArea(7));
         }catch(ArithmeticException e){
             System.out.println("Exception: "+ e.getMessage());
         }
