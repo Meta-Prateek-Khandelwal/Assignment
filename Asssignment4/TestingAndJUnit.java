@@ -1,46 +1,55 @@
 class ArrOperation {
-    // this function check array not empty
-    public static void checkArrayNotEmpty(int[] array) {
+    
+    private static void checkArrayNotEmpty(int[] array) {
         if (array == null || array.length == 0) {
             throw new AssertionError("Array should not be empty!");
         }
     }
 
-    // max mirror find 
-    int findMaxMirror(int[] array) {
+    /*
+     * Mirror section in an array is a group of contiguous elements such that somewhere in the array, the same group appears in reverse order.
+     * @param Integer Array.
+     * @return Integer Value.
+     */
+    public int findMaxMirror(int[] array) {
         int n = array.length;
 
         checkArrayNotEmpty(array);
         String mirror = "";
-        String revMirror = "";
+        String revMirrorFront = "";
+        String revMirrorBack = "";
 
         for (int i = 0; i < n; i++) {
             mirror += String.valueOf(array[i]);
-            revMirror += String.valueOf(array[n - i - 1]);
+            revMirrorFront += String.valueOf(array[n - i - 1]);
         }
 
-        int j = 0;
-        int m = revMirror.length();
-        String revMirror1 = revMirror;
-        int maxMirror = 0;
-        // 1214 - 121 - 4
-        while (!mirror.contains(revMirror) && j < m) {
-            revMirror = revMirror.substring(1);
-            j++;
+        int ptr = 0;
+        int m = revMirrorFront.length();
+        revMirrorBack = revMirrorFront;
+        int maxMirrorLength = 0;
+
+        while (!mirror.contains(revMirrorFront) && ptr < m) {
+            revMirrorFront = revMirrorFront.substring(1);
+            ptr++;
         }
 
-        j = 0;
-        while (!mirror.contains(revMirror1) && j < m) {
-            revMirror1 = revMirror1.substring(0, m - 1 - j);
-            j++;
+        ptr = 0;
+        while (!mirror.contains(revMirrorBack) && ptr < m) {
+            revMirrorBack = revMirrorBack.substring(0, m - 1 - ptr);
+            ptr++;
         }
 
-        maxMirror = Math.max(revMirror.length(), revMirror1.length());
-        return maxMirror;
+        maxMirrorLength = Math.max(revMirrorFront.length(), revMirrorBack.length());
+        return maxMirrorLength;
     }
 
-    // count number of clumps - Array two adjacents value count clump
-    int numberOfClumps(int[] input) {
+    /*
+     * Clump in an array is a series of 2 or more adjacent elements of the same value.
+     * @param Integer Array.
+     * @return Integer value.
+     */
+    public int numberOfClumps(int[] input) {
         checkArrayNotEmpty(input);
         int n = input.length;
         int count = 0;
@@ -59,14 +68,14 @@ class ArrOperation {
     }
 
     
-    public static void checkArrayUnequalXY(int[] array) {
+    private static void checkArrayUnequalXY(int[] array, int x, int y) {
         int countX = 0;
         int countY = 0;
 
         for (int ele : array) {
-            if (ele == 4)
+            if (ele == x)
                 countX++;
-            if (ele == 5)
+            if (ele == y)
                 countY++;
         }
 
@@ -75,12 +84,15 @@ class ArrOperation {
         }
     }
 
-    public static void checkArrayAdjacentsX(int[] array) {
+    private static void checkArrayAdjacentsX(int[] array, int x) {
         int n = array.length;
         boolean flag = false;
 
         for (int i = 0; i < n - 1; i++) {
-            if (array[i] == 4 && array[i] == array[i + 1]) flag = true;
+            if (array[i] == x && array[i] == array[i + 1]) {
+                flag = true;
+                break;
+            }
         }
 
         if (flag) {
@@ -88,7 +100,7 @@ class ArrOperation {
         }
     }
 
-    public static void checkArrayLastIndexX(int[] array) {
+    private static void checkArrayLastIndexX(int[] array, int x) {
         int n = array.length;
 
         if (array[n - 1] == 4) {
@@ -96,43 +108,56 @@ class ArrOperation {
         }
     }
 
-    static void swap(int[] arr, int lp, int rp) {
+    private static void swap(int[] arr, int lp, int rp) {
         int temp = arr[lp];
         arr[lp] = arr[rp];
         arr[rp] = temp;
     }
 
-    // check inside array x is follow y if not follow then swap and follow
-    public int[] follow(int[] arr, int x, int y) {// main fix x and y method
+    /*
+     * check inside array x is follow y if not follow then swap and follow
+     * @param first Integer Array.
+     * @param second x is number.
+     * @param third y is number.
+     * @return Integer Array
+     */
+
+    public int[] follow(int[] arr, int x, int y) {
         int n = arr.length;
         checkArrayNotEmpty(arr);
-        checkArrayUnequalXY(arr);
-        checkArrayAdjacentsX(arr);
-        checkArrayLastIndexX(arr);
+        checkArrayUnequalXY(arr, x, y);
+        checkArrayAdjacentsX(arr, x);
+        checkArrayLastIndexX(arr, x);
         
-        int i = 0;
-        int j = 0;
+        int move1 = 0;
+        int move2 = 0;
 
-        while (i < n - 1 && j < n) {
+        while (move1 < n - 1 && move2 < n) {
 
-            // if(arr[i] == x && arr[i+1] == y) i += 2;
-            if (arr[j] == x && arr[j + 1] == y)
-                j += 2;
+            if (arr[move2] == x && arr[move2 + 1] == y){
+                move2 += 2;
+            }
 
-            while (i < n - 1 && arr[i] != x)
-                i++;
-            while (j < n && arr[j] != y)
-                j++;
+            while (move1 < n - 1 && arr[move1] != x){
+                move1++;
+            }
+            while (move2 < n && arr[move2] != y){
+                move2++;
+            }
 
-            swap(arr, i + 1, j);
-            i++;
-            j++;
+            swap(arr, move1 + 1, move2);
+            move1++;
+            move2++;
         }
         return arr;
     }
 
-    // if array sum is split two part of array so return index
-    public int splitMethod(int[] arr) {// main method of split array
+    /* 
+     * array sum is split two part of array so return index
+     * @parms Integer array
+     * @ return integer value
+    */
+    public int splitMethod(int[] arr) {
         checkArrayNotEmpty(arr);
         int n = arr.length;
         int arrSum = 0;
@@ -158,16 +183,14 @@ public class TestingAndJUnit {
     public static void main(String[] args) {
 
         ArrOperation operation = new ArrOperation();
-        // mirror
-        int input1[] = { 1, 2, 7, 8, 9, 9, 8, 7 };
+        
+        int input1[] = { 1, 2, 7, 8, 9, 9, 8, 7};
         int mirrorLength = operation.findMaxMirror(input1);
         System.out.println(mirrorLength);
 
-        // clump
         int[] input2 = { 1, 2, 2, 3, 4, 4 };
         System.out.println(operation.numberOfClumps(input2));
 
-        // fix x so follow y
         int[] input3 = { 5, 4, 9, 4, 9, 5 };
         int[] followed = operation.follow(input3, 4, 5);
         for (int i = 0; i < followed.length; i++) {
@@ -175,7 +198,6 @@ public class TestingAndJUnit {
         }
         System.out.println();
 
-        // split array
         int[] arr = { 10, 10 };
         int idx = operation.splitMethod(arr);
         System.out.println(idx);

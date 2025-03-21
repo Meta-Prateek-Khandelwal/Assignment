@@ -1,7 +1,5 @@
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
-
 import org.junit.Test;
 
 public class TestingAndJUnitTest {
@@ -20,6 +18,9 @@ public class TestingAndJUnitTest {
 
         int[] input4 = {1, 4, 5, 3, 5, 4, 1};
         assertEquals(7, test.findMaxMirror(input4));
+
+        int[] input5 = {1, 2, 3, 4, 5};
+        assertEquals(1, test.findMaxMirror(input5));
     }
 
     @Test
@@ -32,6 +33,9 @@ public class TestingAndJUnitTest {
 
         int[] input3 = {1, 1, 1, 1, 1};
         assertEquals(1, test.numberOfClumps(input3));
+
+        int[] input4 = {1, 2, 3, 4, 5};
+        assertEquals(0, test.numberOfClumps(input4));
     }
 
     @Test
@@ -47,6 +51,10 @@ public class TestingAndJUnitTest {
         int[] input3 = {1, 4, 1, 5, 5, 4, 1};
         int[] output3 = {1, 4, 5, 1, 1, 4, 5};
         assertArrayEquals(output3, test.follow(input3, 4, 5));
+
+        int[] input4 = {1, 2, 3, 4, 5};
+        int[] output4 = {1, 2, 3, 4, 5};
+        assertArrayEquals(output4, test.follow(input4, 4, 5));
     }
 
     @Test
@@ -59,51 +67,8 @@ public class TestingAndJUnitTest {
 
         int[] input3 = {10, 10};
         assertEquals(1, test.splitMethod(input3));
-    }
 
-    @Test
-    public void testEmptyArrayThrowAssertionError(){
-        int[] input = {};
-
-        assertThrows(AssertionError.class, () -> {
-            if(input.length == 0) throw new AssertionError("Array is empty!");
-        });
-    }
-
-    @Test
-    public void testUnequalXAndYThrowAssertionError(){
-        int[] input = {1,4,5,4,2};
-        assertThrows(AssertionError.class, () -> {
-            int countX = 0;
-            int countY = 0;
-
-            for(int num : input){
-                if(num == 4) countX++;
-                if(num == 5) countY++;
-            }
-
-            if(countX != countY) throw new AssertionError("UnEqual number of 4s and 5s in the array.");
-        });
-    }
-
-    @Test
-    public void testkArrayAdjacentsXThrowAssertionError(){
-        int[] input = {1,4,4,5,2};
-
-        assertThrows(AssertionError.class, () ->{
-            for(int i = 0; i < input.length; i++){
-                if(input[i] == 4 && input[i+1] == 4) throw new AssertionError("adjacents 4s found in the array!");
-            }
-        });
-    }
-
-    @Test
-    public void testLastIndexXThrowAssertionError(){
-        int[] input = {1,4,5,3,5,4};
-        int n = input.length;
-
-        assertThrows(AssertionError.class, () -> {
-            if(input[n-1] == 4) throw new AssertionError("Array 4 occurs at the last index!");
-        });
+        int[] input4 = {1, 2, 3, 4, 5};
+        assertEquals(-1, test.splitMethod(input4));
     }
 }
