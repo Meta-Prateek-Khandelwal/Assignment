@@ -12,6 +12,10 @@ final class Poly {
         }
     }
 
+    public int[] getPolynomial(){
+        return polynomial;
+    }
+
     float evaluate(float x) {
         int n = polynomial.length;
         float value = 0;
@@ -28,7 +32,7 @@ final class Poly {
         return degreeOfPolynomial;
     }
 
-    int[] addPoly(Poly p1, Poly p2){
+    Poly addPoly(Poly p1, Poly p2){
         int n = p1.polynomial.length;
         int m = p2.polynomial.length;
 
@@ -56,10 +60,11 @@ final class Poly {
             }
         }
 
-        return addPolynomial;
+        Poly addPoly = new Poly(addPolynomial);
+        return addPoly;
     }
 
-    int[] multiplyPoly(Poly p1, Poly p2){
+    Poly multiplyPoly(Poly p1, Poly p2){
         int n = p1.polynomial.length;
         int m = p2.polynomial.length;
 
@@ -72,7 +77,9 @@ final class Poly {
                 multiplyPolynomial[i+j] += p1.polynomial[i] * p2.polynomial[j];
             }
         }
-        return multiplyPolynomial;
+
+        Poly multiplyPoly = new Poly(multiplyPolynomial);
+        return multiplyPoly;
     }
 }
 
@@ -86,16 +93,19 @@ public class Polynomial {
         System.out.println(p1.degree());
 
         Poly p2 = new Poly(array2);
-        int[] addArray = p1.addPoly(p1, p2);
-        int[] multiplyArray = p1.multiplyPoly(p1, p2);
+        Poly addition = p1.addPoly(p1, p2);
+        int[] additionSet = addition.getPolynomial();
 
-        for(int i = 0; i < addArray.length; i++){
-            System.out.print(addArray[i]+" ");
+        Poly multiplication = p1.multiplyPoly(p1, p2);
+        int[] multiplicationSet = multiplication.getPolynomial();
+
+        for(int i = 0; i < additionSet.length; i++){
+            System.out.print(additionSet[i]+" ");
         }
 
         System.out.println();
-        for(int i = 0; i < multiplyArray.length; i++){
-            System.out.print(multiplyArray[i]+" ");
+        for(int i = 0; i < multiplicationSet.length; i++){
+            System.out.print(multiplicationSet[i]+" ");
         }
     }
 }
