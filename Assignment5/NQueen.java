@@ -1,3 +1,5 @@
+package Assignment5;
+
 class Queen {
     private static boolean isSafe(int[][] board, int row, int col, int size) {
         // vertical check
