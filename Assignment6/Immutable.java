@@ -50,7 +50,7 @@ final class IntSet {
     }
 
     IntSet getComplement() {
-        IntSet complement = new IntSet(set);
+        IntSet complement = new IntSet(new int[1001]);
 
         for (int i = 0; i < set.length; i++) {
             if (!isMember(i)) {
