@@ -103,8 +103,8 @@ class ArrOperation {
     private static void checkArrayLastIndexX(int[] array, int x) {
         int n = array.length;
 
-        if (array[n - 1] == 4) {
-            throw new AssertionError("Array 4 occurs at the last index!");
+        if (array[n - 1] == x) {
+            throw new AssertionError("Array "+x+" occurs at the last index!");
         }
     }
 
