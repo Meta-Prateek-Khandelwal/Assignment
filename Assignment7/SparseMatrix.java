@@ -3,6 +3,22 @@ package Assignment7;
 import java.util.HashMap;
 
 final class MatrixOperation {
+    private final int rows;
+    private final int cols;
+    private final HashMap<String, Integer> sparseMatrix;
+
+    MatrixOperation(int rows, int cols, HashMap<String, Integer> elements){
+        this.rows = rows;
+        this.cols = cols;
+        this.sparseMatrix = elements;
+        HashMap<String, Integer> sparseMatrix = new HashMap<>();
+
+        for(HashMap.Entry<String, Integer> e: elements.entrySet()){
+            String key = e.getKey();
+            int val = e.getValue();
+            sparseMatrix.put(key, val);
+        }
+    }
 
     private String getKey(int i, int j){
         String key = String.valueOf(i) + String.valueOf(j);
@@ -10,7 +26,7 @@ final class MatrixOperation {
     }
 
     // time complexity : O(n*m)
-    int[][] tranposeMatrixMethod(HashMap<String, Integer> sparseMatrix, int rows, int cols) {
+    int[][] tranposeMatrixMethod() {
         int[][] tranposeMatrix = new int[cols][rows];
 
         for (int i = 0; i < cols; i++) {
@@ -29,7 +45,7 @@ final class MatrixOperation {
     }
 
     // time complexity : O(n*m) = O(n^2)
-    boolean isSymmetricalMatrix(HashMap<String, Integer> sparseMatrix, int rows, int cols) {
+    boolean isSymmetricalMatrix() {
         if (cols != rows){
             return false;
         }
@@ -48,8 +64,11 @@ final class MatrixOperation {
     }
 
     // time complexity : O(n*m) = O(n^2)
-    int[][] addMatrices(HashMap<String, Integer> firstMatrix, HashMap<String, Integer> secondMatrix, int n1, int n2,
-            int m1, int m2) {
+    int[][] addMatrices(MatrixOperation operation1) {
+        int n1 = rows;
+        int m1 = cols;
+        int n2 = operation1.rows;
+        int m2 = operation1.cols;
 
         if (n1 != n2 || m1 != m2) {
             throw new IllegalArgumentException("Matrix 1 column and matrix 2 row must be same for multiption");
@@ -60,14 +79,14 @@ final class MatrixOperation {
             for (int j = 0; j < m1; j++) {
                 String key = getKey(i, j);
 
-                if(!firstMatrix.containsKey(key) && ! secondMatrix.containsKey(key)){
+                if(!sparseMatrix.containsKey(key) && ! operation1.sparseMatrix.containsKey(key)){
                     addMatrix[i][j] = 0;
-                }else if(firstMatrix.containsKey(key) && ! secondMatrix.containsKey(key)){
-                    addMatrix[i][j] = firstMatrix.get(key);
-                }else if(!firstMatrix.containsKey(key) && secondMatrix.containsKey(key)){
-                    addMatrix[i][j] = secondMatrix.get(key);
+                }else if(sparseMatrix.containsKey(key) && ! operation1.sparseMatrix.containsKey(key)){
+                    addMatrix[i][j] = sparseMatrix.get(key);
+                }else if(!sparseMatrix.containsKey(key) && operation1.sparseMatrix.containsKey(key)){
+                    addMatrix[i][j] = operation1.sparseMatrix.get(key);
                 }else{
-                    addMatrix[i][j] = firstMatrix.get(key) + secondMatrix.get(key);
+                    addMatrix[i][j] = sparseMatrix.get(key) + operation1.sparseMatrix.get(key);
                 }
             }
         }
@@ -76,8 +95,11 @@ final class MatrixOperation {
     }
 
     // time complexity : O(n^2*m) = O(n^3)
-    int[][] multiplyMatrices(HashMap<String, Integer> sparseMatrix1, HashMap<String, Integer> sparseMatrix2, int n1, int n2,
-            int m1, int m2) {
+    int[][] multiplyMatrices(MatrixOperation operation1) {
+        int n1 = rows;
+        int m1 = cols;
+        int n2 = operation1.rows;
+        int m2 = operation1.cols;
 
         // base case
         if (n2 != m1) {
@@ -91,14 +113,14 @@ final class MatrixOperation {
                 for (int k = 0; k < n2; k++) {
                     String key1 = getKey(i, k);
                     String key2 = getKey(k, j);
-                    if(!sparseMatrix1.containsKey(key1) && !sparseMatrix2.containsKey(key2)){
+                    if(!sparseMatrix.containsKey(key1) && !operation1.sparseMatrix.containsKey(key2)){
                         multiplyMatrix[i][j] += 0;
-                    }else if(sparseMatrix1.containsKey(key1) && !sparseMatrix2.containsKey(key2)){
+                    }else if(sparseMatrix.containsKey(key1) && !operation1.sparseMatrix.containsKey(key2)){
                         multiplyMatrix[i][j] += 0;
-                    }else if(!sparseMatrix1.containsKey(key1) && sparseMatrix2.containsKey(key2)){
+                    }else if(!sparseMatrix.containsKey(key1) && operation1.sparseMatrix.containsKey(key2)){
                         multiplyMatrix[i][j] += 0;
                     }else{
-                        multiplyMatrix[i][j] += sparseMatrix1.get(key1) * sparseMatrix2.get(key2);
+                        multiplyMatrix[i][j] += sparseMatrix.get(key1) * operation1.sparseMatrix.get(key2);
                     }
                 }
             }
@@ -145,22 +167,23 @@ public class SparseMatrix {
         sparseMatrix2.put("35", 5);
         sparseMatrix2.put("42", 2);
 
-        MatrixOperation operation = new MatrixOperation();
+        MatrixOperation operation = new MatrixOperation(row1, col1, sparseMatrix1);
+        MatrixOperation operation1 = new MatrixOperation(row2, col2, sparseMatrix2);
 
-        int[][] matrix1 = operation.tranposeMatrixMethod(sparseMatrix1, row1, col1);
+        int[][] matrix1 = operation.tranposeMatrixMethod();
         operation.printMethod(matrix1);
 
-        System.out.println(operation.isSymmetricalMatrix(sparseMatrix1, row1, col1));
+        System.out.println(operation.isSymmetricalMatrix());
 
         try {
-            int[][] matrix2 = operation.addMatrices(sparseMatrix1, sparseMatrix2, row1, row2, col1, col2);
+            int[][] matrix2 = operation.addMatrices(operation1);
             operation.printMethod(matrix2);
         } catch (IllegalArgumentException i) {
             System.out.println(i.getMessage());
         }
 
         try {
-            int[][] matrix3 = operation.multiplyMatrices(sparseMatrix1, sparseMatrix2, row1, row2, col1, col2);
+            int[][] matrix3 = operation.multiplyMatrices(operation1);
             operation.printMethod(matrix3);
         } catch (IllegalArgumentException i) {
             System.out.println(i.getMessage());
