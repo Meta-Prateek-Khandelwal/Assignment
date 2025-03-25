@@ -33,7 +33,7 @@ final class IntSet {
     public int size() {
         int countSize = 0;
         for (int i = 0; i < 1001; i++) {
-            if (set[i] > 0) {
+            if (isMember(i)) {
                 countSize += set[i];
             }
         }
@@ -42,7 +42,7 @@ final class IntSet {
 
     boolean isSubSet(IntSet s) {
         for (int i = 0; i < s.set.length; i++) {
-            if (set[i] == 0 && s.set[i] > 0) {
+            if (!isMember(i) && s.isMember(i)) {
                 return false;
             }
         }
@@ -64,7 +64,7 @@ final class IntSet {
         IntSet union = new IntSet(set);
 
         for (int i = 0; i < s.set.length; i++) {
-            if (s.set[i] > 0 || set[i] > 0) {
+            if (s.isMember(i) || isMember(i)) {
                 union.set[i]++;
             }
         }
