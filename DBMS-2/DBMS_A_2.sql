@@ -32,14 +32,14 @@ DELETE FROM Product WHERE Product_id = 403;
 SELECT * FROM Product;
 
 INSERT INTO Orders (Order_id, Product_id, User_id,Order_date, Total_Amount)
-VALUES (502,402,102,"2024-11-12",10000),
-(503,403,103, "2023-10-09",500),
-(504,404,104,"2023-01-01", 22);
+VALUES (505,402,102,"2025-03-25",10000),
+(506,403,103, "2025-02-25",500),
+(507,404,104,"2025-02-20", 22);
 
-INSERT INTO Shipping (Shipping_id, Order_id, User_id, Address_id, status)
-VALUES (602,502,102,202, "Panding"),
-(603,503,103, 203, "Delived"),
-(604,504,104, 204, "Return");
+INSERT INTO Shipping (Shipping_id, Order_id, User_id, Address_id, status, days)
+VALUES (610,502,102,202, "Panding", 16),
+(608,503,103, 203, "Panding", 11),
+(609,504,104, 204, "Panding", 10);
 
 INSERT INTO Image (Image_id, product_id, url)
 VAlUES (1001, 402, NULL),

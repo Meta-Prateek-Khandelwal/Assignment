@@ -26,6 +26,15 @@ Category_Name VARCHAR(30) NOT NULL,
 Description VARCHAR(50) NULL
 );
 
+-- ALTER TABLE Category
+-- Modify Column Category_id int PRIMARY KEY AUTO_INCREMENT;
+
+-- ALTER TABLE Category
+-- ADD Column Parent_Category_id int DEFAULT NULL;
+
+-- ALTER TABLE Category
+-- ADD Column FOREIGN KEY(Parent_Category_id) REFERENCES category(category_id);
+
 CREATE TABLE Product(
 Product_id INT PRIMARY KEY,
 Category_id INT,
@@ -84,6 +93,9 @@ Address_id INT,
 FOREIGN KEY(Address_id) REFERENCES Address(Address_id),
 Status Varchar(20) NOT NULL
 );
+
+ALTER TABLE Shipping
+ADD COLUMN days INT DEFAULT 0;
 
 SHOW TABLES;
 
