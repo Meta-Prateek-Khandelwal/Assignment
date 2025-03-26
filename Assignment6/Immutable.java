@@ -61,7 +61,7 @@ final class IntSet {
     }
 
     IntSet getUnion(IntSet s){
-        IntSet union = new IntSet(set);
+        IntSet union = new IntSet(new int[1001]);
 
         for (int i = 0; i < s.set.length; i++) {
             if (s.isMember(i) || isMember(i)) {
