@@ -34,12 +34,17 @@ abstract class Employee {
     abstract double getCompensation();
 }
 
+enum DepartmentName {
+    IT,
+    NON_IT
+}
+
 class Developer extends Employee {
     private double bonus;
 
     Developer(String id, String name, double salary) {
         super(id, name, salary);
-        this.department = "Developer";
+        this.department = DepartmentName.IT.toString();
         this.bonus = (salary * 7) / 100;
     }
 
@@ -59,13 +64,13 @@ class Developer extends Employee {
     }
 }
 
-class Tester extends Employee {
+class HR extends Employee {
     private double bonus;
 
-    Tester(String id, String name, double salary) {
+    HR(String id, String name, double salary) {
         super(id, name, salary);
         this.bonus = (salary * 5) / 100;
-        this.department = "Tester";
+        this.department = DepartmentName.NON_IT.toString();
     }
 
     @Override
@@ -84,59 +89,55 @@ class Tester extends Employee {
     }
 }
 
+
+
 class Department {
-    protected ArrayList<Employee> departmentList;
+    static private ArrayList<Employee> employeeList;
 
     Department() {
-        departmentList = new ArrayList<>();
+        employeeList = new ArrayList<>();
     }
 
     boolean join(Employee e) {
-        return departmentList.add(e);
+        return employeeList.add(e);
     }
 
     boolean relieve(Employee e) {
-        return departmentList.remove(e);
+        return employeeList.remove(e);
     }
 
-    List<Employee> getEmployees() {
-        return departmentList;
+    static List<Employee> getEmployees() {
+        return employeeList;
     }
 }
 
 class Organization {
-    ArrayList<Department> organizationList;
-    ArrayList<Employee> employeesList;
+    ArrayList<Department> departments;
 
     Organization() {
-        organizationList = new ArrayList<>();
-        employeesList = new ArrayList<>();
+        departments = new ArrayList<>();
     }
 
     boolean addDepartment(Department dep) {
-        return organizationList.add(dep);
+        return departments.add(dep);
     }
 
     List<Employee> getAllEmployees() {
-        for (Department department : organizationList) {
-            employeesList.addAll(department.getEmployees());
-        }
-
-        return employeesList;
+        return Department.getEmployees();
     }
 }
 
 class Payroll {
 
-    double tax(double Salary) {
-        if (Salary < 1200000) {
+    double tax(double salary) {
+        if (salary < 1200000) {
             return 0;
         }
 
-        return (Salary * 5) / 100;
+        return (salary * 5) / 100;
     }
 
-    void salaryslip(Organization organization) {
+    void salarySlip(Organization organization) {
 
         for (Employee employee : organization.getAllEmployees()) {
             System.out.println("Employee id  : " + employee.getId());
@@ -162,6 +163,6 @@ public class PayrollSoftware {
         organization.addDepartment(department);
 
         Payroll payroll = new Payroll();
-        payroll.salaryslip(organization);
+        payroll.salarySlip(organization);
     }
 }
