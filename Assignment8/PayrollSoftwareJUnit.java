@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class PayrollSoftwareJUnit {
     Organization  organization = new Organization();
-    Department department = new Department();
+    Department department = new Department(DepartmentName.IT);
     Payroll payroll = new Payroll();
     Developer developer1;
     Developer developer2;
@@ -23,9 +23,9 @@ public class PayrollSoftwareJUnit {
         department.join(developer2);
         organization.addDepartment(department);
         
-        assertEquals(2, department.getEmployees().size());
-        assertTrue(department.getEmployees().contains(developer1));
-        assertTrue(department.getEmployees().contains(developer2));
+        assertEquals(2, Department.getEmployees().size());
+        assertTrue(Department.getEmployees().contains(developer1));
+        assertTrue(Department.getEmployees().contains(developer2));
         assertEquals(2, organization.getAllEmployees().size());
     }
 }

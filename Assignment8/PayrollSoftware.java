@@ -93,9 +93,11 @@ class HR extends Employee {
 
 class Department {
     static private ArrayList<Employee> employeeList;
+    DepartmentName departmentName;
 
-    Department() {
+    Department(DepartmentName departmentName) {
         employeeList = new ArrayList<>();
+        this.departmentName = departmentName;
     }
 
     boolean join(Employee e) {
@@ -154,13 +156,17 @@ public class PayrollSoftware {
     public static void main(String[] args) {
         Developer developer1 = new Developer("E25/2641", "Ajay", 520000);
         Developer developer2 = new Developer("G25/0413", "Ram", 1300000);
+        HR hr1 = new HR("H25/0021", "Akshit", 50000);
 
-        Department department = new Department();
-        department.join(developer1);
-        department.join(developer2);
+        Department departmentDev = new Department(DepartmentName.IT);
+        Department departmentHr = new Department(DepartmentName.NON_IT);
+        departmentDev.join(developer1);
+        departmentDev.join(developer2);
+        departmentHr.join(hr1);
 
         Organization organization = new Organization();
-        organization.addDepartment(department);
+        organization.addDepartment(departmentDev);
+        organization.addDepartment(departmentHr);
 
         Payroll payroll = new Payroll();
         payroll.salarySlip(organization);
