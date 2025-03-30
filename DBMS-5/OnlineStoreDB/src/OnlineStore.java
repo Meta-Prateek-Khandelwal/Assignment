@@ -1,17 +1,15 @@
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.junit.platform.suite.api.Select;
-
 public class OnlineStore {
     private static final String url = "jdbc:mysql://localhost:3306/OnlineStore";
     private static final String username = "root";
     private static final String password = "root";
-
 
     public static void main(String[] args) throws Exception{
         try {
@@ -23,8 +21,33 @@ public class OnlineStore {
         try {
             Connection connection = DriverManager.getConnection(url,username, password);
             Statement statement = connection.createStatement();
+
+            /*
+             * Given the id of a user, fetch all orders (Id, Order Date, Order Total) of that user 
+             * which are in shipped state. Orders should be sorted by order date column in chronological order.
+             */
+            int user_id = 4;
+            String query1 = "SELECT orders_id, order_date, total_amount "+
+                            "FROM Orders "+
+                            "WHERE user_id = ? AND status = 'Delived' "+
+                            "ORDER BY order_date ASC";
+
+            try( PreparedStatement stmt1 = connection.prepareStatement(query1)) {
+                stmt1.setInt(1, user_id);
+                ResultSet resultSet1 = stmt1.executeQuery();
+                // System.out.println();
+                while(resultSet1.next()){
+                    
+                    int id = resultSet1.getInt("orders_id");
+                    Date date = resultSet1.getDate("order_date");
+                    double amount = resultSet1.getDouble("total_amount");
+
+                    System.out.println("Order id : "+id+" Order date: "+date+" Total Amount: "+amount);
+                }
+            }
+            
             String query2 = "INSERT INTO image (product_id, url) VALUES (?, ?)";
-            PreparedStatement stmt = connection.prepareStatement(query2) ){
+            try(PreparedStatement stmt2 = connection.prepareStatement(query2)) {
                 
                 int product_id = 3;
                 String[] urls = {
@@ -33,24 +56,28 @@ public class OnlineStore {
                 };
 
                 for(String urlImage : urls){
-                    stmt.setInt(1, product_id);
-                    stmt.setString(2, urlImage);
-                    stmt.addBatch();
+                    stmt2.setInt(1, product_id);
+                    stmt2.setString(2, urlImage);
+                    stmt2.addBatch();
                 }
 
-                stmt.executeBatch();
-                System.out.println("Batch Inset Successful!");
+                stmt2.executeBatch();
+                System.out.println("Batch Insert Successful!");
             };
-            String query3 = "DELETE\n" + //
-                                "FROM Product \n" + //
-                                "WHERE product_id NOT IN (\n" + //
-                                "\tSELECT DISTINCT c.product_id\n" + //
-                                "    FROM cart As c\n" + //
-                                "    JOIN Orders As o\n" + //
-                                "    ON o.cart_id = c.cart_id\n" + //
-                                "    WHERE o.order_date >= NOW() - INTERVAL 1 YEAR\n" + //
-                                ")";
-            statement.executeUpdate(query3);
+            // String query3 = "DELETE\n" + //
+            //                     "FROM product \n" + //
+            //                     "WHERE product_id NOT IN (\n" + //
+            //                     "\t SELECT DISTINCT c.product_id\n" + //
+            //                     "    FROM cart As c\n" + //
+            //                     "    JOIN Orders As o\n" + //
+            //                     "    ON o.cart_id = c.cart_id\n" + //
+            //                     "    WHERE o.order_date >= NOW() - INTERVAL 1 YEAR\n" + //
+            //                     ")";
+
+            // try(PreparedStatement stmt3 = connection.prepareStatement(query3)) {
+            //     int deletedRow = stmt3.executeUpdate();
+            //     System.out.println("Deleted Rows: "+deletedRow);
+            // }
 
             String query4 = "Select \n" + //
                                 "\tC1.category_name As CategoryName,\n" + //
@@ -62,22 +89,15 @@ public class OnlineStore {
                                 "GROUP BY c1.category_id, c1.category_name \n" + //
                                 "ORDER BY c1.category_name";
             
-            int deletedRow = statement.executeUpdate(query3);
-            ResultSet resultSet4 = statement.executeQuery(query4);
-
+            try(ResultSet resultSet4 = statement.executeQuery(query4)){
             while(resultSet4.next()){
                 String name = resultSet4.getString("CategoryName");
                 int child = resultSet4.getInt("ChildCategoryCount");
 
-                System.out.print("Category Name : "+ name);
-                System.out.println("\tChild Category : "+child);
+                System.out.println("Category Name : "+ name+"| \tChild Category : "+child);
             }
-
-            System.out.println(deletedRow);
             
-            resultSet3.close();
-            resultSet4.close();
-
+        }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
 
