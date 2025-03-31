@@ -2,7 +2,10 @@ package Assignment9;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Date;
 
 class Point {
     double x;
@@ -33,7 +36,7 @@ interface Shape {
 }
 
 abstract class ShapeClass implements Shape {
-    String type;
+    ShapeType type;
     Point origin;
     List<Integer> dimension;
 }
@@ -43,7 +46,7 @@ class Circle extends ShapeClass {
     Circle(Point origin, List<Integer> dimension) {
         this.origin = origin;
         this.dimension = dimension;
-        this.type = "Circle";
+        this.type = ShapeType.CIRCLE;
         radius = dimension.get(0);
     }
 
@@ -79,7 +82,7 @@ class Triangle extends ShapeClass {
         this.origin = origin;
         this.dimension = new ArrayList<>();
         this.dimension = dimension;
-        this.type = "Triangle";
+        this.type = ShapeType.TRIANGLE;
         breadth = dimension.get(0);
         height = dimension.get(1);
         length = dimension.get(2);
@@ -123,7 +126,7 @@ class Rectangle extends ShapeClass {
         this.origin = origin;
         this.dimension = new ArrayList<>();
         this.dimension = dimension;
-        this.type = "Rectangle";
+        this.type = ShapeType.RECTANGLE;
         breadth = dimension.get(0);
         length = dimension.get(1);
     }
@@ -161,7 +164,7 @@ class Polygon extends ShapeClass {
         this.origin = origin;
         this.dimension = new ArrayList<>();
         this.dimension = dimension;
-        this.type = "Polygon";
+        this.type = ShapeType.POLYGON;
         breadth = dimension.get(0);
         height = dimension.get(1);
         length = dimension.get(2);
@@ -205,7 +208,7 @@ class Square extends ShapeClass {
         this.origin = origin;
         this.dimension = new ArrayList<>();
         this.dimension = dimension;
-        this.type = "Square";
+        this.type = ShapeType.SQUARE;
         side = dimension.get(0);
     }
 
@@ -233,27 +236,86 @@ class Square extends ShapeClass {
     }
 }
 
+enum SortCriteria{
+    AREA,
+    PARIMETER,
+    TIMESTAMP,
+    ORIGIN
+}
+
 class Screen {
-    List<ShapeClass> listShape;
+    private final List<ShapeClass> listShape;
+    private final HashMap<ShapeClass, Long> shapeTimestamps;
 
     Screen() {
         listShape = new ArrayList<>();
+        shapeTimestamps = new HashMap<>();
     }
 
-    void addShape(ShapeClass circle) {
-        listShape.add(circle);
+    void addShape(ShapeClass shape) {
+        listShape.add(shape);
+        shapeTimestamps.put(shape, System.currentTimeMillis());
     }
 
     void delete(ShapeClass shape) {
         listShape.remove(shape);
+        shapeTimestamps.remove(shape);
     }
 
     void deleteAll(ShapeType shapeType) {
-        for (ShapeClass shape : listShape) {
-            if (shapeType.equals(shape.type)) {
-                listShape.remove(shape);
+        for (int i = 0; i < listShape.size(); i++) {
+            if (listShape.get(i).type == shapeType) {
+                listShape.remove(i);
+                shapeTimestamps.remove(i);
+                i--;
             }
         }
+    }
+
+    List<ShapeClass> getSortedShapes(SortCriteria criteria){
+        List<ShapeClass> sortedShapes = new ArrayList<>(listShape);
+        listShape.sort(getComparator(criteria));
+        return sortedShapes;
+    }
+
+    
+    private Comparator<ShapeClass> getComparator(SortCriteria criteria) {
+        switch(criteria){
+            case AREA : return Comparator.comparingDouble(ShapeClass::getArea);
+            case PARIMETER: return Comparator.comparingDouble(ShapeClass::getPerimeter);
+            case TIMESTAMP: return Comparator.comparingLong(shape -> shapeTimestamps.getOrDefault(shape, 0L));
+            case ORIGIN: return Comparator.comparingDouble(shape ->
+                Math.sqrt(Math.pow(shape.getOrigin().x,2) + Math.pow(shape.getOrigin().y,2))
+            );
+            default:
+                throw new IllegalArgumentException("Invalid sort criteria");
+        }
+    }
+
+    void displaySorted(SortCriteria criteria){
+        List<ShapeClass> sortedShape = getSortedShapes(criteria);
+
+        for(ShapeClass shape: sortedShape){
+            System.out.println("Shape Type: "+shape.type);
+            System.out.println("Area: "+shape.getArea());
+            System.out.println("Shape Type: "+shape.getPerimeter());
+            System.out.println("Shape Type: "+
+                Math.sqrt(Math.pow(shape.getOrigin().x,2) + Math.pow(shape.getOrigin().y,2)));
+            System.out.println("Added TimeStamp: "+ new Date(shapeTimestamps.get(shape)));
+            System.out.println();
+        }
+    } 
+    
+    List<ShapeClass> getShapesEncolsingPoint(Point p){
+        List<ShapeClass> encolsingShape = new ArrayList<>();
+
+        for(ShapeClass shape: listShape){
+            if(shape.isPointEnclosed(p)){
+                encolsingShape.add(shape);
+            }
+        }
+
+        return encolsingShape;
     }
 
     void display() {
@@ -274,22 +336,27 @@ class Screen {
 
 class ShapeFactory {
 
-    ShapeClass createShape(String typeOfShape, Point origin, List<Integer> dimension) {
+    ShapeClass createShape(ShapeType shapeType, Point origin, List<Integer> dimension) {
 
-        if (typeOfShape.equals("Circle")) {
+        switch(shapeType){
+            case CIRCLE:
             return new Circle(origin, dimension);
-        } else if (typeOfShape.equals("Rectangle")) {
+
+            case RECTANGLE:
             return new Rectangle(origin, dimension);
-        } else if (typeOfShape.equals("Triangle")) {
+
+            case TRIANGLE:
             return new Triangle(origin, dimension);
-        } else if (typeOfShape.equals("Polygon")) {
+
+            case POLYGON:
             return new Polygon(origin, dimension);
-        } else if (typeOfShape.equals("Square")) {
+
+            case SQUARE:
             return new Square(origin, dimension);
-        } else {
+
+            default:
             return null;
         }
-
     }
 }
 
@@ -297,19 +364,24 @@ class GraphicsLibrary {
     public static void main(String[] args) {
         ShapeFactory factory = new ShapeFactory();
 
-        ShapeClass circle = factory.createShape("Circle", new Point(30, 40), Arrays.asList(4));
+        ShapeClass circle = factory.createShape(ShapeType.CIRCLE, new Point(30, 40), Arrays.asList(4));
         
-        ShapeClass rectangle1 = factory.createShape("Rectangle", new Point(40, 40), Arrays.asList(20,40));
-        ShapeClass rectangle2 = factory.createShape("Rectangle", new Point(30, 40), Arrays.asList(30,40));
-        ShapeClass rectangle3 = factory.createShape("Rectangle", new Point(40, 50), Arrays.asList(40,40));
+        ShapeClass rectangle1 = factory.createShape(ShapeType.RECTANGLE, new Point(40, 40), Arrays.asList(20,40));
+        ShapeClass rectangle2 = factory.createShape(ShapeType.RECTANGLE, new Point(30, 40), Arrays.asList(30,40));
+        ShapeClass rectangle3 = factory.createShape(ShapeType.RECTANGLE, new Point(40, 50), Arrays.asList(40,40));
         Screen screen = new Screen();
-
+        
         screen.addShape(circle);
         screen.addShape(rectangle1);
         screen.addShape(rectangle2);
         screen.addShape(rectangle3);
+        
+        // screen.delete(rectangle2);
+        // screen.displaySorted(SortCriteria.AREA);
 
-        screen.delete(rectangle2);
+
+        screen.deleteAll(ShapeType.RECTANGLE);
+        
         screen.display();
     }
 }
