@@ -5,102 +5,130 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
-public class OnlineStore {
-    private static final String url = "jdbc:mysql://localhost:3306/OnlineStore";
-    private static final String username = "root";
-    private static final String password = "root";
+class DBConnection {
+    private static final String URL = "jdbc:mysql://localhost:3306/OnlineStore";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "root";
 
-    public static void main(String[] args) throws Exception{
+    static {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver"); 
         } catch (ClassNotFoundException e) {
-            System.out.println(e.getMessage());
+            throw new RuntimeException("MySQL Driver not found", e);
         }
+    }
 
-        try {
-            Connection connection = DriverManager.getConnection(url,username, password);
-            Statement statement = connection.createStatement();
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USERNAME, PASSWORD);
+    }
+}
 
-            /*
-             * Given the id of a user, fetch all orders (Id, Order Date, Order Total) of that user 
-             * which are in shipped state. Orders should be sorted by order date column in chronological order.
-             */
-            int user_id = 4;
-            String query1 = "SELECT orders_id, order_date, total_amount "+
-                            "FROM Orders "+
-                            "WHERE user_id = ? AND status = 'Delived' "+
-                            "ORDER BY order_date ASC";
+class Order {
+    private int id;
+    private Date orderDate;
+    private double totalAmount;
 
-            try( PreparedStatement stmt1 = connection.prepareStatement(query1)) {
-                stmt1.setInt(1, user_id);
-                ResultSet resultSet1 = stmt1.executeQuery();
-                // System.out.println();
-                while(resultSet1.next()){
-                    
-                    int id = resultSet1.getInt("orders_id");
-                    Date date = resultSet1.getDate("order_date");
-                    double amount = resultSet1.getDouble("total_amount");
+    public Order(int id, Date orderDate, double totalAmount) {
+        this.id = id;
+        this.orderDate = orderDate;
+        this.totalAmount = totalAmount;
+    }
 
-                    System.out.println("Order id : "+id+" Order date: "+date+" Total Amount: "+amount);
-                }
+    @Override
+    public String toString() {
+        return "Order ID: " + id + ", Date: " + orderDate + ", Total: " + totalAmount;
+    }
+}
+
+class OrderDAO {
+    
+    public List<Order> getShippedOrders(int userId) {
+        List<Order> orders = new ArrayList<>();
+        String query = "SELECT orders_id, order_date, total_amount FROM Orders WHERE user_id = ? AND status = 'Shipped' ORDER BY order_date ASC";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                orders.add(new Order(
+                        rs.getInt("orders_id"),
+                        rs.getDate("order_date"),
+                        rs.getDouble("total_amount")
+                ));
             }
-            
-            String query2 = "INSERT INTO image (product_id, url) VALUES (?, ?)";
-            try(PreparedStatement stmt2 = connection.prepareStatement(query2)) {
-                
-                int product_id = 3;
-                String[] urls = {
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI8RMWhycdMYWoh0GstFAzus1UWsCpEaryyw&s",
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6GAyKG0bmi78IJjVpUZ00texG8OggHQmuCg&s"
-                };
-
-                for(String urlImage : urls){
-                    stmt2.setInt(1, product_id);
-                    stmt2.setString(2, urlImage);
-                    stmt2.addBatch();
-                }
-
-                stmt2.executeBatch();
-                System.out.println("Batch Insert Successful!");
-            };
-            // String query3 = "DELETE\n" + //
-            //                     "FROM product \n" + //
-            //                     "WHERE product_id NOT IN (\n" + //
-            //                     "\t SELECT DISTINCT c.product_id\n" + //
-            //                     "    FROM cart As c\n" + //
-            //                     "    JOIN Orders As o\n" + //
-            //                     "    ON o.cart_id = c.cart_id\n" + //
-            //                     "    WHERE o.order_date >= NOW() - INTERVAL 1 YEAR\n" + //
-            //                     ")";
-
-            // try(PreparedStatement stmt3 = connection.prepareStatement(query3)) {
-            //     int deletedRow = stmt3.executeUpdate();
-            //     System.out.println("Deleted Rows: "+deletedRow);
-            // }
-
-            String query4 = "Select \n" + //
-                                "\tC1.category_name As CategoryName,\n" + //
-                                "\tCOUNT(c2.category_id) AS ChildCategoryCount\n" + //
-                                "FROM category AS c1 \n" + //
-                                "LEFT JOIN Category AS c2 \n" + //
-                                "ON c1.category_id = c2.parent_id \n" + //
-                                "WHERE c1.parent_id IS NULL \n" + //
-                                "GROUP BY c1.category_id, c1.category_name \n" + //
-                                "ORDER BY c1.category_name";
-            
-            try(ResultSet resultSet4 = statement.executeQuery(query4)){
-            while(resultSet4.next()){
-                String name = resultSet4.getString("CategoryName");
-                int child = resultSet4.getInt("ChildCategoryCount");
-
-                System.out.println("Category Name : "+ name+"| \tChild Category : "+child);
-            }
-            
-        }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
-
+            System.err.println("Error fetching orders: " + e.getMessage());
         }
+        return orders;
+    }
+
+    public void insertProductImages(int productId, String[] imageUrls) {
+        String query = "INSERT INTO image (product_id, url) VALUES (?, ?)";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            for (String url : imageUrls) {
+                stmt.setInt(1, productId);
+                stmt.setString(2, url);
+                stmt.addBatch();
+            }
+            stmt.executeBatch();
+            System.out.println("Images inserted successfully!");
+        } catch (SQLException e) {
+            System.err.println("Batch insert error: " + e.getMessage());
+        }
+    }
+
+    public int deleteUnusedProducts() {
+        String query = "DELETE FROM product WHERE product_id NOT IN (SELECT DISTINCT c.product_id FROM cart AS c JOIN Orders AS o ON o.cart_id = c.cart_id WHERE o.order_date >= NOW() - INTERVAL 1 YEAR)";
+        int deletedCount = 0;
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            deletedCount = stmt.executeUpdate();
+            System.out.println("Deleted Products: " + deletedCount);
+        } catch (SQLException e) {
+            System.err.println("Error deleting products: " + e.getMessage());
+        }
+        return deletedCount;
+    }
+
+    public void getParentCategories() {
+        String query = "SELECT c1.category_name AS CategoryName, COUNT(c2.category_id) AS ChildCategoryCount FROM category AS c1 LEFT JOIN Category AS c2 ON c1.category_id = c2.parent_id WHERE c1.parent_id IS NULL GROUP BY c1.category_id, c1.category_name ORDER BY c1.category_name";
+
+        try (Connection conn = DBConnection.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+
+            while (rs.next()) {
+                System.out.println("Category: " + rs.getString("CategoryName") + " | Child Categories: " + rs.getInt("ChildCategoryCount"));
+            }
+        } catch (SQLException e) {
+            System.err.println("Error fetching categories: " + e.getMessage());
+        }
+    }
+}
+
+public class OnlineStore { 
+    public static void main(String[] args) { 
+        OrderDAO dao = new OrderDAO();
+        System.out.println("Fetching Shipped Orders for User ID 4..."); 
+        dao.getShippedOrders(4).forEach(System.out::println);
+        System.out.println("\nInserting Product Images..."); 
+        dao.insertProductImages(3, new String[]{ 
+            "https://example.com/image1.jpg", 
+            "https://example.com/image2.jpg" 
+        });
+
+        System.out.println("\nDeleting Unused Products..."); 
+        dao.deleteUnusedProducts();
+        System.out.println("\nFetching Parent Categories..."); 
+        dao.getParentCategories(); 
     }
 }
