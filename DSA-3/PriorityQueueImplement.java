@@ -1,21 +1,22 @@
 interface Priority{
     void enqueue(int item);
     int dequeue();
-    int isPeek();
+    int peek();
     boolean isFull();
     boolean isEmpty();
 }
 
 class PriorityQueue implements Priority{
     int[] pqArray;
-    int itemCount;
+    int rear;
+    int front;
     int capacity;
     int size ;
 
     PriorityQueue(int capacity){
         this.capacity = capacity;
         pqArray = new int[capacity+1];
-        itemCount = 0;
+        rear = 0;
         size = 0;
     }
 
@@ -27,10 +28,10 @@ class PriorityQueue implements Priority{
             System.out.println("Queue is OverFlow.");
             return ;
         }
-        if(itemCount == 0){
-            pqArray[itemCount] = item;
+        if(rear == 0){
+            pqArray[rear] = item;
         }else{
-            for(idx = itemCount-1; idx >= 0; idx--){
+            for(idx = rear-1; idx >= 0; idx--){
                 if(item < pqArray[idx]){
                     pqArray[idx+1] = pqArray[idx];
                 }else{
@@ -39,7 +40,7 @@ class PriorityQueue implements Priority{
             }
             pqArray[idx + 1] = item;
         }
-        itemCount++;
+        rear++;
         size++;
     }
 
@@ -50,16 +51,16 @@ class PriorityQueue implements Priority{
             return -1;
         }
         size--;
-        return pqArray[itemCount++];
+        return pqArray[front++];
     }
 
     @Override
-    public int isPeek() {
+    public int peek() {
         if(isEmpty()){
             System.out.println("Queue is Underflow.");
             return -1;
         }
-        return pqArray[itemCount-1];
+        return pqArray[front];
     }
 
     @Override
