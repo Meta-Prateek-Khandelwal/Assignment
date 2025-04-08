@@ -35,7 +35,7 @@ class Operation{
         }
     }
 
-    void dispaly(){
+    void display(){
         for(Employee emp : empList){
             System.out.println(emp.empId+" "+emp.name);
         }
