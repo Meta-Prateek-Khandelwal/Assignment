@@ -38,7 +38,7 @@ class College{
     List<Student> studentEnrollList;
     HashMap<String, Integer> programs;
     
-    College(){
+    private College(){
         studentEnrollList = new ArrayList<>();
         programs = new HashMap<>();
 
@@ -81,6 +81,20 @@ interface Queue{
 
 class Counseling{
     College college = College.getInstance();
+    QueueImplement queue ;
+
+    void addStudentInQueue(ArrayList<Student> students){
+        queue = new QueueImplement(students.size());
+        for(Student student: students){
+            queue.enqueue(student);
+        }
+    }
+
+    void removeStudentInQueue(){
+        while(!queue.isEmpty()){
+            queue.dequeue();
+        }
+    }
 
     void allocationProgram(Student student){
         int idx = 0;
@@ -138,6 +152,11 @@ class QueueImplement implements Queue{
         return student;
     }
 
+    public boolean isEmpty(){
+        if(size == 0) return true;
+        return false;
+    }
+
     public void display(){
         if(size == 0){
             System.out.println("Queue is Empty.");
@@ -156,6 +175,8 @@ class QueueImplement implements Queue{
 public class CounselingProcess {
     public static void main(String[] args) {
         ArrayList<Student> studentsDetails = new ArrayList<>();
+        Counseling counseler = new Counseling();
+
         String[] pref = {"CSE", "IT","ME", "ECE","EE"};
         studentsDetails.add(new Student("Aarohan", 5, pref));
         studentsDetails.add(new Student("Ram", 1, pref));
@@ -164,20 +185,10 @@ public class CounselingProcess {
         studentsDetails.add(new Student("Sohan", 3, pref));
         studentsDetails.add(new Student("John", 6, pref));  
 
-        QueueImplement queue = new QueueImplement(studentsDetails.size());
+        // QueueImplement queue = new QueueImplement(studentsDetails.size());
         Collections.sort(studentsDetails, Comparator.comparingInt(c -> c.rank));
-
-        for(Student student: studentsDetails){
-            queue.enqueue(student);
-        }
-        queue.display();
-
-        queue.dequeue();
-        queue.dequeue();
-        queue.dequeue();
-        queue.dequeue();
-        queue.dequeue();
-        queue.dequeue();
+        counseler.addStudentInQueue(studentsDetails);
+        counseler.removeStudentInQueue();
 
         College college = College.getInstance();
         college.displayProgram();
