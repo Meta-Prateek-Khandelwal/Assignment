@@ -1,9 +1,15 @@
 import java.util.HashMap;
 import java.util.Stack;
 
-public class MoleculeWeight{   
-
-	private static int atomMW(HashMap<Character, Integer> atomMass, int val, char atom){
+public class MoleculeWeight{  
+	static HashMap<Character, Integer> atomMass = new HashMap<>();
+	static{
+		atomMass.put('C', 12);
+		atomMass.put('H', 1);
+		atomMass.put('O', 16); 
+	}
+	
+	private static int atomMW(int val, char atom){
 		int atomW = 0;
 		if(val == 0) {
 			atomW += atomMass.get(atom);
@@ -15,10 +21,7 @@ public class MoleculeWeight{
 
 	static int compoundMWCalculate(String compound) {
 		int len = compound.length();
-		HashMap<Character, Integer> atomMass = new HashMap<>();
-		atomMass.put('C', 12);
-		atomMass.put('H', 1);
-		atomMass.put('O', 16);
+		
 
 		Stack<Character> molecule = new Stack<>();
 		int mw = 0;
@@ -43,7 +46,7 @@ public class MoleculeWeight{
 						}
 						num *= 10;
 					} else {
-						compoundMW += atomMW(atomMass, val, popCh);
+						compoundMW += atomMW(val, popCh);
 						val = 0;
 						num = 1;
 					}
@@ -71,7 +74,7 @@ public class MoleculeWeight{
 				}
 				num *= 10;
 			}else{
-				compoundMW += atomMW(atomMass, val, popCh);
+				compoundMW += atomMW(val, popCh);
 				val = 0;
 				num = 1;
 			}
@@ -82,7 +85,7 @@ public class MoleculeWeight{
 	}
 
 	public static void main(String[] args) {
-		String compound = "(CH2)2(CH3)3";
+		String compound = "CHOC(CH3)3";
 		System.out.println(compoundMWCalculate(compound));
 	}
 }

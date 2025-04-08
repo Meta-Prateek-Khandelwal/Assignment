@@ -28,10 +28,10 @@ class Operation{
         empList.sort(Comparator.comparing(e -> e.name));
     }
 
-    void removeDuplicate(Employee employee){
+    void addEmployee(Employee employee){
         if(!empIdSet.contains(employee.empId)){
             empList.add(employee);
-            empIdSet.put(employee.empId);
+            empIdSet.add(employee.empId);
         }
     }
 
@@ -47,22 +47,22 @@ public class EmployeeInfo {
         Operation operation = new Operation();
         
         Employee employee1 = new Employee(1, "Ram", "jaipur");
-        operation.removeDuplicate(employee1);
+        operation.addEmployee(employee1);
 
         Employee employee2 = new Employee(1, "Ram", "jaipur");
-        operation.removeDuplicate(employee2);
+        operation.addEmployee(employee2);
 
         Employee employee3 = new Employee(2, "Ajay", "jaipur");
-        operation.removeDuplicate(employee3);
+        operation.addEmployee(employee3);
 
         Employee employee4 = new Employee(5, "Mahesh", "jKota");
-        operation.removeDuplicate(employee4);
+        operation.addEmployee(employee4);
 
         Employee employee5 = new Employee(2, "Ram", "jaipur");
-        operation.removeDuplicate(employee5);
+        operation.addEmployee(employee5);
         
         Employee employee6 = new Employee(3, "Rakesh", "jKota");
-        operation.removeDuplicate(employee6);
+        operation.addEmployee(employee6);
         operation.dispaly();
         
         operation.sorting();
