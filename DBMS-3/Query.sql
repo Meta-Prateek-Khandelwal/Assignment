@@ -58,7 +58,7 @@ FROM User AS u
 JOIN Orders AS o
 ON u.user_id = o.user_id
 AND o.order_date >= DATE_SUB(curdate(), interval 30 DAY)
-GROUP BY u.user_id, u.Name, u.phoneNo
+GROUP BY u.user_id
 ORDER BY orderCount DESC
 LIMIT 3;
 
@@ -71,12 +71,39 @@ FROM Orders AS o
 JOIN Cart AS c ON o.Cart_id = c.Cart_id
 JOIN Product AS p ON c.product_id = p.product_id
 WHERE o.order_date >= DATE_SUB(curdate(), interval 60 DAY)
-GROUP BY c.product_id, p.product_name
+GROUP BY c.product_id
 ORDER BY TrandingProduct DESC
 LIMIT 5;
 
+-- Display Monthly sales revenue of the StoreFront for last 6 months. It should display each month’s sale
+SELECT 
+	date_format(order_date, '%Y-%m') AS Month,
+	Sum(total_Amount) AS monthly_revenue
+FROM orders
+WHERE Order_date >= DATE_SUB(curdate(), INTERVAL 6 MONTH)
+GROUP BY Month
+order by Month ASC;
 
--- due
+
+-- Mark the products as Inactive which are not ordered in last 90 days.
+UPDATE product
+SET ISActive = 0
+WHERE product_id NOT IN (
+	SELECT DISTINCT c.product_id
+	FROM cart AS c
+    JOIN orders AS o ON o.cart_id = c.cart_id
+    WHERE o.order_date >= NOW() - INTERVAL 90 DAY
+    );
+    
+-- Given a category search keyword, display all the Products present in this category/categories.
+SELECT c.Category_Name, p.product_Name
+FROM category AS c
+LEFT JOIN Product AS p
+ON c.Category_id = p.product_id;
+
+-- Display top 1 Items which were cancelled most.
+SELECT * FROM Orders
+WHERE status = "canceled";
 
 -- Assignment 4:
 -- Consider a form where providing a Zip Code populates associated City and
@@ -119,23 +146,25 @@ AS SELECT
   u.phoneNo,
   o.order_date,
   o.Status
-FROM Orders As O
-JOIN Cart as Cart
-ON o.Cart_id = c.Cart_id;
-JOIN Products As P
-ON c.Product_id = c.Product_id
-JOIN user As u
+FROM Orders  O
+JOIN Cart  c
+ON o.Cart_id = c.Cart_id
+JOIN Product  P
+ON c.Product_id = p.Product_id
+JOIN user  u
 ON o.user_id = u.user_id
 WHERE o.order_date >= DATE_SUB(curdate(), interval 60 DAY)
 ORDER BY o.order_date DESC;
-
+DROP View OrderInformation;
 SELECT * FROM OrderInformation;
 
 -- Use the above view to display the Products(Items) which are in ‘shipped’ state.
+SELECT Title FROM OrderInformation
+where status = "Delived";
 
-
--- Use the above view to display the top 5 most selling products.
-
-
-
-
+-- Use the above view to display the top 2 most selling products.
+SELECT Title, price
+FROM OrderInformation
+WHERE status != "canceled"
+ORDER BY price DESC
+LIMIT 2;
