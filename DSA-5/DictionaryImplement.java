@@ -5,6 +5,7 @@ interface Dictionary{
     void add(Pair pair);
     Node delete(int key);
     String getValue(int key);
+    List<Pair> sortedKeyValuePair();
     List<Pair> keysBetweenRange(int k1, int k2);
 }
 
@@ -30,10 +31,12 @@ class Node{
 
 class BST implements Dictionary{
     Node root;
+    static List<Pair> dictionaryPairs;
     static List<Pair> dictionary;
 
     BST(){
        root = null; 
+       dictionaryPairs = new ArrayList<>();
        dictionary = new ArrayList<>();
     }
 
@@ -116,14 +119,31 @@ class BST implements Dictionary{
         String val = getValueUtil(root, key);
         return val != null ? val : "Key not found!";
     }
+
+    private void inOrder(Node root){
+        if(root == null){
+            return ;
+        }
+
+        inOrder(root.left);
+        dictionary.add(root.pair);
+        inOrder(root.right);
+    }
+
+    @Override
+    public List<Pair> sortedKeyValuePair() {
+        dictionary.clear();
+        inOrder(root);
+        return dictionary;
+    }  
     
-    private void inOrder(Node root, int key1, int key2){
+    private void keysBetweenRangeUtil(Node root, int key1, int key2){
         if(root == null){
             return ;
         }
 
         if(root.pair.key >= key1){
-            inOrder(root.left, key1, key2);
+            keysBetweenRangeUtil(root.left, key1, key2);
         }
 
         if(root.pair.key >= key1 && root.pair.key <= key2){
@@ -131,14 +151,14 @@ class BST implements Dictionary{
         }
 
         if(root.pair.key <= key2){
-            inOrder(root.right,key1,key2);
+            keysBetweenRangeUtil(root.right,key1,key2);
         }
     }
 
     @Override
     public List<Pair> keysBetweenRange(int key1, int key2) {
         dictionary.clear();
-        inOrder(root, key1, key2);
+        keysBetweenRangeUtil(root, key1, key2);
         return dictionary;
     }    
 }
@@ -170,8 +190,14 @@ public class DictionaryImplement {
             System.out.println("Key Not found!");
         }
 
-        List<Pair> sortedList1 = bst.keysBetweenRange(1,5);
+        List<Pair> sortedList1 = bst.keysBetweenRange(3,5);
         for(Pair pair: sortedList1){
+            System.out.println(pair.key+" "+pair.val);
+        }
+
+        System.out.println();
+        List<Pair> sortedList2 = bst.sortedKeyValuePair();
+        for(Pair pair: sortedList2){
             System.out.println(pair.key+" "+pair.val);
         }
     }
