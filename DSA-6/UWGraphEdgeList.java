@@ -3,8 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.PriorityQueue;
 
-interface weightedGraph {
-    void addVertex(int vertex);
+interface InnerUWGraph {
     void addEdge(int s, int d, int wt);
     boolean isConnected();
     List<Integer> reachable(int source);
@@ -13,16 +12,18 @@ interface weightedGraph {
 }
 
 class Edge{
+    int source;
     int destination;
     int weight;
-    Edge(int destination, int weight){
+    Edge(int source, int destination, int weight){
+        this.source = source;
         this.destination = destination;
         this.weight = weight;
     }
 }
 
-class Graph implements weightedGraph{
-    private HashMap<Integer, ArrayList<Edge>> adjList;
+class Graph implements InnerUWGraph{
+    private ArrayList<Edge> edgeList;
     private ArrayList<Integer> reachableList;
     private int[] distance ;
     private int size;
@@ -30,31 +31,25 @@ class Graph implements weightedGraph{
 
     Graph(int v){
         this.size = v;
-        adjList = new HashMap<>();
+        edgeList = new ArrayList<>();
         reachableList = new ArrayList<>();
         distance = new int[size];
         this.minCost = 0;
     }
 
     @Override
-    public void addVertex(int vertex){
-        adjList.put(vertex, new ArrayList<>());
-    }
-
-    @Override
-    public void addEdge(int source, int destination, int weight){        
-        adjList.get(source).add(new Edge(destination, weight));
-        adjList.get(destination).add(new Edge(source, weight));
+    public void addEdge(int source, int destination, int weight){
+        edgeList.add(new Edge(source, destination, weight));
     }
     
-    private void dfs(int cur, boolean[] visted, HashMap<Integer, ArrayList<Edge>> adjList){
+    private void dfs(int cur, boolean[] visted){
         visted[cur] = true;
         reachableList.add(cur);
 
-        for(Edge edge: adjList.get(cur)){
+        for(Edge edge: edgeList){
             int neighbor = edge.destination;
-            if(!visted[neighbor]){
-                dfs(neighbor, visted, adjList);
+            if(edge.source == cur && !visted[neighbor]){
+                dfs(neighbor, visted);
             }
         }
     }
@@ -62,7 +57,7 @@ class Graph implements weightedGraph{
     @Override
     public boolean isConnected() {
         boolean[] visted = new boolean[size];
-        dfs(0, visted, adjList);
+        dfs(0, visted);
 
         boolean connected = false;
         for(int i = 0; i < size; i++){
@@ -79,26 +74,28 @@ class Graph implements weightedGraph{
     public ArrayList<Integer> reachable(int source) {
         reachableList.clear();
         boolean[] visted = new boolean[size];
-        dfs(source, visted, adjList);
+        dfs(source, visted);
         return reachableList;
     }
     private int prism(){
-        int minCost = 0;
         PriorityQueue<Pair> pq = new PriorityQueue<>();
         boolean[] visted = new boolean[size];
 
         pq.add(new Pair(0, 0));
         while (!pq.isEmpty()) {
             Pair curPair = pq.poll();
+            
             if(!visted[curPair.source]){
                 visted[curPair.source] = true;
                 minCost += curPair.wt;
 
-                for(int idx = 0; idx < adjList.get(curPair.source).size(); idx++){
-                    Edge edge = adjList.get(curPair.source).get(idx);
+                for(int idx = 0; idx < edgeList.size(); idx++){
+                    Edge edge = edgeList.get(idx);
 
-                    if(!visted[edge.destination]){
+                    if(edge.source == curPair.source && !visted[edge.destination]){
                         pq.add(new Pair(edge.destination, edge.weight));
+                    }else if(edge.destination == curPair.source && !visted[edge.source]){
+                        pq.add(new Pair(edge.source, edge.weight));
                     }
                 }
             }
@@ -137,6 +134,7 @@ class Graph implements weightedGraph{
                 distance[i] = Integer.MAX_VALUE;
             }
         }
+
         pq.offer(new Pair(source, 0));
         while(!pq.isEmpty()){
             Pair cur = pq.poll();
@@ -144,20 +142,34 @@ class Graph implements weightedGraph{
             if(!visted[cur.source]){
                 visted[cur.source] = true;
 
-                for(int idx = 0; idx < adjList.get(cur.source).size(); idx++){
-                    Edge edge = adjList.get(cur.source).get(idx);
-                    int u = cur.source;
-                    int v = edge.destination;
+                for(int idx = 0; idx < edgeList.size(); idx++){
+                    if(cur.source == edgeList.get(idx).source){
+                        Edge edge = edgeList.get(idx);
+                        int u = edge.source;
+                        int v = edge.destination;
                     
-                    // relexation codtion 
-                    if(distance[u] + edge.weight  < distance[v]){
-                        distance[v] = distance[u] + edge.weight;
-                        pq.add(new Pair(v, distance[v]));
+                        // relexation codtion 
+                        if(distance[u] + edge.weight  < distance[v]){
+                            distance[v] = distance[u] + edge.weight;
+                            pq.add(new Pair(v, distance[v]));
+                        }   
+                    } else if(cur.source == edgeList.get(idx).destination){
+                        Edge edge = edgeList.get(idx);
+                        int u = edge.destination;
+                        int v = edge.source;
+                        
+                        // relexation codtion 
+                        if(distance[u] + edge.weight  < distance[v]){
+                            distance[v] = distance[u] + edge.weight;
+                            pq.add(new Pair(v, distance[v]));
+                        }   
                     }
                 }
             }
         }
-
+        // for(int i = 0; i < size; i++){
+        //     System.out.print(distance[i]+" ");
+        // }
     }
 
     @Override
@@ -167,28 +179,17 @@ class Graph implements weightedGraph{
         return path;
     }
 
-    public void printGraph()
-    {
-        for (HashMap.Entry<Integer, ArrayList<Edge> > entry : adjList.entrySet()) {
-            System.out.print(entry.getKey() + " -> ");
-            for (Edge neighbor : entry.getValue()) {
-                System.out.print(" ("+neighbor.destination + " , " + neighbor.weight+") ");
-            }
-            System.out.println();
+    public void printGraph(){
+        for(Edge edge : edgeList){
+            System.out.println(edge.source+" "+edge.destination);
         }
     }
 }
 
-public class UWGraph {
+public class UWGraphEdgeList {
     public static void main(String[] args) {
         int v = 5;
         Graph graph = new Graph(v);
-
-        graph.addVertex(0);
-        graph.addVertex(1);
-        graph.addVertex(2);
-        graph.addVertex(3);
-        graph.addVertex(4);
 
         graph.addEdge(0, 1, 2);
         graph.addEdge(0, 4, 1);
@@ -197,10 +198,10 @@ public class UWGraph {
         graph.addEdge(1, 4, 6);
         graph.addEdge(2, 3, 1);
         graph.addEdge(3, 4, 2);
-
+        
         graph.printGraph();
         System.out.println(graph.isConnected());
-        System.out.println(graph.shortestPath(3, 4));
+        System.out.println(graph.shortestPath(2, 4));
         graph.mst();
     }
 }
