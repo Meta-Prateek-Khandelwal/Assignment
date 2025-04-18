@@ -57,16 +57,15 @@ DELIMITER ;
 DELIMITER $$
 
 CREATE Procedure details(in start_date date, end_date date)
-
 BEGIN
  
 IF start_date > end_date THEN
-	SET start_date = DATE_FORMAT(NOW(),"%y-%m-01");
+	SET start_date = DATE_FORMAT(CURDATE(),"%Y-%m-01");
 END IF;
 
 SELECT order_id, user_id, order_date, total_Amount
 FROM Orders
-Where date(order_date) BETWEEN start_date AND end_date;
+Where DATE(order_date) BETWEEN start_date AND end_date;
 END$$
 DELIMITER ; 
 
