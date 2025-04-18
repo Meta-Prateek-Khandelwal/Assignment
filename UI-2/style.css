@@ -1,0 +1,164 @@
+/* Reset and global settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Add to handle padding and borders more effectively */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f0f8ff; /* Add a background color to visually separate the navbar */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navclass {
+    border-radius: 25px;
+    position: sticky;
+    top: 0; /* Ensure sticky behavior */
+    z-index: 1000; /* Prevent overlap from other elements */
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Stretch navbar items across screen width */
+}
+
+.navbar ul li {
+    padding: 0 10px; /* Reduce space for better alignment */
+}
+
+nav ul li a {
+    color: #5a5aad; /* Softer color for text */
+    font-size: large;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition effect */
+}
+
+nav ul li a:hover {
+    color: #2a2a72; /* Darker shade on hover */
+}
+
+/* Parking Section */
+.parking {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Reduce gap for compact layout */
+    padding: 40px 20px; /* Add padding for spacing */
+    background-color: #e6f7ff; /* Subtle background color */
+}
+
+.welcome {
+    font-size: 50px; /* Slightly smaller font for readability */
+    color: #1a1a40; /* Darker text for better contrast */
+}
+
+.parking img {
+    width: 40%; /* Adjust size for balance */
+    border-radius: 10px; /* Add rounded corners for modern look */
+}
+
+/* Forms Section */
+.form {
+    display: block;
+    border: 1px solid lightgray; /* Softer border color */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    align-items: center;
+    margin: 20px auto; /* Center align the forms */
+    border-radius: 15px; /* Add rounded corners */
+    padding: 20px; /* Add internal spacing */
+    background-color: #ffffff; /* Add background color for contrast */
+}
+
+.employee, .feedback, .vehicle {
+    margin: 0 auto; /* Center align */
+}
+
+.add {
+    justify-content: center;
+    color: #2a2a72; /* Improve text color */
+    margin-bottom: 20px;
+}
+
+/* Feedback Section */
+.feedback form {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Add spacing between input elements */
+}
+
+.form table{
+    width: 100%;
+}
+
+.feedback img {
+    width: 300px;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Pricing Section */
+.booking {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20%; 
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f8ff; /* Light background for visual separation */
+    border-radius: 25px;
+    margin: 0 10px;
+}
+
+.priceTag{
+    text-align: center;
+    padding: 20px;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.price {
+    padding: 20px 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    background-color: #5a5aad;
+    text-align: center;
+    color: #1a1a40; 
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.price h1 {
+    margin: 0;
+    color: #2a2a72;
+    font-size: 24px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #5a5aad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #2a2a72; /* Darker shade on hover */
+}
