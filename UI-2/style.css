@@ -2,8 +2,10 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Add to handle padding and borders more effectively */
+    box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
 }
 
 /* Navigation Bar */
@@ -11,36 +13,37 @@ nav {
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    background-color: #f0f8ff; /* Add a background color to visually separate the navbar */
+    background-color: #f0f8ff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navclass {
     border-radius: 25px;
     position: sticky;
-    top: 0; /* Ensure sticky behavior */
-    z-index: 1000; /* Prevent overlap from other elements */
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar ul {
+    list-style-type: none;
     display: flex;
-    justify-content: space-between;
-    width: 100%; /* Stretch navbar items across screen width */
+    justify-content: end;
+    width: 100%;
 }
 
 .navbar ul li {
-    padding: 0 10px; /* Reduce space for better alignment */
+    padding: 0 40px;
 }
 
 nav ul li a {
-    color: #5a5aad; /* Softer color for text */
+    color: #5a5aad; 
     font-size: large;
     text-decoration: none;
-    transition: color 0.3s ease; /* Smooth transition effect */
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #2a2a72; /* Darker shade on hover */
+    color: #2a2a72;
 }
 
 /* Parking Section */
@@ -48,19 +51,19 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px; /* Reduce gap for compact layout */
-    padding: 40px 20px; /* Add padding for spacing */
-    background-color: #e6f7ff; /* Subtle background color */
+    gap: 80px; 
+    padding: 40px 20px;
+    background-color: #e6f7ff;
 }
 
 .welcome {
-    font-size: 50px; /* Slightly smaller font for readability */
-    color: #1a1a40; /* Darker text for better contrast */
+    font-size: 50px; 
+    color: #1a1a40; 
 }
 
 .parking img {
-    width: 40%; /* Adjust size for balance */
-    border-radius: 10px; /* Add rounded corners for modern look */
+    width: 40%;
+    border-radius: 10px; 
 }
 
 /* Forms Section */
@@ -68,7 +71,7 @@ nav ul li a:hover {
     display: block;
     border: 1px solid lightgray; /* Softer border color */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    width: 500px;
+    width: 900px;
     align-items: center;
     margin: 20px auto; /* Center align the forms */
     border-radius: 15px; /* Add rounded corners */
@@ -76,19 +79,25 @@ nav ul li a:hover {
     background-color: #ffffff; /* Add background color for contrast */
 }
 
+
 .employee, .feedback, .vehicle {
-    margin: 0 auto; /* Center align */
+    margin: 0 auto;
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
 }
 
 .add {
     justify-content: center;
     color: #2a2a72; /* Improve text color */
     margin-bottom: 20px;
+    align-items: center;
+    text-align: center;
 }
 
 /* Feedback Section */
-.feedback form {
-    width: 700px;
+.feedback{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -98,6 +107,13 @@ nav ul li a:hover {
 
 .form table{
     width: 100%;
+}
+
+/* Centering the headings */
+#vehicle, #feedback {
+    text-align: center;
+    margin: 20px auto;
+    display: block;
 }
 
 .feedback img {
@@ -149,7 +165,10 @@ nav ul li a:hover {
     font-size: 24px;
 }
 
+/* for all button tag */
 button {
+    display: block;
+    margin: 20px auto;
     padding: 10px 20px;
     background-color: #5a5aad;
     color: white;
@@ -161,4 +180,12 @@ button {
 
 button:hover {
     background-color: #2a2a72; /* Darker shade on hover */
+}
+
+/* text area size fix */
+textarea{
+    width: 200px;
+    height: 100px;
+    resize: none;
+    border: 1px solid;
 }
