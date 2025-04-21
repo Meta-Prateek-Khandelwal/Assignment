@@ -79,8 +79,8 @@
             <h1 id="vehicle">ADD Vehicle Information</h1>
             <div class="vehicle">
                 <img src="image/car.png" alt="">
-                <form action="">
-                    <label for="">Vehicle Make(Company): </label>
+                <form>
+                    <label>Vehicle Make(Company): </label>
                     <input type="text">
                     <br><br>
 
@@ -88,26 +88,26 @@
                     <input type="text">
                     <br><br>
 
-                    <label for="">Type: </label>
+                    <label>Type: </label>
                     <input type="radio" name="choice">
-                    <label for="">car</label>
+                    <label>car</label>
                     <input type="radio" name="choice">
-                    <label for="">Bike</label>
+                    <label>Bike</label>
                     <input type="radio" name="choice">
-                    <label for="">Cycle</label>
+                    <label>Cycle</label>
                     <br><br>
 
-                    <label for="">Vehicle number: </label>
+                    <label>Vehicle number: </label>
                     <input type="text">
                     <br><br>
 
-                    <label for="">Employee id</label>
+                    <label>Employee id: </label>
                     <input type="text">
                     <br><br>
 
-                    <span>
-                        <label for="">identification: </label>
-                        <textarea placeholder="decribe vehicle Information" id=""></textarea>
+                    <span class="message">
+                        <label for="">Identification: </label>
+                        <textarea placeholder="Decribe vehicle Information" id=""></textarea>
                     </span>
                     <br><br>
                     <button>Submit</button>
@@ -118,8 +118,8 @@
         <br>
 
         <!-- feedback form -->
-        <div class="form">
-            <h1 id="feedback">Get in touch</h1>
+        <div  id="feedback" class="form">
+            <h1>Get in touch</h1>
             <div class="feedback">
                 <table>
                     <tr>
@@ -129,15 +129,15 @@
                         </td>
                         <td>
                             <form action="">
-                                <input type="text" placeholder="User name">
+                                <input type="text" placeholder="User name" required>
                                 <br><br>
-                                <input type="email" placeholder="E-mail">
+                                <input type="email" placeholder="E-mail" required>
                                 <br><br>
-                                <input type="text" placeholder="Subject">
+                                <input type="text" placeholder="Subject" required>
                                 <br><br>
                                 <textarea name="" placeholder="Message"></textarea>
                                 <br><br>
-                                <button>Send Email </button>
+                                <button>Send Email</button>
                             </form>
                         </td>
                     </tr>
@@ -149,7 +149,7 @@
         <br>
 
 
-        <div class="booking">
+        <div id="price"  class="booking">
             <div class="priceTag">
                 <h3>Cycle</h3>
                 <br>
