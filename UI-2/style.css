@@ -129,7 +129,7 @@ nav ul li a:hover {
 }
 
 /* Centering the headings */
-#vehicle, #feedback {
+#feedback {
     text-align: center;
     display: block;
 }
@@ -146,9 +146,22 @@ nav ul li a:hover {
     height: auto;
 }
 
-/* .feedback button{
-    margin: 0 100px;
-} */
+.wraper summary{
+    font-size: .6cm;
+     font-weight: bold;
+     cursor: pointer;
+     padding: 10px 20px;
+     background-color: #5e4caf;
+     color: #fff;
+     border-radius: 10px;
+     margin-top: 10px;
+     margin-left: 20px;
+     margin-right: 20px;
+     transition-delay: 51s;
+}
+.feedback button{
+    margin: 0 220px;
+}
 
 /* Pricing Section */
 .booking {
