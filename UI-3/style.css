@@ -1,0 +1,205 @@
+*{
+    margin: 0;
+    padding: 0;    
+}
+
+.container{
+    background-image: url(Image/homebg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    margin-left: 80px;
+    margin-right: 80px;
+    padding-top: 20px;
+}
+
+ul{
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    color: white;
+}
+
+.weather{
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.weather p{
+    margin-top: 300px;
+    font-weight: 900;
+    font-size: 50px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.downloadButton{
+    background-color: orangered;
+    margin-right: 10px;
+}
+
+.featuresButton{
+    background-color: navy;
+}
+
+button{
+    padding: 15px 35px;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
+.icon img{
+    width: 30px;
+}
+
+.head{
+    text-align: center;
+}
+
+.head h1{
+    color: rgb(147, 147, 236);
+}
+
+main{
+    margin-top: 30px;
+}
+
+.perfect{
+    display: flex;
+    align-items: center;
+    margin: 20px 150px;
+}
+
+.content{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    padding: 20px 40px;
+}
+
+.content img{
+    width: 50px;
+    height: 50px;
+}
+
+.center{
+    margin-top: 60px;
+    height: 400px;
+    justify-content: center;
+    display: flex;
+}
+
+.img2{
+    position: absolute;
+    z-index: 2;
+}
+
+.img1, .img3{
+    position: relative;
+    z-index: 1;
+    height: 500px;
+}
+
+.img3{
+    padding-left: 600px;
+    padding-top: 100px;
+}
+.img1{
+    padding-top: 100px;
+}
+
+.screenshots{
+    position: relative;
+    margin-top: 400px;
+    justify-self: center;
+}
+
+/* h1{
+    color: rgb(147, 147, 236);
+} */
+
+.season{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+
+.seasonImg{
+    width: 300px;
+    height: auto;
+}
+
+.season div{
+    align-content: center;
+}
+
+.reviewHeading{
+    margin-top: 70px;
+    text-align: center;
+    color: rgb(114, 114, 228);
+}
+
+.reviews{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px;
+}
+
+b{
+    font-size: 30px;
+    color: rgb(114, 114, 228);
+}
+
+/* footer */
+.download{
+    margin-top: 40px;
+    padding-top: 60px;
+    background-color: rgb(57, 126, 237);
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.app{
+    width: 300px;
+    height: auto;
+}
+
+.phone{
+    margin-top: 20px;
+}
+
+.phone img{
+    width: 80px;
+    height: auto;
+    padding-right: 10px;
+}
+
+.info{
+    color: white;
+}
+
+.insidebottom{
+    padding-top: 10px;
+    padding: 60px;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttom{
+    background-color: rgb(73, 66, 69);
+    display: flexbox;
+}
+
+.rights{
+    text-align: center;
+    padding-bottom: 20px;
+}
