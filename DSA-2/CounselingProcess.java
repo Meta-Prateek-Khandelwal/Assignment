@@ -123,7 +123,6 @@ class QueueImplement implements Queue {
     QueueImplement(int capacity) {
         this.capacity = capacity;
         queue = new Student[capacity];
-        counseling = new Counseling();
         rear = -1;
         front = 0;
         size = 0;
