@@ -145,41 +145,57 @@ main{
     margin-top: 70px;
     text-align: center;
     color: rgb(114, 114, 228);
+    margin-bottom: 70px;
 }
 
 .reviews{
     display: flex;
     justify-content: space-evenly;
-    margin: 50px;
+    /* padding-bottom: 80px; */
+}
+
+.space{
+    margin-bottom: 50px;
 }
 
 b{
-    font-size: 30px;
+    font-size: 50px;
     color: rgb(114, 114, 228);
+}
+
+.down{
+    text-align: end;
+    padding-left: 350px;
+}
+
+strong{
+    font-size: 20px;
 }
 
 /* footer */
 .download{
-    margin-top: 40px;
-    padding-top: 60px;
+    padding-top: 100px;
     background-color: rgb(57, 126, 237);
     display: flex;
     justify-content: space-evenly;
+    background-image: url(Image/downloadbg.png);
 }
 
 .app{
-    width: 300px;
+    width: 500px;
     height: auto;
 }
 
 .phone{
     margin-top: 20px;
+    margin-bottom: 80px;
 }
 
 .phone img{
-    width: 80px;
+    width: 120px;
     height: auto;
     padding-right: 10px;
+    border-radius: 5px;
 }
 
 .info{
@@ -188,18 +204,40 @@ b{
 
 .insidebottom{
     padding-top: 10px;
-    padding: 60px;
+    padding: 20px;
     
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+}
+
+.footerLogo img{
+    width: 100px;
+    height: auto;
 }
 
 .buttom{
-    background-color: rgb(73, 66, 69);
+    background-color: rgb(58, 58, 80);
     display: flexbox;
 }
 
 .rights{
     text-align: center;
-    padding-bottom: 20px;
+    padding: 30px 0px;
+    color: gray;
+}
+
+hr{
+    justify-self: center;
+    width: 900px;
+    height: 1px;
+    background-color: gray;
+    border: none;
+}
+
+main{
+    background-image: url(Image/bodybg.png);
+}
+
+.footericon img{
+    width: 18px;
 }
