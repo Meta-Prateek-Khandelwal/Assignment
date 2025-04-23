@@ -20,11 +20,11 @@ class Operation{
         empList = new ArrayList<>();
     }
 
-    void sorting(){
+    void sortById(){
         empList.sort(Comparator.comparingInt(e -> e.empId));
     }
 
-    void sortingName(){
+    void sortByName(){
         empList.sort(Comparator.comparing(e -> e.name));
     }
 

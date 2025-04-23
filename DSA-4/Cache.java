@@ -5,10 +5,10 @@ class Cache{
     static private HashMap<String, Integer> uniqueString = new HashMap<>();
 
     static int uniqueStringCheck(String str){
-        int len = str.length();
-        
-        HashSet<Character> uniqueChar = new HashSet<>();
         if(!uniqueString.containsKey(str)){
+            int len = str.length();
+        
+            HashSet<Character> uniqueChar = new HashSet<>();
             
             for(char ch: str.toCharArray()){
                 if(!uniqueChar.contains(ch)){
