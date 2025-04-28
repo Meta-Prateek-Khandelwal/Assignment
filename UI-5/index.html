@@ -1,0 +1,936 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annex Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.lineicons.com/5.0/lineicons.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper ">
+        <aside id="sidebar" >
+            <div class="d-flex">
+            <button id="toggle-btn" type="button">
+                <i class="lni lni-star-fat"></i>    
+            </button>
+            <div class="sidebar-logo">
+                <a href="#">Annex</a>
+            </div>
+        </div>
+        
+        <ul class="sidebar-nav">
+            <!-- <p>Main</p> -->
+            
+            <li class="sidebar-item">
+                
+                <a href="#" class="sidebar-link">
+                    <div id="hedding">Main</div><br>
+                    <i class="lni lni-laptop-2"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#ui" aria-expanded="false" aria-controls="ui">
+                    <i class="lni lni-layers-1"></i>
+                    <span>Advanced Ui</span>
+                </a>
+                <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-bs-target="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Highlight</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Rating</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Alertify</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Range Slider</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="lni lni-calendar-days"></i>
+                    <span>Calender</span>
+                </a>
+            </li>
+            
+            <br>
+            
+            <!-- <p>Components</p> -->
+            
+            <li class="sidebar-item">
+                
+                
+                <a href="#" class="sidebar-link has-dropdown collapsed "  data-bs-toggle="collapse" data-bs-target="#UI" aria-expanded="false" aria-controls="UI">
+                 
+                <i class="lni lni-loom"></i>
+                
+                <span>
+                   
+                    UI Elements
+                </span>
+                </a>
+                <ul id="UI" class="sidebar-dropdown list-unstyled collapse " data-bs-target="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Buttons
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Cards
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Tabs & Accordions
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Modals
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Images
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Alerts
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Progress Bars
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Dropdowns
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Lightbox
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Navs
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Pagination
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Popover & Tooltips
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Badge
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Carousel
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Vidio
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Typography
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Sweet-Alert
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            Grid
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#Forms" aria-expanded="false" aria-controls="Forms">
+                    <i class="lni lni-file-format-zip"></i>
+                    <span>Forms</span>
+                </a>
+                <ul id="Forms" class="sidebar-dropdown list-unstyled collapse " data-bs-target="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Form Elements</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Form Validation</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Form Advanced</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Form Editors</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Form File Upload</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Form Mask</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Summernote</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Form Xeditable</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#charts" aria-expanded="false" aria-controls="charts">
+                    <i class="lni lni-pie-chart-2"></i>
+                    <span>Charts</span>
+                </a>
+                <ul id="charts" class="sidebar-dropdown list-unstyled collapse " data-bs-target="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Morris Chart</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Chartist Chart</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Chartjs Chart</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Flot Chart</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">C3 Chart</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Jquery Knob Chart</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#icons" aria-expanded="false" aria-controls="icons">
+                    <i class="lni lni-tab"></i>
+                    <span>Icons</span>
+                </a>
+                <ul id="icons" class="sidebar-dropdown list-unstyled collapse " data-bs-target="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Material Design</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Ion Icons</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Font Awesome</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Themify Icons</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Dripicons</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Typeicons Icons</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#Tables" aria-expanded="false" aria-controls="Tables">
+                    <i class="lni lni-train-1"></i>
+                    <span>Tables</span>
+                </a>
+                <ul id="Tables" class="sidebar-dropdown list-unstyled collapse " data-bs-target="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Basic Tables</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Data Tables</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Responsive Tables</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Editable Tables</a>
+                    </li>
+                </ul>
+            </li>
+            <br>
+            <!-- <p>Extra</p> -->
+            <li class="sidebar-item">
+                
+                <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#Maps" aria-expanded="false" aria-controls="Maps">
+                    <i class="lni lni-map-marker-1"></i>
+                    <span>Maps</span>
+                </a>
+                <ul id="Maps" class="sidebar-dropdown list-unstyled collapse " data-bs-target="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Google Maps</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Vector Map</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#pages" aria-expanded="false" aria-controls="pages">
+                    <i class="lni lni-page-break-1"></i>
+                    <span>Pages</span>
+                </a>
+                <ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-bs-target="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Login</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Register</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Recover Password</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Lock Screen</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Blank Page</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Error 404</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Error 500</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        </aside>
+<!-- Aside/SideBar Complete -->
+
+<!-- Main Section Begins -->
+        <div class="main p-3">
+            <nav class="border-bottom lh-1 py-3">
+                <div class="row align-items-center">
+                    <!-- Search on the left -->
+                    <div class="col-auto pt-1 position-static">
+                        <input type="search"  class="search-box" placeholder="Search..">
+                    </div>
+        
+                    <!-- Other components on the right -->
+                    <div class="col ms-auto">
+                        <div class="row justify-content-end">
+                            <div class="col-auto">
+                                <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#flag" aria-expanded="false" aria-controls="flag">
+                                    <span>English</span>
+                                    <img src="images/us_flag.jpg"class="ml-2" height="16" alt="">
+                                </a>
+                                <div class="card shadow">
+                                    <ul id="flag" class="sidebar-dropdown list-unstyled collapse">
+                                        <li class="sidebar-item">
+                                            <span>
+                                                <img src="images/italy_flag.jpg" alt=""  height="16">
+                                                <a href="#" class="flags">Italian</a> 
+                                            </span>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <span>
+                                                <img src="images/french_flag.jpg" alt=""  height="16">
+                                                <a href="#" class="flags">French</a>
+                                            </span>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <span>
+                                                <img src="images/spain_flag.jpg" alt="" height="16">
+                                                <a href="#" class="flags">Spanish</a>
+                                            </span>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <span>
+                                                <img src="images/russia_flag.jpg" alt="" height="16">
+                                                <a href="#" class="flags">Russian</a>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                                <!-- Messages -->
+                            </div>
+                            <div class="col-auto">
+                                <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#messages" aria-expanded="false" aria-controls="messages">
+                                    <i class="lni lni-message-2"></i>
+                                </a>
+                                <div class="card shadow">
+                                    <ul id="messages" class="sidebar-dropdown list-unstyled collapse">
+                                        <li class="sidebar-item">
+                                            <span class="unread">
+                                                <div>
+                                                    <img src="images/avatar-1.jpg" alt=""  height="35">
+                                                </div>
+                                                
+                                                <div>
+                                                    <a href="#" class="flags">Charles M.Jones</a> <br>
+                                                    <span class="text">Dummy text of the priniting</span>
+                                                </div>
+                                            </span>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <span class="unread">
+                                                <div>
+                                                    <img src="images/avatar-2.jpg" alt=""  height="35">
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="flags">Charles M.Jones</a> <br>
+                                                    <span class="text">You Have 87 unread messages</span>
+                                                </div>
+                                            </span>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <span class="unread">
+                                                <div>
+                                                    <img src="images/avatar-3.jpg" alt=""  height="35">
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="flags">Charles M.Jones</a> <br>
+                                                    <span class="text">It is a long established fact</span>
+                                                </div>
+                                            </span>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <span>
+                                                <a href="#" class="flags">View All</a>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Updates Section -->
+
+                            <div class="col-auto">
+                                <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse" data-bs-target="#updates" aria-expanded="false" aria-controls="updates">
+                                    <i class="lni lni-bell-1"></i>
+                                </a>
+                                <div class="card shadow">
+                                    <ul id="updates" class="sidebar-dropdown list-unstyled collapse">
+                                        <li class="sidebar-item">
+                                            <span class="unread">
+                                                <div>
+                                                    <img src="images/cart-128.webp" alt=""  height="35">
+                                                </div>
+                                                
+                                                <div>
+                                                    <a href="#" class="flags">Your Order is placed</a> <br>
+                                                    <span class="text">Dummy text of the priniting</span>
+                                                </div>
+                                            </span>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <span class="unread">
+                                                <div>
+                                                    <img src="images/mail_email_inbox_message-2-128.webp" alt=""  height="35">
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="flags">New Message recieved</a> <br>
+                                                    <span class="text">You Have 87 unread messages</span>
+                                                </div>
+                                            </span>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <span class="unread">
+                                                <div>
+                                                    <img src="images/wine-sharp-128.webp" alt=""  height="35">
+                                                </div>
+                                                <div>
+                                                    <a href="#" class="flags">Your Item is shipped</a> <br>
+                                                    <span class="text">It is a long established fact</span>
+                                                </div>
+                                            </span>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <span>
+                                                <a href="#" class="flags">View All</a>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- NavBar Completes -->
+
+             <!-- DashBoard Begins -->
+            <main class="Context px-3 py-4">
+                 <div class="mb-3">
+                    <h3 class="fw-bold fs-4 mb-3">
+                         Dashboard
+                    </h3>
+                    <div class="row">
+                        <div class="col-12 col-md-3 justify-content-between">
+                            <div class="card shadow">
+                                <div class="card-body py-4">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h6 class="mb-2 f2-bold">
+                                                <i class="lni lni-camera-1"></i>
+                                            </h6>
+                                        </div>
+                                        <div class="col">
+                                            <p class="mb-2">
+                                               <strong>$180,90</strong>  <br>
+                                               Visit Today
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-0">
+                                                <span class="badge text-danger me-2">
+                                                    <i class="lni lni-arrow-downward"></i>5.26%
+                                                </span>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-3 justify-content-between">
+                            <div class="card shadow">
+                                <div class="card-body py-4">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h6 class="mb-2 f2-bold">
+                                                <i class="lni lni-user-multiple-4"></i>
+                                            </h6>
+                                        </div>
+                                        <div class="col">
+                                            <p class="mb-2">
+                                               <strong>562</strong>  <br>
+                                               New users
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-0">
+                                                <span class="badge text-success me-2">
+                                                    <i class="lni lni-arrow-upward"></i>8.68%
+                                                </span>
+                                        </div>
+                                    </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                      
+                        <div class="col-12 col-md-3 justify-content-between">
+                            <div class="card shadow">
+                                <div class="card-body py-4">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h6 class="mb-2 f2-bold">
+                                                <i class="lni lni-basket-shopping-3"></i>
+                                            </h6>
+                                        </div>
+                                        <div class="col">
+                                            <p class="mb-2">
+                                               <strong>7514</strong>  <br>
+                                               New Orders
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-0">
+                                                <span class="badge text-danger me-2">
+                                                    <i class="lni lni-arrow-downward"></i>2.35%
+                                                </span>
+                                        </div>
+                                    </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        
+                        <div class="col-12 col-md-3 justify-content-between">
+                            <div class="card shadow">
+                                <div class="card-body py-4">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h6 class="mb-2 f2-bold">
+                                                <i class="lni lni-rocket-5"></i>
+                                            </h6>
+                                        </div>
+                                        <div class="col">
+                                            <p class="mb-2">
+                                               <strong>$32,874</strong>  <br>
+                                               Total Sales
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-0">
+                                                <span class="badge text-success me-2">
+                                                    <i class="lni lni-arrow-upward"></i>2.35%
+                                                </span>
+                                        </div>
+                                    </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row py-5">
+                            <div class="col-12 col-md-7">
+                                <div class="card shadow">
+                                    <div class="card-body py-4">
+                                        <h3 class="fw-bold fs-4 my-3">
+                                            Overview
+                                        </h3> 
+                                        <!-- <p > -->
+                                        <canvas class="mb-2" id="line-chart" width="800" height="450"></canvas>
+                                        <!-- </p> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="card shadow">
+                                    <div class="card-body py-4 ">
+                                        <h3 class="fw-bold fs-4 my-3">
+                                            Revenue By Country
+                                        </h3> 
+                                        <!-- <p > -->
+                                            <canvas id="doughnut-chart" width="800" height="450"></canvas>
+                                        <!-- </p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row gy-4 mb-4 d-flex align-items-stretch">
+                            <div class="col-md-12 col-lg-6 col-xl-4" id="box-1">
+                                <div class="card shadow mb-3" >
+                                    <div class="slides">
+                                        <div class="animation text-center">
+                                            <img src="images/icon-social-twitter-outline-128.webp" alt="" height="40px" width="auto" ><br>
+                                            <div class="mySlides left">
+                                               <p>
+                                                    Lorem Ipsum is simply dummy text of the #TWITTER and typesetting industry. A description list is perfect for defining terms.
+                                               </p> 
+                                            </div>
+                                            <div class="mySlides right" id="stats">
+                                                <div class="stats-container">
+                                                    <div class="stat">
+                                                        <span id="twitter">54K<br></span>Followers
+                                                    </div>
+                                                    <div class="stat">
+                                                        <span id="twitter">44K<br></span>Tweets
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <br> -->
+                                
+                                <div class="card shadow" id="box-2">
+                                    <div class="slides-2" id="box-2">
+                                        <div class="animation text-center">
+                                            <img src="images/Logo_facebook-128.webp" alt="" height="40px" width="auto" ><br>
+                                            <div class="mySlides-2 left">
+                                               <p>
+                                                Lorem Ipsum is simply dummy text of the #Facebook and typesetting industry. A description list is perfect for defining terms.
+                                               </p> 
+                                            </div>
+                                            <div class="mySlides-2 right" id="stats">
+                                                <div class="stats-container">
+                                                    <div class="stat">
+                                                        <span id="Facebook">54K<br></span>Followers
+                                                    </div>
+                                                    <div class="stat">
+                                                        <span id="Facebook">44K<br></span>Tweets
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                       
+                            </div>
+                            <div class="col-md-12 col-lg-6 col-xl-4">
+                                <div class="card shadow" id="box-3">
+                                    <div class="card-body py-4">
+                                         <!-- <div class="mySlides-2 right" id="stats"> -->
+                                                <div class="stats-container">
+                                                    <div class="stat">
+                                                        <span id="info-1"><img src="images/database-128.webp" alt=""width="30px">5TB<br>Bandwidth<br>June 2018 </span>
+                                                    </div>
+                                                    <div class="stat">
+                                                        <span id="info-1"><img src="images/Downloads_Library.webp" alt="" width="25px">5412<br>Download count<br>June 2018</span>
+                                                    </div>
+                                                </div>
+                                            <div class="text-center">
+                                                <canvas id="line-chart-2" width="900" height="400" ></canvas>
+                                            </div>
+                                    </div>
+                                </div>
+                               
+                                
+                            </div>
+
+                            <div class="col-md-12 col-lg-6 col-xl-4">
+                                <img src="images/wather (1).jpg" alt="" width="350px">
+                                <div class="card shadow" id="box-4">
+                                    <div class="card-body">
+                                        <div class="stats-container">
+                                            <div class="row"id="weather">
+                                                <div class="col">
+                                                    <img src="images/weather-03-128.webp" alt="" width="40px"><br>
+                                                    <span>SUNDAY 25 <sup>th</sup></span>
+                                                </div>
+                                                <div class="col">
+                                                    <span>32&#176</span><br>
+                                                    <span>Partly cloudy</span><br>
+                                                    <span>15km/h-37%</span>
+                                                </div>
+                                                <div class="col">
+                                                    <span>MON</span><br>
+                                                    <img src="images/027_cloud_cloudy_overcast_cloudiness_clouded_weather-128.webp" alt="" width="40px"><br>
+                                                    <span>38&#176</span>
+                                                </div>
+                                                <div class="col">
+                                                    <span>TUE</span><br>
+                                                    <img src="images/Windy-128.webp" alt="" width="40px"><br>
+                                                    <span>32&#176</span>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>                                 
+                                    </div>
+                                </div>
+                                                            
+                            </div>
+
+                        </div>
+                       
+                        
+
+
+                        <div class="row">
+                            
+                            <div class="col-12 col-md-7">
+                                <div class="card shadow">
+                                    <div class="card-body">
+                                        <!-- <div class="stats-container"> -->
+                                <h3 class="fw-bold fs-4 my-3">
+                                    Users
+                                </h3>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                          <th scope="col">Member</th>
+                                          <th scope="col">Name</th>
+                                          <th scope="col">Country</th>
+                                          <th scope="col">Earnings</th>
+                                          <th scope="col">Sales</th>
+                                          <th scope="col">Reviws</th>
+                                          <th scope="col">Progress</th>
+                                    
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <!-- <th scope="row">1</th> -->
+                                          <td><img src="images/avatar-2.jpg" alt=""
+                                            width="40"></td>
+                                          <td><a href="">Ruby T. Curd</a></td>
+                                          <td><img src="images/us_flag.jpg" alt="" width="40px"></td>
+                                          <td>$100</td>
+                                          <td>10</td>
+                                          <td><img src="images/Screenshot 2025-04-25 161647.png" alt="" width="45px"></td>
+                                          <td><img src="images/Screenshot 2025-04-25 161657.png" alt=""width="45px"></td>
+                                        </tr>
+                                        <tr>
+                                            <!-- <th scope="row">1</th> -->
+                                            <td><img src="images/avatar-3.jpg" alt=""
+                                              width="40"></td>
+                                            <td><a href="">Willam A. Johnson</a></td>
+                                            <td><img src="images/french_flag.jpg" alt="" width="40px"></td>
+                                            <td>$490</td>
+                                            <td>24</td>
+                                            <td><img src="images/Screenshot 2025-04-25 161647.png" alt="" width="45px"></td>
+                                            <td><img src="images/Screenshot 2025-04-25 161657.png" alt=""width="45px"></td>
+                                        </tr>
+                                        <tr>
+                                            <!-- <th scope="row">1</th> -->
+                                            <td><img src="images/avatar-4.jpg" alt=""
+                                              width="40"></td>
+                                            <td><a href="">bobby M. Gray</a></td>
+                                            <td><img src="images/italy_flag.jpg" alt="" width="40px"></td>
+                                            <td>$380</td>
+                                            <td>19</td>
+                                            <td><img src="images/Screenshot 2025-04-25 161647.png" alt="" width="45px"></td>
+                                            <td><img src="images/Screenshot 2025-04-25 161657.png" alt=""width="45px"></td>
+                                        </tr>
+                                        <tr>
+                                            <!-- <th scope="row">1</th> -->
+                                            <td><img src="images/avatar-2.jpg" alt=""
+                                              width="40"></td>
+                                            <td><a href="">Robert N. Carlile</a></td>
+                                            <td><img src="images/russia_flag.jpg" alt="" width="40px"></td>
+                                            <td>$450</td>
+                                            <td>30</td>
+                                            <td><img src="images/Screenshot 2025-04-25 161647.png" alt="" width="45px"></td>
+                                            <td><img src="images/Screenshot 2025-04-25 161657.png" alt=""width="45px"></td>
+                                        </tr>
+                                        <tr>
+                                            <!-- <th scope="row">1</th> -->
+                                            <td><img src="images/avatar-4.jpg" alt=""
+                                              width="40"></td>
+                                            <td><a href="">Ruby T. Curd</a></td>
+                                            <td><img src="images/spain_flag.jpg" alt="" width="40px"></td>
+                                            <td>$100</td>
+                                            <td>10</td>
+                                            <td><img src="images/Screenshot 2025-04-25 161647.png" alt="" width="45px"></td>
+                                            <td><img src="images/Screenshot 2025-04-25 161657.png" alt=""width="45px"></td>
+                                        </tr>
+                                        
+                                      </tbody>
+                                </table>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-5">
+                                <div class="card shadow">
+                                    <div class="card-body">
+                                        <h3 class="fw-bold fs-4 my-3">
+                                            New Users
+                                        </h3>
+                                
+                                        
+                                <div style="height: 365px; overflow-y: auto;">
+
+                                <table class="table">
+                                    <thead>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <!-- <th scope="row">1</th> -->
+                                          <td><img src="images/avatar-1.jpg" alt=""
+                                            width="40"></td>
+                                          <td><span>Ruby T. Curd <br>Newyork</span></td>
+                                          <td><img src="images/now.png" alt="" height="40px"></td>
+
+                                        </tr>
+                                        <tr>
+                                            <!-- <th scope="row">1</th> -->
+                                            <td><img src="images/avatar-2.jpg" alt=""
+                                              width="40"></td>
+                                            <td><span>Ruby T. Curd <br>Newyork</span></td>
+                                            <td><img src="images/now.png" alt="" height="40px"></td>
+  
+                                          </tr>
+                                          <tr>
+                                            <!-- <th scope="row">1</th> -->
+                                            <td><img src="images/avatar-3.jpg" alt=""
+                                              width="40"></td>
+                                            <td><span>Ruby T. Curd <br>Newyork</span></td>
+                                            <td><img src="images/now.png" alt="" height="40px"></td>
+  
+                                          </tr>
+                                          <tr>
+                                            <!-- <th scope="row">1</th> -->
+                                            <td><img src="images/avatar-4.jpg" alt=""
+                                              width="40"></td>
+                                            <td><span>Ruby T. Curd <br>Newyork</span></td>
+                                            <td><img src="images/now.png" alt="" height="40px"></td>
+  
+                                          </tr>
+                                          <tr>
+                                            <!-- <th scope="row">1</th> -->
+                                            <td><img src="images/avatar-5.jpg" alt=""
+                                              width="40"></td>
+                                            <td><span>Ruby T. Curd <br>Newyork</span></td>
+                                            <td><img src="images/now.png" alt="" height="40px"></td>
+  
+                                          </tr>
+                                          <tr>
+                                            <!-- <th scope="row">1</th> -->
+                                            <td><img src="images/avatar-6.jpg" alt=""
+                                              width="40"></td>
+                                            <td><span>Ruby T. Curd <br>Newyork</span></td>
+                                            <td><img src="images/now.png" alt="" height="40px"></td>
+  
+                                          </tr>
+                                          <tr>
+                                            <!-- <th scope="row">1</th> -->
+                                            <td><img src="images/avatar-1.jpg" alt=""
+                                              width="40"></td>
+                                            <td><span>Ruby T. Curd <br>Newyork</span></td>
+                                            <td><img src="images/now.png" alt="" height="40px"></td>
+  
+                                          </tr>
+                                          <tr>
+                                            <!-- <th scope="row">1</th> -->
+                                            <td><img src="images/avatar-2.jpg" alt=""
+                                              width="40"></td>
+                                            <td><span>Ruby T. Curd <br>Newyork</span></td>
+                                            <td><img src="images/now.png" alt="" height="40px"></td>
+  
+                                          </tr>
+                                          <tr>
+                                            <!-- <th scope="row">1</th> -->
+                                            <td><img src="images/avatar-3.jpg" alt=""
+                                              width="40"></td>
+                                            <td><span>Ruby T. Curd <br>Newyork</span></td>
+                                            <td><img src="images/now.png" alt="" height="40px"></td>
+  
+                                          </tr>
+                                          
+                                      </tbody>
+                                </table>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                 </div>
+            </main>
+        </div>
+    </div>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="annex.js"></script>
+
+</body>
+</html>
+apps-fileview.texmex_20250417.00_p2
+annex.html
+Displaying annex.html. 
