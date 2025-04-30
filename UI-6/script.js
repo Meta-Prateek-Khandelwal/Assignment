@@ -1,10 +1,17 @@
-function showField(nextFieldId, prevFieldId){
-    const prevField = document.getElementById(prevFieldId);
-    if(prevField){
-        prevField.style.display = 'none';
+function showField(nextFieldId, currFieldId){
+    const currField = document.getElementById(currFieldId);
+    const nextField = document.getElementById(nextFieldId);
+    const input = currField.querySelector('input');
+
+    if(input && input.value.trim() === ''){
+        alert('Please fill out this field before proceeding.');
+        return;
     }
 
-    const nextField = document.getElementById(nextFieldId);
+    if(currField){
+        currField.style.display = 'none';
+    }
+
     if(nextField){
         nextField.style.display = 'block';
     }

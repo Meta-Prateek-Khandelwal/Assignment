@@ -81,6 +81,7 @@ nav ul li a:hover {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     width: 900px;
     align-items: center;
+    text-align: center;
     margin: 20px auto; 
     border-radius: 15px;
     background-color: #ffffff;
@@ -90,6 +91,10 @@ nav ul li a:hover {
 
 form div:not(:first-child){
     display: none;
+}
+
+.emp div{
+    justify-self: center;
 }
 
 .form form{
