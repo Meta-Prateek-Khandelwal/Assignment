@@ -8,6 +8,12 @@ function showField(nextFieldId, currFieldId){
         return;
     }
 
+    if (currFieldId === "nameField" && !validateName()) return;
+    if (currFieldId === "emailField" && !validateEmail()) return;
+    if (currFieldId === "passwordField" && !checkPassword()) return;
+    if (currFieldId === "cpasswordField" && !checkConfirmPassword()) return;
+    // if (currFieldId === "cpasswordField" && !checkContact()) return;
+    
     if(currField){
         currField.style.display = 'none';
     }

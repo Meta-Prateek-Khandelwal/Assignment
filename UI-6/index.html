@@ -42,12 +42,14 @@
                 <h1 class="add">ADD Employee Details</h1>
                 <div class="employee">
                     <img src="image/addemployee.png" alt="">
+                    <h2 id="employee-id-display" style="color:green;"></h2>
 
                     <form id="emp">
                         <div id="nameField">
                             <label for="Name">Name: </label>
-                            <input type="text" id="Name" name="User name" minlength="2" required>
-                            <button type="button" onclick="showField('genderField', 'nameField')">Next</button>
+                            <input oninput="validateName()" type="text" id="Name" name="User name"  required>
+                            <span id="name-error" style="color: red; font-size: 14px;"></span><br>
+                            <button type="button" onclick="showField('genderField', 'nameField')">Next</button>  
                         </div>
                         <br>
 
@@ -57,39 +59,42 @@
                             <label>Male</label>
                             <input type="radio" name="choice" id="Female">
                             <label>Female</label>
+                            
                             <button type="button" onclick="showField('emailField', 'genderField')">Next</button>
                         </div>
                         <br>
 
                         <div id="emailField">
                             <label>Email: </label>
-                            <input type="email" required>
+                            <input  id="email" type="email" required oninput="validateEmail()">
+                            <span id="erroremailDiv" style="color: red; font-size: 14px;"></span><br>
                             <button type="button" onclick="showField('passwordField', 'emailField')">Next</button>
                         </div>
                         <br>
 
                         <div id="passwordField">
                             <label>Password: </label>
-                            <input type="password" required>
+                            <input id="password" type="password" required oninput="checkPassword()">
+                            <span id="password-error" style="color: red; font-size: 14px;"></span><br>
                             <button type="button" onclick="showField('cpasswordField','passwordField')">Next</button>
                         </div>
                         <br>
 
                         <div id="cpasswordField">
                             <label>Confirm Password: </label>
-                            <input type="password" required>
+                            <input id="conpassword" type="password" required oninput="checkConfirmPassword()">
+                            <span id="conpassword-error" style="color: red; font-size: 14px;"></span><br>
                             <button type="button" onclick="showField('PhoneField','cpasswordField')">Next</button>
                         </div>
                         <br>
 
                         <div id="PhoneField">
                             <label>Phone No: </label>
-                            <input type="tel" required>
-                            <button onclick="showField('null', 'PhoneField')">Next</button>
+                            <input id="phone" type="tel" required oninput="validateContact()">
+                            <span id="phone-error" style="color: red; font-size: 14px;"></span><br>
+                            <a onclick="handleSubmit()">Submit</a>
                         </div>
-
                         <br><br>
-                        <button>Submit</button>
                     </form>
                 </div>
             </div>
@@ -104,9 +109,11 @@
                 <div class="vehicle">
                     <img src="image/car.png" alt="">
                     <form>
+                    <div>
                         <label>Vehicle Make(Company): </label>
                         <input type="text">
                         <br><br>
+                    </div>
 
                         <label for="">Vehicle Model: </label>
                         <input type="text">
