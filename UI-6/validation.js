@@ -132,7 +132,9 @@ function validateContact() {
   document.getElementById(
    "employee-id-display"
   ).textContent = `Employee ID: ${empId}`;
-  document.querySelector(".add_employee_form").style.display = "none";
+  // document.querySelector(".add_employee_form").style.display = "none";
+  // document.getElementById("newVec").style.display = "block"; 
+  // document.getElementById("newVec").open = true;
  }
 
  function generateCarPlan() {
@@ -184,35 +186,32 @@ function validateContact() {
   Cycle: { Daily: 5, Monthly: 100, Yearly: 500 },
   Motorcycle: { Daily: 10, Monthly: 200, Yearly: 1000 },
   "Four Wheeler": { Daily: 20, Monthly: 500, Yearly: 3500 },
- };
- 
- const exchangeRates = {
+};
+
+const exchangeRates = {
   INR: 1,
-  USD: 0.012, 
-  YEN: 1.82, 
- };
- 
- function calculateAndShowPass() {
-  const vehicle = document.querySelector(
-   'input[name="vehicle-type"]:checked'
-  )?.value;
+  USD: 0.012,
+  YEN: 1.82,
+};
+
+function calculateAndShowPass() {
+  const vehicle = document.querySelector('input[name="vehicle-type"]:checked')?.value;
   const plan = document.querySelector('input[name="plan-type"]:checked')?.value;
   const currency = document.getElementById("currency-select").value;
- 
+
   if (!vehicle || !plan) {
-   document.getElementById("final-pass").innerText =
-    "Please select vehicle and plan type.";
-   return;
+    document.getElementById("final-pass").innerText = "Please select vehicle and plan type.";
+    return;
   }
- 
-  const inrPrice = pricingINR[vehicle][plan];
+
+  const inrPrice = pricingINR[vehicle][plan]; // Ensure `pricingINR` is defined
   const convertedPrice = (inrPrice * exchangeRates[currency]).toFixed(2);
-  const usdPrice = (inrPrice * exchangeRates["USD"]).toFixed(2); 
- 
+  const usdPrice = (inrPrice * exchangeRates["USD"]).toFixed(2);
+
   document.getElementById("final-pass").innerHTML = `
- <p>Selected Vehicle: ${vehicle}</p>
- <p>Plan Type: ${plan}</p>
- <p>Price in ${currency}: ${convertedPrice}</p>
- <p style="color: green;">Stored Price (USD): $${usdPrice}</p>
- `;
- }
+    <p>Selected Vehicle: ${vehicle}</p>
+    <p>Plan Type: ${plan}</p>
+    <p>Price in ${currency}: ${convertedPrice}</p>
+    <p style="color: green;">Stored Price (USD): $${usdPrice}</p>
+  `;
+}

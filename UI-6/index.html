@@ -92,7 +92,7 @@
                             <label>Phone No: </label>
                             <input id="phone" type="tel" required oninput="validateContact()">
                             <span id="phone-error" style="color: red; font-size: 14px;"></span><br>
-                            <a onclick="handleSubmit()">Submit</a>
+                            <button type="button" onclick="handleSubmit()">Submit</button>
                         </div>
                         <br><br>
                     </form>
@@ -102,46 +102,82 @@
         </details>
 
         <!-- Vehicle information form -->
-        <details class="wraper">
+        <details id="newVec"   class="wraper" >
             <summary id="vehicle">Vehicle</summary>
             <div class="form">
                 <h1>ADD Vehicle Information</h1>
                 <div class="vehicle">
                     <img src="image/car.png" alt="">
                     <form>
-                    <div>
+
+                    <div id="makeField">
                         <label>Vehicle Make(Company): </label>
                         <input type="text">
                         <br><br>
+                        <button type="button" onclick="showField('modelField','makeField')" >Next</button>
+                        <!-- <button >Submit</button> -->
                     </div>
 
+                    <div id="modelField">
                         <label for="">Vehicle Model: </label>
                         <input type="text">
-                        <br><br>
-
-                        <label>Type: </label>
-                        <input type="radio" name="choice" id="car">
+                        <button type="button" onclick="showField('vecField','modelField')">Next</button>
+                    </div>
+                        
+                    <div id="vecField">
+                        <!-- <label>Type: </label>
+                        <input type="radio" name="choice" id="car" onclick="generateCarPlan()">
                         <label for="car">car</label>
                         <input type="radio" name="choice" id="bike">
                         <label for="bike">Bike</label>
                         <input type="radio" name="choice" id="cycle">
                         <label for="cycle">Cycle</label>
-                        <br><br>
+                        <button type="button" onclick="showField('numberField','vecField')" href="">Next</button> -->
+                        <!-- <button ></button> -->
+                        <h3 id="s-plan">Select Vehicle Type</h3>
+                        <label><input type="radio" name="vehicle-type" value="Cycle" onclick="generateCyclePlan()" id="cycle"> Cycle</label>
+                        <label><input type="radio" name="vehicle-type" value="Motorcycle" onclick="generateBikePlan()" id="bike"> Motorcycle</label>
+                        <label><input type="radio" name="vehicle-type" value="Four Wheeler" onclick="generateCarPlan()" id="car"> Four Wheeler</label>
+                        <div id="planDetails"></div>
+                        <h3 id="s-plan">Select Plan</h3>
+                        <label><input type="radio" name="plan-type" value="Daily"> Daily</label>
+                        <label><input type="radio" name="plan-type" value="Monthly"> Monthly</label>
+                        <label><input type="radio" name="plan-type" value="Yearly"> Yearly</label>
+                        <!-- <div id="planDetails"></div> -->
+                        <h3 id="s-plan">Select Currency</h3>
+                        <select id="currency-select">
+                            <option value="INR">INR</option>
+                            <option value="USD">USD</option>
+                            <option value="YEN">YEN</option>
+                        </select>
+                        <!-- <div id="planDetails"></div> -->
 
+                        <br><br>
+                        <a onclick="calculateAndShowPass()">Get Pass</a>
+
+                        <div id="final-pass" style="margin-top: 20px; font-size: 16px; font-weight: bold;"></div>
+                    </div>
+                        
+                    <div id="numberField">
                         <label>Vehicle number: </label>
                         <input type="text">
-                        <br><br>
-
+                        <button type="button" onclick="showField('idField','numberField')">Next</button>
+                    </div>
+                        
+                    <div id="idField">
                         <label>Employee id: </label>
                         <input type="text">
-                        <br><br>
-
+                        <button type="button" onclick="showField('messageField', 'idField')">next</button>
+                    </div>
+                        
+                    <div id="messageField">
                         <span class="message">
                             <label for="">Identification: </label>
                             <textarea placeholder="Decribe vehicle Information" id=""></textarea>
                         </span>
-                        <br><br>
-                        <button>Submit</button>
+                        <button type="button" onclick="showField('modelField','makeField')">next</button>
+                    </div>
+                    <div id="planDetails"></div>
                     </form>
                 </div>
             </div>
