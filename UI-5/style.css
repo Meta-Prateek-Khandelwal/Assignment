@@ -1,0 +1,188 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.message-grp p {
+    font-size: 0.7rem;
+}
+
+.bg-accent {
+    background: #5b6be8;
+    color: white;
+}
+
+.text-accent {
+    color: #5b6be8;
+}
+
+.bg-secondary-accent {
+    background: #e7e9fc;
+}
+
+.a-badge {
+    font-size: 13px;
+    height: fit-content;
+    width: 25px;
+    border-radius: 10px;
+    padding: 2px 3px;
+}
+
+.btn {
+    border-radius: 0px !important;
+    border: 0px !important;
+}
+
+.btn:active {
+    border-radius: 0px;
+    color: #5b6be8;
+}
+
+.collapsible-elem {
+    display: none;
+    flex-direction: column !important;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #ffffff;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b3b3b3;
+    border-radius: 20px;
+}
+
+.background-primary {
+    background: #eff3f6;
+    color: #212529;
+}
+
+.bg-tert {
+    background: #6d7beb;
+    color: #e7e9fc;
+    border: 0px;
+    width: 200px;
+}
+
+#searchbar {
+    width: fit-content;
+    position: relative;
+}
+
+#searchbar>a {
+    color: #e7e9fc;
+    position: absolute;
+    right: 16px;
+    top: 20px;
+    opacity: 50%;
+}
+
+#searchbar>input::placeholder {
+    color: #e7e9fc;
+}
+
+#searchbar>input:focus {
+    outline: none;
+    border: 0px;
+}
+
+.navbtn {
+    background: transparent;
+    border: 0px;
+    color: white !important;
+}
+
+.navbtn:hover {
+    color: white !important;
+}
+
+.message-grp {
+    width: 250px;
+    height: 60px;
+}
+
+
+@media (min-width: 576px) {
+    .position-sm-static {
+        position: static !important;
+    }
+
+    .position-sm-relative {
+        position: relative !important;
+    }
+
+    .position-sm-absolute {
+        position: absolute !important;
+    }
+
+    .position-sm-fixed {
+        position: fixed !important;
+    }
+
+    .position-sm-sticky {
+        position: sticky !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .position-md-static {
+        position: static !important;
+    }
+
+    .position-md-relative {
+        position: relative !important;
+    }
+
+    .position-md-absolute {
+        position: absolute !important;
+    }
+
+    .position-md-fixed {
+        position: fixed !important;
+    }
+
+    .position-md-sticky {
+        position: sticky !important;
+    }
+}
+
+.tweeter-bg {
+    background: #40a4f1 !important;
+}
+
+.facebook-bg {
+    background-color: #5b6be8 !important;
+    color: white !important;
+}
+
+.text-fb {
+    color: #5b6be8 !important;
+}
+
+.text-star {
+    color: #f5b225;
+}
+
+.footer-bg {
+    background: #f9f9f9;
+}
+
+main>div:nth-child(1) {
+    z-index: 4;
+}
+
+main>div:nth-child(2) {
+    z-index: 1;
+}
+
+#side-close {
+    z-index: 5;
+}

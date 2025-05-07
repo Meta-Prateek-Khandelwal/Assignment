@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Annex - Assignment 5</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+
+  <link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
+</head>
+
+<body>
+  <main class="d-flex">
+    <div
+      class="position-absolute col-6 col-md-2 vh-100 overflow-y-auto c-scroll bg-white position-relative d-none d-md-block"
+      id="side">
+      <div class="d-flex justify-content-center align-items-center flex-column py-4 sticky-top bg-white">
+        <div class="position-relative w-100 d-flex justify-content-end justify-self">
+          <button type="button" class="btn btn-danger rounded d-md-none m-2" id="side-close"><i
+              class="bi bi-x"></i></button>
+        </div>
+        <a href="#"
+          class="link-underline link-underline-opacity-0 text-secondary fs-5 fw-bold d-flex align-items-center gap-2"><span>ANNEX</span></a>
+      </div>
+      <div>
+        <div>
+          <div class="ps-4 mb-2">Main</div>
+          <div class="d-flex flex-column gap-2">
+            <p class="bg-secondary-accent my-0">
+              <a href=""
+                class="text-accent link-underline link-underline-opacity-0 d-flex w-100 px-4 justify-content-between align-items-center py-3"><span
+                  class="d-flex align-items-center gap-3"><i
+                    class="bi bi-display"></i><span>Dashboard</span></span><span
+                  class="bg-accent a-badge d-flex justify-content-center align-items-center"><span>7</span></span></a>
+            </p>
+            <div class="my-0">
+              <button href=""
+                class="collapsable btn text-secondary d-flex w-100 px-4 justify-content-between align-items-center py-3"><span
+                  class="d-flex align-items-center gap-3"><i class="bi bi-layers-fill"></i></i><span>Advanced
+                    UI</span></span>
+                <i class="bi bi-chevron-right"></i>
+              </button>
+              <div class="collapsible-elem">
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Highlight</a>
+                </p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Rating</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Alertify</a>
+                </p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Range
+                    Slider</a></p>
+              </div>
+            </div>
+            <p class="">
+              <a href=""
+                class="text-secondary link-underline link-underline-opacity-0 d-flex w-100 px-4 justify-content-between align-items-center py-3"><span
+                  class="d-flex align-items-center gap-3"><i
+                    class="bi bi-calendar2-event"></i><span>Calendar</span></span></a>
+            </p>
+          </div>
+        </div>
+        <div>
+          <div class="ps-4 mb-3">Components</div>
+          <div>
+            <div class="my-0">
+              <button
+                class="collapsable btn text-secondary d-flex w-100 px-4 justify-content-between align-items-center py-3"><span
+                  class="d-flex align-items-center gap-3"><i class="bi bi-bullseye"></i></i><span>UI
+                    Elements</span></span>
+                <i class="bi bi-chevron-right"></i>
+              </button>
+              <div class="collapsible-elem">
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Buttons</a>
+                </p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Cards</a></p>
+                <p><a href="" class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Tabs
+                    & Accordions</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Modals</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Images</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Alerts</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Progress
+                    Bars</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Dropdowns</a>
+                </p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Lightbox</a>
+                </p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Navs</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Pagination</a>
+                </p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Popovers &
+                    Tooltips</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Badge</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Carousel</a>
+                </p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Video</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Typography</a>
+                </p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Sweet
+                    Alert</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Grid</a></p>
+              </div>
+            </div>
+            <p class="my-0">
+              <a href=""
+                class="text-secondary link-underline link-underline-opacity-0 d-flex w-100 px-4 justify-content-between align-items-center py-3"><span
+                  class="d-flex align-items-center gap-3"><i class="bi bi-clipboard"></i><span>Forms</span></span><span
+                  class="bg-primary text-white a-badge d-flex justify-content-center align-items-center"><span>6</span></span></a>
+            </p>
+            <div class="my-0">
+              <button href=""
+                class="collapsable btn text-secondary d-flex w-100 px-4 justify-content-between align-items-center py-3"><span
+                  class="d-flex align-items-center gap-3"><i class="bi bi-speedometer"></i><span>Charts</span></span>
+                <i class="bi bi-chevron-right"></i>
+              </button>
+              <div class="collapsible-elem">
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Morris
+                    Chart</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Chartist
+                    Chart</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Chartjs
+                    Chart</a></p>
+                <p><a href="" class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Flot
+                    Chart</a></p>
+                <p><a href="" class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">CS
+                    Chart</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Jquery Knob
+                    Chart</a></p>
+              </div>
+            </div>
+            <div class="my-0">
+              <button href=""
+                class="collapsable btn text-secondary d-flex w-100 px-4 justify-content-between align-items-center py-3"><span
+                  class="d-flex align-items-center gap-3"><i class="bi bi-palette2"></i><span>Icons</span></span>
+                <i class="bi bi-chevron-right"></i>
+              </button>
+              <div class="collapsible-elem">
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Material
+                    Design</a></p>
+                <p><a href="" class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Ion
+                    Icons</a></p>
+                <p><a href="" class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Font
+                    Awesome</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Themify
+                    Icons</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Dripicons</a>
+                </p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Typicons
+                    Icons</a></p>
+              </div>
+            </div>
+            <div class="my-0">
+              <button href=""
+                class="collapsable btn text-secondary d-flex w-100 px-4 justify-content-between align-items-center py-3"><span
+                  class="d-flex align-items-center gap-3"><i class="bi bi-table"></i><span>Tables</span></span>
+                <i class="bi bi-chevron-right"></i>
+              </button>
+              <div class="collapsible-elem">
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Basic
+                    Tables</a></p>
+                <p><a href="" class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Data
+                    Table</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Responsive
+                    Table</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Editable
+                    Table</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="ps-4 mb-3">Extra</div>
+          <div>
+            <p class="my-0">
+              <a href=""
+                class="text-secondary link-underline link-underline-opacity-0 d-flex w-100 px-4 justify-content-between align-items-center py-2"><span
+                  class="d-flex align-items-center gap-3"><i class="bi bi-geo-alt"></i><span>Maps</span></span><span
+                  class="bg-danger text-white a-badge d-flex justify-content-center align-items-center"><span>6</span></span></a>
+            </p>
+            <div class="my-0">
+              <button href=""
+                class="btn collapsable text-secondary d-flex w-100 px-4 justify-content-between align-items-center py-2"><span
+                  class="d-flex align-items-center gap-3"><i
+                    class="bi bi-arrows-fullscreen"></i><span>Pages</span></span>
+                <i class="bi bi-chevron-right"></i>
+              </button>
+              <div class="collapsible-elem">
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Login</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Register</a>
+                </p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Recover
+                    Password</a></p>
+                <p><a href="" class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Lock
+                    Screen</a></p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Blank Page</a>
+                </p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Error 404</a>
+                </p>
+                <p><a href=""
+                    class="link-underline link-underline-opacity-0 text-secondary d-flex w-100 py-1 px-5">Error 500</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-10 background-primary vh-100 overflow-auto">
+      <nav class="w-100 bg-accent px-3 py-2 d-flex justify-content-between align-items-center">
+        <button class="ham-menu d-md-none navbtn" id="ham-menu">
+          <div><i class="bi bi-list fs-5"></i></div>
+        </button>
+        <div id="searchbar" class="py-3 d-none d-md-block">
+          <input type="text" id="searchbar" class="bg-tert px-3 py-1 rounded-pill" placeholder="Search...">
+          <a href=""><i class="bi bi-search"></i></a>
+        </div>
+        <div class="d-flex align-items-center gap-4">
+          <div class="dropdown">
+            <button class="btn navbtn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="bi bi-envelope"></i>
+              <span class="position-absolute top-25 start-75 translate-middle a-badge rounded-pill bg-danger">5</span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li>
+                <h6 class="dropdown-header">Messages</h6>
+              </li>
+              <li><a class="dropdown-item" href="#">
+                  <div class="message-grp text-black d-flex align-items-center justify-content-between px-2">
+                    <div class="rounded-circle">
+                    </div>
+                    <div class="d-flex flex-column">
+                      <div class="">Charles M. Jhones</div>
+                      <p class="text-wrap">Lorem ipsum dolor, sit amet consectetur adipisicing</p>
+                    </div>
+                  </div>
+                </a></li>
+              <li><a class="dropdown-item" href="#">
+                  <div class="message-grp text-black d-flex align-items-center justify-content-between px-2">
+                    <div class="rounded-circle">
+                    </div>
+                    <div class="d-flex flex-column">
+                      <div class="">Charles M. Jhones</div>
+                      <p class="text-wrap">Lorem ipsum dolor, sit amet consectetur adipisicing</p>
+                    </div>
+                  </div>
+                </a></li>
+              <li><a class="dropdown-item" href="#">
+                  <div class="message-grp text-black d-flex align-items-center justify-content-between px-2">
+                    <div class="rounded-circle">
+                    </div>
+                    <div class="d-flex flex-column">
+                      <div class="">Charles M. Jhones</div>
+                      <p class="text-wrap">Lorem ipsum dolor, sit amet consectetur adipisicing</p>
+                    </div>
+                  </div>
+                </a></li>
+              <li><a href="#" class="dropdown-item">View All</a></li>
+            </ul>
+          </div>
+          <div class="dropdown">
+            <button class="btn navbtn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="bi bi-bell"></i>
+              <span class="position-absolute top-25 start-75 translate-middle a-badge rounded-pill bg-success">5</span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li>
+                <h6 class="dropdown-header">Messages</h6>
+              </li>
+              <li><a class="dropdown-item" href="#">
+                  <div class="message-grp text-black d-flex align-items-center justify-content-between px-2">
+                    <div class="rounded-circle">
+                    </div>
+                    <div class="d-flex flex-column">
+                      <div class="">Charles M. Jhones</div>
+                      <p class="text-wrap">Lorem ipsum dolor, sit amet consectetur adipisicing</p>
+                    </div>
+                  </div>
+                </a></li>
+              <li><a class="dropdown-item" href="#">
+                  <div class="message-grp text-black d-flex align-items-center justify-content-between px-2">
+                    <div class="rounded-circle">
+                    </div>
+                    <div class="d-flex flex-column">
+                      <div class="">Charles M. Jhones</div>
+                      <p class="text-wrap">Lorem ipsum dolor, sit amet consectetur adipisicing</p>
+                    </div>
+                  </div>
+                </a></li>
+              <li><a class="dropdown-item" href="#">
+                  <div class="message-grp text-black d-flex align-items-center justify-content-between px-2">
+                    <div class="rounded-circle">
+                    </div>
+                    <div class="d-flex flex-column">
+                      <div class="">Charles M. Jhones</div>
+                      <p class="text-wrap">Lorem ipsum dolor, sit amet consectetur adipisicing</p>
+                    </div>
+                  </div>
+                </a></li>
+              <li><a href="#" class="dropdown-item">View All</a></li>
+            </ul>
+          </div>
+          <div class="dropdown">
+            <button class="btn navbtn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <span><i class="bi bi-person-circle"></i></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li>
+                <h6 class="dropdown-header">Welcome</h6>
+              </li>
+              <li><a class="dropdown-item" href="#">
+                  <div class="d-flex align-items-center justify-content-between px-4 gap-2">
+                    <span><i class="bi bi-person-circle"></i></span>
+                    <span>Profile</span>
+                </a></li>
+              <li><a class="dropdown-item" href="#">
+                  <div class="d-flex align-items-center justify-content-between px-4 gap-2">
+                    <span><i class="bi bi-gear"></i></span>
+                    <span>Settings</span>
+                </a></li>
+              <li><a class="dropdown-item" href="#">
+                  <div class="d-flex align-items-center justify-content-between px-4 gap-2">
+                    <span><i class="bi bi-wallet"></i></span>
+                    <span>My Wallet</span>
+                </a></li>
+              <li><a href="#" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="p-4 c-scroll">
+        <div class="d-flex justify-content-between">
+          <p class="fs-5 fw-bold">Dashboard</p>
+          <p>Annex / Dashboard</p>
+        </div>
+        <div>
+          <div class="row px-3">
+            <div class="col-sm-6 col-md-3 mb-3 mb-sm-0">
+              <div class="card h-100">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div
+                    class="bg-secondary-accent d-flex align-items-center justify-content-center rounded-circle text-accent"
+                    style="width: 45px; height: 45px;">
+                    <i class="bi bi-award fs-4"></i>
+                  </div>
+                  <div class="d-flex flex-column justify-content-center align-items-center">
+                    <span class="fs-5 fw-bold">$18090</span>
+                    <span>Visits Today</span>
+                  </div>
+                  <div class="text-danger d-flex flex-column align-items-center">
+                    <div><i class="bi bi-arrow-down fw-semibold"></i></div>
+                    <p class="fw-semibold">5.26%</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3 mb-3 mb-sm-0">
+              <div class="card h-100">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div
+                    class="bg-secondary-accent d-flex align-items-center justify-content-center rounded-circle text-accent"
+                    style="width: 45px; height: 45px;">
+                    <i class="bi bi-person-fill-add fs-4"></i>
+                  </div>
+                  <div class="d-flex flex-column justify-content-center align-items-center">
+                    <span class="fs-5 fw-bold">562</span>
+                    <span>New Users</span>
+                  </div>
+                  <div class="text-success d-flex flex-column align-items-center">
+                    <div><i class="bi bi-arrow-up fw-semibold"></i></div>
+                    <p class="fw-semibold">8.26%</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3 mb-3 mb-sm-0">
+              <div class="card h-100">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div
+                    class="bg-secondary-accent d-flex align-items-center justify-content-center rounded-circle text-accent"
+                    style="width: 45px; height: 45px;">
+                    <i class="bi bi-basket-fill fs-4"></i>
+                  </div>
+                  <div class="d-flex flex-column justify-content-center align-items-center">
+                    <span class="fs-5 fw-bold">7514</span>
+                    <span>New Orders</span>
+                  </div>
+                  <div class="text-danger d-flex flex-column align-items-center">
+                    <div><i class="bi bi-arrow-down fw-semibold"></i></div>
+                    <p class="fw-semibold">2.38%</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3 mb-3 mb-sm-0">
+              <div class="card h-100">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                  <div
+                    class="bg-secondary-accent d-flex align-items-center justify-content-center rounded-circle text-accent"
+                    style="width: 45px; height: 45px;">
+                    <i class="bi bi-rocket-takeoff-fill fs-4"></i>
+                  </div>
+                  <div class="d-flex flex-column justify-content-center align-items-center">
+                    <span class="fs-5 fw-bold">$32874</span>
+                    <span>Total Sales</span>
+                  </div>
+                  <div class="text-success d-flex flex-column align-items-center">
+                    <div><i class="bi bi-arrow-up fw-semibold"></i></div>
+                    <p class="fw-semibold">2.31%</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row px-3 py-4 h-100">
+
+            <div class="row pe-0">
+              <div class="sm-12 col-md-8 mb-3 mb-sm-0 pe-0">
+                <div class="card">
+                  <div class="card-body">
+                    <p class="fw-semibold fs-5 mb-4">Overview</p>
+                    <div class="overflow-auto">
+                      <svg height="400" version="1.1" width="763.862" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        style="overflow: hidden; position: relative; top: -0.200012px;">
+                        <desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc>
+                        <defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text x="32.52499961853027"
+                          y="361.3999996185303" text-anchor="end" font-family="sans-serif" font-size="12px"
+                          stroke="none" fill="#888888"
+                          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                          font-weight="normal">
+                          <tspan dy="4.39998722076416" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan>
+                        </text>
+                        <path fill="none" stroke="#eef0f2" d="M45.02499961853027,361.3999996185303H738.862"
+                          stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text
+                          x="32.52499961853027" y="277.2999997138977" text-anchor="end" font-family="sans-serif"
+                          font-size="12px" stroke="none" fill="#888888"
+                          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                          font-weight="normal">
+                          <tspan dy="4.399993419647217" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">50
+                          </tspan>
+                        </text>
+                        <path fill="none" stroke="#eef0f2" d="M45.02499961853027,277.2999997138977H738.862"
+                          stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text
+                          x="32.52499961853027" y="193.19999980926514" text-anchor="end" font-family="sans-serif"
+                          font-size="12px" stroke="none" fill="#888888"
+                          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                          font-weight="normal">
+                          <tspan dy="4.399999618530273" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">100
+                          </tspan>
+                        </text>
+                        <path fill="none" stroke="#eef0f2" d="M45.02499961853027,193.19999980926514H738.862"
+                          stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text
+                          x="32.52499961853027" y="109.09999990463257" text-anchor="end" font-family="sans-serif"
+                          font-size="12px" stroke="none" fill="#888888"
+                          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                          font-weight="normal">
+                          <tspan dy="4.399998188018799" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">150
+                          </tspan>
+                        </text>
+                        <path fill="none" stroke="#eef0f2" d="M45.02499961853027,109.09999990463257H738.862"
+                          stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text
+                          x="32.52499961853027" y="25" text-anchor="end" font-family="sans-serif" font-size="12px"
+                          stroke="none" fill="#888888"
+                          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                          font-weight="normal">
+                          <tspan dy="4.399999618530273" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">200
+                          </tspan>
+                        </text>
+                        <path fill="none" stroke="#eef0f2" d="M45.02499961853027,25H738.862" stroke-width="0.5"
+                          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="738.862"
+                          y="373.8999996185303" text-anchor="middle" font-family="sans-serif" font-size="12px"
+                          stroke="none" fill="#888888"
+                          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                          font-weight="normal" transform="matrix(1,0,0,1,0,6.8)">
+                          <tspan dy="4.39998722076416" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2015
+                          </tspan>
+                        </text><text x="623.27527926096" y="373.8999996185303" text-anchor="middle"
+                          font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                          font-weight="normal" transform="matrix(1,0,0,1,0,6.8)">
+                          <tspan dy="4.39998722076416" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2014
+                          </tspan>
+                        </text><text x="507.68855852192013" y="373.8999996185303" text-anchor="middle"
+                          font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                          font-weight="normal" transform="matrix(1,0,0,1,0,6.8)">
+                          <tspan dy="4.39998722076416" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2013
+                          </tspan>
+                        </text><text x="391.78516183565" y="373.8999996185303" text-anchor="middle"
+                          font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                          font-weight="normal" transform="matrix(1,0,0,1,0,6.8)">
+                          <tspan dy="4.39998722076416" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2012
+                          </tspan>
+                        </text><text x="276.19844109661005" y="373.8999996185303" text-anchor="middle"
+                          font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                          font-weight="normal" transform="matrix(1,0,0,1,0,6.8)">
+                          <tspan dy="4.39998722076416" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2011
+                          </tspan>
+                        </text><text x="160.61172035757016" y="373.8999996185303" text-anchor="middle"
+                          font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                          font-weight="normal" transform="matrix(1,0,0,1,0,6.8)">
+                          <tspan dy="4.39998722076416" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2010
+                          </tspan>
+                        </text><text x="45.02499961853027" y="373.8999996185303" text-anchor="middle"
+                          font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                          font-weight="normal" transform="matrix(1,0,0,1,0,6.8)">
+                          <tspan dy="4.39998722076416" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2009
+                          </tspan>
+                        </text>
+                        <path fill="none" stroke="#e785da"
+                          d="M45.02499961853027,361.3999996185303C73.92167980329025,340.37499964237213,131.71504017281018,308.8374996781349,160.61172035757016,277.2999997138977C189.50840054233015,245.7624997496605,247.30176091185007,106.99749990701676,276.19844109661005,109.09999990463257C305.09512128137004,111.20249990224839,362.88848165089,294.11999969482423,391.78516183565,294.11999969482423C420.7610110072175,294.11999969482423,478.7127093503526,109.09999990463257,507.68855852192013,109.09999990463257C536.5852387066801,109.09999990463257,594.3785990762001,289.9149996995926,623.27527926096,294.11999969482423C652.17195944572,298.32499969005585,709.96531981524,180.58499982357026,738.862,142.7399998664856"
+                          stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                        <path fill="none" stroke="#00bcd2"
+                          d="M45.02499961853027,361.3999996185303C73.92167980329025,348.78499963283537,131.71504017281018,321.4524996638298,160.61172035757016,310.93999967575076C189.50840054233015,300.4274996876717,247.30176091185007,287.8124997019768,276.19844109661005,277.2999997138977C305.09512128137004,266.78749972581863,362.88848165089,239.43774257489008,391.78516183565,226.83999977111816C420.7610110072175,214.2077426035003,478.7127093503526,191.11763319055945,507.68855852192013,176.3799998283386C536.5852387066801,161.68263322393804,594.3785990762001,121.71499989032745,623.27527926096,109.09999990463257C652.17195944572,96.48499991893767,709.96531981524,83.86999993324278,738.862,75.45999994277952"
+                          stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                        <path fill="none" stroke="#007bff"
+                          d="M45.02499961853027,361.3999996185303C73.92167980329025,298.32499969005585,131.71504017281018,113.3049998998642,160.61172035757016,109.09999990463257C189.50840054233015,104.89499990940094,247.30176091185007,327.7599996566772,276.19844109661005,327.7599996566772C305.09512128137004,327.7599996566772,362.88848165089,109.09999990463257,391.78516183565,109.09999990463257C420.7610110072175,109.09999990463257,478.7127093503526,306.70623771064743,507.68855852192013,327.7599996566772C536.5852387066801,348.7562376629637,594.3785990762001,304.6324996829033,623.27527926096,277.2999997138977C652.17195944572,249.9674997448921,709.96531981524,151.14999985694885,738.862,109.09999990463257"
+                          stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                        <circle cx="45.02499961853027" cy="361.3999996185303" r="4" fill="#e785da" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="160.61172035757016" cy="277.2999997138977" r="4" fill="#e785da" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="276.19844109661005" cy="109.09999990463257" r="4" fill="#e785da" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="391.78516183565" cy="294.11999969482423" r="4" fill="#e785da" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="507.68855852192013" cy="109.09999990463257" r="7" fill="#e785da" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="623.27527926096" cy="294.11999969482423" r="4" fill="#e785da" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="738.862" cy="142.7399998664856" r="4" fill="#e785da" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="45.02499961853027" cy="361.3999996185303" r="4" fill="#00bcd2" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="160.61172035757016" cy="310.93999967575076" r="4" fill="#00bcd2" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="276.19844109661005" cy="277.2999997138977" r="4" fill="#00bcd2" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="391.78516183565" cy="226.83999977111816" r="4" fill="#00bcd2" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="507.68855852192013" cy="176.3799998283386" r="7" fill="#00bcd2" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="623.27527926096" cy="109.09999990463257" r="4" fill="#00bcd2" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="738.862" cy="75.45999994277952" r="4" fill="#00bcd2" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="45.02499961853027" cy="361.3999996185303" r="4" fill="#007bff" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="160.61172035757016" cy="109.09999990463257" r="4" fill="#007bff" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="276.19844109661005" cy="327.7599996566772" r="4" fill="#007bff" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="391.78516183565" cy="109.09999990463257" r="4" fill="#007bff" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="507.68855852192013" cy="327.7599996566772" r="7" fill="#007bff" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="623.27527926096" cy="277.2999997138977" r="4" fill="#007bff" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                        <circle cx="738.862" cy="109.09999990463257" r="4" fill="#007bff" stroke="#ffffff"
+                          stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sm-12 mt-sm-3 mt-md-0 col-md-4 pe-0">
+                <div class="card w-100 pe-0 h-100">
+                  <div class="card-body w-100">
+                    <div class="d-flex justify-content-between mb-2">
+                      <p class="fs-5 fw-semibold">Revenue By Country</p>
+                      <button class="px-2 py-1 rounded border-0 bg-accent">More Info</button>
+                    </div>
+                    <ul class="list-unstyled list-inline text-center">
+                      <li class="list-inline-item">
+                        <p><i class="mdi mdi-checkbox-blank-circle text-fb mr-2"></i>Canada</p>
+                      </li>
+                      <li class="list-inline-item">
+                        <p><i class="mdi mdi-checkbox-blank-circle text-info mr-2"></i>USA</p>
+                      </li>
+                      <li class="list-inline-item">
+                        <p><i class="mdi mdi-checkbox-blank-circle text-greylight mr-2"></i>London</p>
+                      </li>
+                    </ul>
+                    <img src="images/piechart.png" width="100%">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-4 pe-0">
+              <div class="sm-12 col-md-4 mb-3 mb-sm-0 pe-0">
+                <div class="card tweeter-bg text-white px-5">
+                  <div class="card-body d-flex flex-column align-items-center">
+                    <div class="d-flex mb-4 justify-content-center align-items-center w-100"><i
+                        class="bi bi-twitter fs-1"></i></div>
+                    <div class="d-flex justify-content-between w-100">
+                      <div class="d-flex flex-column justify-content-center align-items-center">
+                        <span class="fs-3 fw-semibold">54K</span>
+                        <span>Followers</span>
+                      </div>
+                      <div class="d-flex flex-column justify-content-center align-items-center">
+                        <span class="fs-3 fw-semibold">44k</span>
+                        <span>Tweets</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card facebook-bg text-white px-5 py-2 mt-4">
+                  <div class="card-body d-flex flex-column align-items-center">
+                    <div class="d-flex mb-4 justify-content-center align-items-center w-100"><i
+                        class="bi bi-facebook fs-1"></i></div>
+                    <div class="d-flex justify-content-between w-100">
+                      <div class="d-flex flex-column justify-content-center align-items-center">
+                        <span class="fs-3 fw-semibold">54K</span>
+                        <span>Followers</span>
+                      </div>
+                      <div class="d-flex flex-column justify-content-center align-items-center">
+                        <span class="fs-3 fw-semibold">44k</span>
+                        <span>Posts</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="sm-12 col-md-4 mb-3 mb-sm-0 pe-0">
+                <div class="card">
+                  <div class="d-flex justify-content-between p-4">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                      <div><i class="bi bi-database-fill text-accent fs-4"></i> <span
+                          class="fs-4 fw-semibold">5TB</span></div>
+                      <div class="fw-medium">Bandwidth Usage</div>
+                      <div>June 2018</div>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                      <div class="fs-4 fw-medium"><i class="bi bi-download text-success"></i> <span>5412</span></div>
+                      <div class="fw-medium">Download Count</div>
+                      <div>June 2018</div>
+                    </div>
+
+                  </div>
+                  <div class="overflow-auto">
+                    <svg height="310" version="1.1" width="346.925" xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc>
+                      <defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs>
+                      <path fill="#4fb6e3" stroke="none"
+                        d="M25,220C35.59616982792335,194,56.78850948377004,119.24555403556772,67.38467931169339,116C78.00987974188502,112.74555403556772,99.2602806022683,205.390560875513,109.88548103245992,194C120.48165086038327,182.640560875513,141.67399051622996,29.875,152.2701603441533,25C162.86633017207666,20.125,184.05866982792335,146.875,194.6548396558467,155C205.25100948377005,163.125,226.44334913961674,85.13166894664843,237.0395189675401,90C247.66471939773172,94.88166894664843,268.915120258115,187.49110807113544,279.5403206883066,194C290.13649051622997,200.49110807113544,311.32883017207666,155,321.925,142L321.925,285L25,285Z"
+                        fill-opacity="0.1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 0.1;">
+                      </path>
+                      <path fill="none" stroke="#03a9f3"
+                        d="M25,220C35.59616982792335,194,56.78850948377004,119.24555403556772,67.38467931169339,116C78.00987974188502,112.74555403556772,99.2602806022683,205.390560875513,109.88548103245992,194C120.48165086038327,182.640560875513,141.67399051622996,29.875,152.2701603441533,25C162.86633017207666,20.125,184.05866982792335,146.875,194.6548396558467,155C205.25100948377005,163.125,226.44334913961674,85.13166894664843,237.0395189675401,90C247.66471939773172,94.88166894664843,268.915120258115,187.49110807113544,279.5403206883066,194C290.13649051622997,200.49110807113544,311.32883017207666,155,321.925,142"
+                        stroke-width="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                      <circle cx="25" cy="220" r="0" fill="#03a9f3" stroke="#ffffff" stroke-width="1"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                      <circle cx="67.38467931169339" cy="116" r="0" fill="#03a9f3" stroke="#ffffff" stroke-width="1"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                      <circle cx="109.88548103245992" cy="194" r="0" fill="#03a9f3" stroke="#ffffff" stroke-width="1"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                      <circle cx="152.2701603441533" cy="25" r="0" fill="#03a9f3" stroke="#ffffff" stroke-width="1"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                      <circle cx="194.6548396558467" cy="155" r="0" fill="#03a9f3" stroke="#ffffff" stroke-width="1"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                      <circle cx="237.0395189675401" cy="90" r="0" fill="#03a9f3" stroke="#ffffff" stroke-width="1"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                      <circle cx="279.5403206883066" cy="194" r="0" fill="#03a9f3" stroke="#ffffff" stroke-width="1"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                      <circle cx="321.925" cy="142" r="0" fill="#03a9f3" stroke="#ffffff" stroke-width="1"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                      <path fill="#1ed4a7" stroke="none"
+                        d="M25,259C35.59616982792335,246,56.78850948377004,207,67.38467931169339,207C78.00987974188502,207,99.2602806022683,267.1361149110807,109.88548103245992,259C120.48165086038327,250.8861149110807,141.67399051622996,148.5,152.2701603441533,142C162.86633017207666,135.5,184.05866982792335,202.125,194.6548396558467,207C205.25100948377005,211.875,226.44334913961674,174.50889192886456,237.0395189675401,181C247.66471939773172,187.50889192886456,268.915120258115,254.11833105335157,279.5403206883066,259C290.13649051622997,263.8683310533516,311.32883017207666,229.75,321.925,220L321.925,285L25,285Z"
+                        fill-opacity="0.1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 0.1;">
+                      </path>
+                      <path fill="none" stroke="#00c292"
+                        d="M25,259C35.59616982792335,246,56.78850948377004,207,67.38467931169339,207C78.00987974188502,207,99.2602806022683,267.1361149110807,109.88548103245992,259C120.48165086038327,250.8861149110807,141.67399051622996,148.5,152.2701603441533,142C162.86633017207666,135.5,184.05866982792335,202.125,194.6548396558467,207C205.25100948377005,211.875,226.44334913961674,174.50889192886456,237.0395189675401,181C247.66471939773172,187.50889192886456,268.915120258115,254.11833105335157,279.5403206883066,259C290.13649051622997,263.8683310533516,311.32883017207666,229.75,321.925,220"
+                        stroke-width="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                      <circle cx="25" cy="259" r="0" fill="#00c292" stroke="#ffffff" stroke-width="1"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                      <circle cx="67.38467931169339" cy="207" r="0" fill="#00c292" stroke="#ffffff" stroke-width="1"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                      <circle cx="109.88548103245992" cy="259" r="0" fill="#00c292" stroke="#ffffff" stroke-width="1"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                      <circle cx="152.2701603441533" cy="142" r="0" fill="#00c292" stroke="#ffffff" stroke-width="1"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                      <circle cx="194.6548396558467" cy="207" r="0" fill="#00c292" stroke="#ffffff" stroke-width="1"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                      <circle cx="237.0395189675401" cy="181" r="0" fill="#00c292" stroke="#ffffff" stroke-width="1"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                      <circle cx="279.5403206883066" cy="259" r="0" fill="#00c292" stroke="#ffffff" stroke-width="1"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                      <circle cx="321.925" cy="220" r="0" fill="#00c292" stroke="#ffffff" stroke-width="1"
+                        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 mb-3 mb-sm-0 pe-0">
+                <div class="card overflow-hidden">
+                  <div class="card-body p-0">
+                    <img src="images/widgets/wather.jpg" alt="" class="img-fluid bg-secondary"
+                      style="height: 270px; width: 100%;">
+                    <div class="bg-accent w-100 d-flex justify-content-around py-4">
+                      <div class="d-flex gap-4">
+                        <div class="d-flex flex-column align-items-center">
+                          <i class="bi bi-cloud-sun-fill fs-1"></i>
+                          <span>Sunday</span>
+                          <span>25th</span>
+                        </div>
+                        <div class="d-flex flex-column align-items-center">
+                          <span class="fs-5 fw-medium">32°</span><span>Partly
+                            Cloudy</span><span>15Km/h-</span><span>37%</span>
+                        </div>
+                      </div>
+                      <div class="d-flex gap-4">
+                        <div>
+                          <div class="d-flex flex-column align-items-center">
+                            <span>Mon</span>
+                            <i class="bi bi-cloud-drizzle fs-4"></i>
+                          </div>
+                          <div>
+                            <span class="fs-5 fw-medium">38°</span>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-column align-items-center">
+                          <div class="d-flex flex-column align-items-center">
+                            <span>Mon</span>
+                            <i class="bi bi-wind fs-4"></i>
+                          </div>
+                          <div>
+                            <span class="fs-5 fw-medium">38°</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-4 pe-0">
+              <!-- <div class="row"> -->
+              <div class="col-md-8 mb-3 mb-sm-0 pe-0">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Member Profile</h5>
+                    <div class="table-responsive">
+                      <table class="table mt-4">
+                        <thead>
+                          <tr>
+                            <th scope="col">Member</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">Earning</th>
+                            <th scope="col">Sales</th>
+                            <th scope="col">Reviews</th>
+                            <th scope="col">Progress</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row"><img src="" alt="" class="align-middle bg-secondary rounded-circle"
+                                style="width: 40px; height: 40px;"></th>
+                            <td class="align-middle"><a href="" class="link-underline link-underline-opacity-0">Ruby T.
+                                Curd</a></td>
+                            <td class="align-middle"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 32 32">
+                                <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#fff"></rect>
+                                <path
+                                  d="M1.638,5.846H30.362c-.711-1.108-1.947-1.846-3.362-1.846H5c-1.414,0-2.65,.738-3.362,1.846Z"
+                                  fill="#a62842"></path>
+                                <path
+                                  d="M2.03,7.692c-.008,.103-.03,.202-.03,.308v1.539H31v-1.539c0-.105-.022-.204-.03-.308H2.03Z"
+                                  fill="#a62842"></path>
+                                <path fill="#a62842" d="M2 11.385H31V13.231H2z"></path>
+                                <path fill="#a62842" d="M2 15.077H31V16.923000000000002H2z"></path>
+                                <path fill="#a62842" d="M1 18.769H31V20.615H1z"></path>
+                                <path
+                                  d="M1,24c0,.105,.023,.204,.031,.308H30.969c.008-.103,.031-.202,.031-.308v-1.539H1v1.539Z"
+                                  fill="#a62842"></path>
+                                <path
+                                  d="M30.362,26.154H1.638c.711,1.108,1.947,1.846,3.362,1.846H27c1.414,0,2.65-.738,3.362-1.846Z"
+                                  fill="#a62842"></path>
+                                <path d="M5,4h11v12.923H1V8c0-2.208,1.792-4,4-4Z" fill="#102d5e"></path>
+                                <path
+                                  d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z"
+                                  opacity=".15"></path>
+                                <path
+                                  d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z"
+                                  fill="#fff" opacity=".2"></path>
+                                <path fill="#fff"
+                                  d="M4.601 7.463L5.193 7.033 4.462 7.033 4.236 6.338 4.01 7.033 3.279 7.033 3.87 7.463 3.644 8.158 4.236 7.729 4.827 8.158 4.601 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M7.58 7.463L8.172 7.033 7.441 7.033 7.215 6.338 6.989 7.033 6.258 7.033 6.849 7.463 6.623 8.158 7.215 7.729 7.806 8.158 7.58 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M10.56 7.463L11.151 7.033 10.42 7.033 10.194 6.338 9.968 7.033 9.237 7.033 9.828 7.463 9.603 8.158 10.194 7.729 10.785 8.158 10.56 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M6.066 9.283L6.658 8.854 5.927 8.854 5.701 8.158 5.475 8.854 4.744 8.854 5.335 9.283 5.109 9.979 5.701 9.549 6.292 9.979 6.066 9.283z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M9.046 9.283L9.637 8.854 8.906 8.854 8.68 8.158 8.454 8.854 7.723 8.854 8.314 9.283 8.089 9.979 8.68 9.549 9.271 9.979 9.046 9.283z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M12.025 9.283L12.616 8.854 11.885 8.854 11.659 8.158 11.433 8.854 10.702 8.854 11.294 9.283 11.068 9.979 11.659 9.549 12.251 9.979 12.025 9.283z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M6.066 12.924L6.658 12.494 5.927 12.494 5.701 11.799 5.475 12.494 4.744 12.494 5.335 12.924 5.109 13.619 5.701 13.19 6.292 13.619 6.066 12.924z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M9.046 12.924L9.637 12.494 8.906 12.494 8.68 11.799 8.454 12.494 7.723 12.494 8.314 12.924 8.089 13.619 8.68 13.19 9.271 13.619 9.046 12.924z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M12.025 12.924L12.616 12.494 11.885 12.494 11.659 11.799 11.433 12.494 10.702 12.494 11.294 12.924 11.068 13.619 11.659 13.19 12.251 13.619 12.025 12.924z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M13.539 7.463L14.13 7.033 13.399 7.033 13.173 6.338 12.947 7.033 12.216 7.033 12.808 7.463 12.582 8.158 13.173 7.729 13.765 8.158 13.539 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M4.601 11.104L5.193 10.674 4.462 10.674 4.236 9.979 4.01 10.674 3.279 10.674 3.87 11.104 3.644 11.799 4.236 11.369 4.827 11.799 4.601 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M7.58 11.104L8.172 10.674 7.441 10.674 7.215 9.979 6.989 10.674 6.258 10.674 6.849 11.104 6.623 11.799 7.215 11.369 7.806 11.799 7.58 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M10.56 11.104L11.151 10.674 10.42 10.674 10.194 9.979 9.968 10.674 9.237 10.674 9.828 11.104 9.603 11.799 10.194 11.369 10.785 11.799 10.56 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M13.539 11.104L14.13 10.674 13.399 10.674 13.173 9.979 12.947 10.674 12.216 10.674 12.808 11.104 12.582 11.799 13.173 11.369 13.765 11.799 13.539 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M4.601 14.744L5.193 14.315 4.462 14.315 4.236 13.619 4.01 14.315 3.279 14.315 3.87 14.744 3.644 15.44 4.236 15.01 4.827 15.44 4.601 14.744z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M7.58 14.744L8.172 14.315 7.441 14.315 7.215 13.619 6.989 14.315 6.258 14.315 6.849 14.744 6.623 15.44 7.215 15.01 7.806 15.44 7.58 14.744z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M10.56 14.744L11.151 14.315 10.42 14.315 10.194 13.619 9.968 14.315 9.237 14.315 9.828 14.744 9.603 15.44 10.194 15.01 10.785 15.44 10.56 14.744z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M13.539 14.744L14.13 14.315 13.399 14.315 13.173 13.619 12.947 14.315 12.216 14.315 12.808 14.744 12.582 15.44 13.173 15.01 13.765 15.44 13.539 14.744z">
+                                </path>
+                              </svg></td>
+                            <td class="align-middle">$100</td>
+                            <td class="align-middle">10</td>
+                            <td class="align-middle">
+                              <i class="bi bi-star-fill text-star"></i>
+                              <i class="bi bi-star-fill text-star"></i>
+                              <i class="bi bi-star-fill text-star"></i>
+                              <i class="bi bi-star-half text-star"></i>
+                              <i class="bi bi-star text-star"></i>
+                            </td>
+                            <td class="align-middle">
+                              <div class="progress" role="progressbar" aria-label="Example 1px high" aria-valuenow="0"
+                                aria-valuemin="0" aria-valuemax="100" style="height: 8px;">
+                                <div class="progress-bar bg-accent" style="width: 75% "></div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><img src="" alt="" class="align-middle bg-secondary rounded-circle"
+                                style="width: 40px; height: 40px;"></th>
+                            <td class="align-middle"><a href="" class="link-underline link-underline-opacity-0">William
+                                A. Johnson</a></td>
+                            <td class="align-middle"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 32 32">
+                                <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#fff"></rect>
+                                <path
+                                  d="M1.638,5.846H30.362c-.711-1.108-1.947-1.846-3.362-1.846H5c-1.414,0-2.65,.738-3.362,1.846Z"
+                                  fill="#a62842"></path>
+                                <path
+                                  d="M2.03,7.692c-.008,.103-.03,.202-.03,.308v1.539H31v-1.539c0-.105-.022-.204-.03-.308H2.03Z"
+                                  fill="#a62842"></path>
+                                <path fill="#a62842" d="M2 11.385H31V13.231H2z"></path>
+                                <path fill="#a62842" d="M2 15.077H31V16.923000000000002H2z"></path>
+                                <path fill="#a62842" d="M1 18.769H31V20.615H1z"></path>
+                                <path
+                                  d="M1,24c0,.105,.023,.204,.031,.308H30.969c.008-.103,.031-.202,.031-.308v-1.539H1v1.539Z"
+                                  fill="#a62842"></path>
+                                <path
+                                  d="M30.362,26.154H1.638c.711,1.108,1.947,1.846,3.362,1.846H27c1.414,0,2.65-.738,3.362-1.846Z"
+                                  fill="#a62842"></path>
+                                <path d="M5,4h11v12.923H1V8c0-2.208,1.792-4,4-4Z" fill="#102d5e"></path>
+                                <path
+                                  d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z"
+                                  opacity=".15"></path>
+                                <path
+                                  d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z"
+                                  fill="#fff" opacity=".2"></path>
+                                <path fill="#fff"
+                                  d="M4.601 7.463L5.193 7.033 4.462 7.033 4.236 6.338 4.01 7.033 3.279 7.033 3.87 7.463 3.644 8.158 4.236 7.729 4.827 8.158 4.601 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M7.58 7.463L8.172 7.033 7.441 7.033 7.215 6.338 6.989 7.033 6.258 7.033 6.849 7.463 6.623 8.158 7.215 7.729 7.806 8.158 7.58 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M10.56 7.463L11.151 7.033 10.42 7.033 10.194 6.338 9.968 7.033 9.237 7.033 9.828 7.463 9.603 8.158 10.194 7.729 10.785 8.158 10.56 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M6.066 9.283L6.658 8.854 5.927 8.854 5.701 8.158 5.475 8.854 4.744 8.854 5.335 9.283 5.109 9.979 5.701 9.549 6.292 9.979 6.066 9.283z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M9.046 9.283L9.637 8.854 8.906 8.854 8.68 8.158 8.454 8.854 7.723 8.854 8.314 9.283 8.089 9.979 8.68 9.549 9.271 9.979 9.046 9.283z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M12.025 9.283L12.616 8.854 11.885 8.854 11.659 8.158 11.433 8.854 10.702 8.854 11.294 9.283 11.068 9.979 11.659 9.549 12.251 9.979 12.025 9.283z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M6.066 12.924L6.658 12.494 5.927 12.494 5.701 11.799 5.475 12.494 4.744 12.494 5.335 12.924 5.109 13.619 5.701 13.19 6.292 13.619 6.066 12.924z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M9.046 12.924L9.637 12.494 8.906 12.494 8.68 11.799 8.454 12.494 7.723 12.494 8.314 12.924 8.089 13.619 8.68 13.19 9.271 13.619 9.046 12.924z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M12.025 12.924L12.616 12.494 11.885 12.494 11.659 11.799 11.433 12.494 10.702 12.494 11.294 12.924 11.068 13.619 11.659 13.19 12.251 13.619 12.025 12.924z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M13.539 7.463L14.13 7.033 13.399 7.033 13.173 6.338 12.947 7.033 12.216 7.033 12.808 7.463 12.582 8.158 13.173 7.729 13.765 8.158 13.539 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M4.601 11.104L5.193 10.674 4.462 10.674 4.236 9.979 4.01 10.674 3.279 10.674 3.87 11.104 3.644 11.799 4.236 11.369 4.827 11.799 4.601 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M7.58 11.104L8.172 10.674 7.441 10.674 7.215 9.979 6.989 10.674 6.258 10.674 6.849 11.104 6.623 11.799 7.215 11.369 7.806 11.799 7.58 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M10.56 11.104L11.151 10.674 10.42 10.674 10.194 9.979 9.968 10.674 9.237 10.674 9.828 11.104 9.603 11.799 10.194 11.369 10.785 11.799 10.56 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M13.539 11.104L14.13 10.674 13.399 10.674 13.173 9.979 12.947 10.674 12.216 10.674 12.808 11.104 12.582 11.799 13.173 11.369 13.765 11.799 13.539 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M4.601 14.744L5.193 14.315 4.462 14.315 4.236 13.619 4.01 14.315 3.279 14.315 3.87 14.744 3.644 15.44 4.236 15.01 4.827 15.44 4.601 14.744z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M7.58 14.744L8.172 14.315 7.441 14.315 7.215 13.619 6.989 14.315 6.258 14.315 6.849 14.744 6.623 15.44 7.215 15.01 7.806 15.44 7.58 14.744z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M10.56 14.744L11.151 14.315 10.42 14.315 10.194 13.619 9.968 14.315 9.237 14.315 9.828 14.744 9.603 15.44 10.194 15.01 10.785 15.44 10.56 14.744z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M13.539 14.744L14.13 14.315 13.399 14.315 13.173 13.619 12.947 14.315 12.216 14.315 12.808 14.744 12.582 15.44 13.173 15.01 13.765 15.44 13.539 14.744z">
+                                </path>
+                              </svg></td>
+                            <td class="align-middle">$100</td>
+                            <td class="align-middle">10</td>
+                            <td class="align-middle">
+                              <i class="bi bi-star-fill text-star"></i>
+                              <i class="bi bi-star-fill text-star"></i>
+                              <i class="bi bi-star-fill text-star"></i>
+                              <i class="bi bi-star-half text-star"></i>
+                              <i class="bi bi-star text-star"></i>
+                            </td>
+                            <td class="align-middle">
+                              <div class="progress" role="progressbar" aria-label="Example 1px high" aria-valuenow="0"
+                                aria-valuemin="0" aria-valuemax="100" style="height: 8px;">
+                                <div class="progress-bar bg-accent" style="width: 75% "></div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><img src="" alt="" class="align-middle bg-secondary rounded-circle"
+                                style="width: 40px; height: 40px;"></th>
+                            <td class="align-middle"><a href="" class="link-underline link-underline-opacity-0">Bobby M.
+                                Gray</a></td>
+                            <td class="align-middle"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 32 32">
+                                <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#fff"></rect>
+                                <path
+                                  d="M1.638,5.846H30.362c-.711-1.108-1.947-1.846-3.362-1.846H5c-1.414,0-2.65,.738-3.362,1.846Z"
+                                  fill="#a62842"></path>
+                                <path
+                                  d="M2.03,7.692c-.008,.103-.03,.202-.03,.308v1.539H31v-1.539c0-.105-.022-.204-.03-.308H2.03Z"
+                                  fill="#a62842"></path>
+                                <path fill="#a62842" d="M2 11.385H31V13.231H2z"></path>
+                                <path fill="#a62842" d="M2 15.077H31V16.923000000000002H2z"></path>
+                                <path fill="#a62842" d="M1 18.769H31V20.615H1z"></path>
+                                <path
+                                  d="M1,24c0,.105,.023,.204,.031,.308H30.969c.008-.103,.031-.202,.031-.308v-1.539H1v1.539Z"
+                                  fill="#a62842"></path>
+                                <path
+                                  d="M30.362,26.154H1.638c.711,1.108,1.947,1.846,3.362,1.846H27c1.414,0,2.65-.738,3.362-1.846Z"
+                                  fill="#a62842"></path>
+                                <path d="M5,4h11v12.923H1V8c0-2.208,1.792-4,4-4Z" fill="#102d5e"></path>
+                                <path
+                                  d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z"
+                                  opacity=".15"></path>
+                                <path
+                                  d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z"
+                                  fill="#fff" opacity=".2"></path>
+                                <path fill="#fff"
+                                  d="M4.601 7.463L5.193 7.033 4.462 7.033 4.236 6.338 4.01 7.033 3.279 7.033 3.87 7.463 3.644 8.158 4.236 7.729 4.827 8.158 4.601 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M7.58 7.463L8.172 7.033 7.441 7.033 7.215 6.338 6.989 7.033 6.258 7.033 6.849 7.463 6.623 8.158 7.215 7.729 7.806 8.158 7.58 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M10.56 7.463L11.151 7.033 10.42 7.033 10.194 6.338 9.968 7.033 9.237 7.033 9.828 7.463 9.603 8.158 10.194 7.729 10.785 8.158 10.56 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M6.066 9.283L6.658 8.854 5.927 8.854 5.701 8.158 5.475 8.854 4.744 8.854 5.335 9.283 5.109 9.979 5.701 9.549 6.292 9.979 6.066 9.283z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M9.046 9.283L9.637 8.854 8.906 8.854 8.68 8.158 8.454 8.854 7.723 8.854 8.314 9.283 8.089 9.979 8.68 9.549 9.271 9.979 9.046 9.283z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M12.025 9.283L12.616 8.854 11.885 8.854 11.659 8.158 11.433 8.854 10.702 8.854 11.294 9.283 11.068 9.979 11.659 9.549 12.251 9.979 12.025 9.283z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M6.066 12.924L6.658 12.494 5.927 12.494 5.701 11.799 5.475 12.494 4.744 12.494 5.335 12.924 5.109 13.619 5.701 13.19 6.292 13.619 6.066 12.924z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M9.046 12.924L9.637 12.494 8.906 12.494 8.68 11.799 8.454 12.494 7.723 12.494 8.314 12.924 8.089 13.619 8.68 13.19 9.271 13.619 9.046 12.924z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M12.025 12.924L12.616 12.494 11.885 12.494 11.659 11.799 11.433 12.494 10.702 12.494 11.294 12.924 11.068 13.619 11.659 13.19 12.251 13.619 12.025 12.924z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M13.539 7.463L14.13 7.033 13.399 7.033 13.173 6.338 12.947 7.033 12.216 7.033 12.808 7.463 12.582 8.158 13.173 7.729 13.765 8.158 13.539 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M4.601 11.104L5.193 10.674 4.462 10.674 4.236 9.979 4.01 10.674 3.279 10.674 3.87 11.104 3.644 11.799 4.236 11.369 4.827 11.799 4.601 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M7.58 11.104L8.172 10.674 7.441 10.674 7.215 9.979 6.989 10.674 6.258 10.674 6.849 11.104 6.623 11.799 7.215 11.369 7.806 11.799 7.58 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M10.56 11.104L11.151 10.674 10.42 10.674 10.194 9.979 9.968 10.674 9.237 10.674 9.828 11.104 9.603 11.799 10.194 11.369 10.785 11.799 10.56 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M13.539 11.104L14.13 10.674 13.399 10.674 13.173 9.979 12.947 10.674 12.216 10.674 12.808 11.104 12.582 11.799 13.173 11.369 13.765 11.799 13.539 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M4.601 14.744L5.193 14.315 4.462 14.315 4.236 13.619 4.01 14.315 3.279 14.315 3.87 14.744 3.644 15.44 4.236 15.01 4.827 15.44 4.601 14.744z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M7.58 14.744L8.172 14.315 7.441 14.315 7.215 13.619 6.989 14.315 6.258 14.315 6.849 14.744 6.623 15.44 7.215 15.01 7.806 15.44 7.58 14.744z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M10.56 14.744L11.151 14.315 10.42 14.315 10.194 13.619 9.968 14.315 9.237 14.315 9.828 14.744 9.603 15.44 10.194 15.01 10.785 15.44 10.56 14.744z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M13.539 14.744L14.13 14.315 13.399 14.315 13.173 13.619 12.947 14.315 12.216 14.315 12.808 14.744 12.582 15.44 13.173 15.01 13.765 15.44 13.539 14.744z">
+                                </path>
+                              </svg></td>
+                            <td class="align-middle">$100</td>
+                            <td class="align-middle">10</td>
+                            <td class="align-middle">
+                              <i class="bi bi-star-fill text-star"></i>
+                              <i class="bi bi-star-fill text-star"></i>
+                              <i class="bi bi-star-fill text-star"></i>
+                              <i class="bi bi-star-half text-star"></i>
+                              <i class="bi bi-star text-star"></i>
+                            </td>
+                            <td class="align-middle">
+                              <div class="progress" role="progressbar" aria-label="Example 1px high" aria-valuenow="0"
+                                aria-valuemin="0" aria-valuemax="100" style="height: 8px;">
+                                <div class="progress-bar bg-accent" style="width: 75% "></div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><img src="" alt="" class="align-middle bg-secondary rounded-circle"
+                                style="width: 40px; height: 40px;"></th>
+                            <td class="align-middle"><a href="" class="link-underline link-underline-opacity-0">Robert
+                                N. Carlile</a></td>
+                            <td class="align-middle"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 32 32">
+                                <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#fff"></rect>
+                                <path
+                                  d="M1.638,5.846H30.362c-.711-1.108-1.947-1.846-3.362-1.846H5c-1.414,0-2.65,.738-3.362,1.846Z"
+                                  fill="#a62842"></path>
+                                <path
+                                  d="M2.03,7.692c-.008,.103-.03,.202-.03,.308v1.539H31v-1.539c0-.105-.022-.204-.03-.308H2.03Z"
+                                  fill="#a62842"></path>
+                                <path fill="#a62842" d="M2 11.385H31V13.231H2z"></path>
+                                <path fill="#a62842" d="M2 15.077H31V16.923000000000002H2z"></path>
+                                <path fill="#a62842" d="M1 18.769H31V20.615H1z"></path>
+                                <path
+                                  d="M1,24c0,.105,.023,.204,.031,.308H30.969c.008-.103,.031-.202,.031-.308v-1.539H1v1.539Z"
+                                  fill="#a62842"></path>
+                                <path
+                                  d="M30.362,26.154H1.638c.711,1.108,1.947,1.846,3.362,1.846H27c1.414,0,2.65-.738,3.362-1.846Z"
+                                  fill="#a62842"></path>
+                                <path d="M5,4h11v12.923H1V8c0-2.208,1.792-4,4-4Z" fill="#102d5e"></path>
+                                <path
+                                  d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z"
+                                  opacity=".15"></path>
+                                <path
+                                  d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z"
+                                  fill="#fff" opacity=".2"></path>
+                                <path fill="#fff"
+                                  d="M4.601 7.463L5.193 7.033 4.462 7.033 4.236 6.338 4.01 7.033 3.279 7.033 3.87 7.463 3.644 8.158 4.236 7.729 4.827 8.158 4.601 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M7.58 7.463L8.172 7.033 7.441 7.033 7.215 6.338 6.989 7.033 6.258 7.033 6.849 7.463 6.623 8.158 7.215 7.729 7.806 8.158 7.58 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M10.56 7.463L11.151 7.033 10.42 7.033 10.194 6.338 9.968 7.033 9.237 7.033 9.828 7.463 9.603 8.158 10.194 7.729 10.785 8.158 10.56 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M6.066 9.283L6.658 8.854 5.927 8.854 5.701 8.158 5.475 8.854 4.744 8.854 5.335 9.283 5.109 9.979 5.701 9.549 6.292 9.979 6.066 9.283z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M9.046 9.283L9.637 8.854 8.906 8.854 8.68 8.158 8.454 8.854 7.723 8.854 8.314 9.283 8.089 9.979 8.68 9.549 9.271 9.979 9.046 9.283z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M12.025 9.283L12.616 8.854 11.885 8.854 11.659 8.158 11.433 8.854 10.702 8.854 11.294 9.283 11.068 9.979 11.659 9.549 12.251 9.979 12.025 9.283z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M6.066 12.924L6.658 12.494 5.927 12.494 5.701 11.799 5.475 12.494 4.744 12.494 5.335 12.924 5.109 13.619 5.701 13.19 6.292 13.619 6.066 12.924z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M9.046 12.924L9.637 12.494 8.906 12.494 8.68 11.799 8.454 12.494 7.723 12.494 8.314 12.924 8.089 13.619 8.68 13.19 9.271 13.619 9.046 12.924z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M12.025 12.924L12.616 12.494 11.885 12.494 11.659 11.799 11.433 12.494 10.702 12.494 11.294 12.924 11.068 13.619 11.659 13.19 12.251 13.619 12.025 12.924z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M13.539 7.463L14.13 7.033 13.399 7.033 13.173 6.338 12.947 7.033 12.216 7.033 12.808 7.463 12.582 8.158 13.173 7.729 13.765 8.158 13.539 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M4.601 11.104L5.193 10.674 4.462 10.674 4.236 9.979 4.01 10.674 3.279 10.674 3.87 11.104 3.644 11.799 4.236 11.369 4.827 11.799 4.601 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M7.58 11.104L8.172 10.674 7.441 10.674 7.215 9.979 6.989 10.674 6.258 10.674 6.849 11.104 6.623 11.799 7.215 11.369 7.806 11.799 7.58 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M10.56 11.104L11.151 10.674 10.42 10.674 10.194 9.979 9.968 10.674 9.237 10.674 9.828 11.104 9.603 11.799 10.194 11.369 10.785 11.799 10.56 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M13.539 11.104L14.13 10.674 13.399 10.674 13.173 9.979 12.947 10.674 12.216 10.674 12.808 11.104 12.582 11.799 13.173 11.369 13.765 11.799 13.539 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M4.601 14.744L5.193 14.315 4.462 14.315 4.236 13.619 4.01 14.315 3.279 14.315 3.87 14.744 3.644 15.44 4.236 15.01 4.827 15.44 4.601 14.744z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M7.58 14.744L8.172 14.315 7.441 14.315 7.215 13.619 6.989 14.315 6.258 14.315 6.849 14.744 6.623 15.44 7.215 15.01 7.806 15.44 7.58 14.744z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M10.56 14.744L11.151 14.315 10.42 14.315 10.194 13.619 9.968 14.315 9.237 14.315 9.828 14.744 9.603 15.44 10.194 15.01 10.785 15.44 10.56 14.744z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M13.539 14.744L14.13 14.315 13.399 14.315 13.173 13.619 12.947 14.315 12.216 14.315 12.808 14.744 12.582 15.44 13.173 15.01 13.765 15.44 13.539 14.744z">
+                                </path>
+                              </svg></td>
+                            <td class="align-middle">$100</td>
+                            <td class="align-middle">10</td>
+                            <td class="align-middle">
+                              <i class="bi bi-star-fill text-star"></i>
+                              <i class="bi bi-star-fill text-star"></i>
+                              <i class="bi bi-star-fill text-star"></i>
+                              <i class="bi bi-star-half text-star"></i>
+                              <i class="bi bi-star text-star"></i>
+                            </td>
+                            <td class="align-middle">
+                              <div class="progress" role="progressbar" aria-label="Example 1px high" aria-valuenow="0"
+                                aria-valuemin="0" aria-valuemax="100" style="height: 8px;">
+                                <div class="progress-bar bg-accent" style="width: 75% "></div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><img src="" alt="" class="align-middle bg-secondary rounded-circle"
+                                style="width: 40px; height: 40px;"></th>
+                            <td class="align-middle"><a href="" class="link-underline link-underline-opacity-0">Ruby T.
+                                Curd</a></td>
+                            <td class="align-middle"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 32 32">
+                                <rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#fff"></rect>
+                                <path
+                                  d="M1.638,5.846H30.362c-.711-1.108-1.947-1.846-3.362-1.846H5c-1.414,0-2.65,.738-3.362,1.846Z"
+                                  fill="#a62842"></path>
+                                <path
+                                  d="M2.03,7.692c-.008,.103-.03,.202-.03,.308v1.539H31v-1.539c0-.105-.022-.204-.03-.308H2.03Z"
+                                  fill="#a62842"></path>
+                                <path fill="#a62842" d="M2 11.385H31V13.231H2z"></path>
+                                <path fill="#a62842" d="M2 15.077H31V16.923000000000002H2z"></path>
+                                <path fill="#a62842" d="M1 18.769H31V20.615H1z"></path>
+                                <path
+                                  d="M1,24c0,.105,.023,.204,.031,.308H30.969c.008-.103,.031-.202,.031-.308v-1.539H1v1.539Z"
+                                  fill="#a62842"></path>
+                                <path
+                                  d="M30.362,26.154H1.638c.711,1.108,1.947,1.846,3.362,1.846H27c1.414,0,2.65-.738,3.362-1.846Z"
+                                  fill="#a62842"></path>
+                                <path d="M5,4h11v12.923H1V8c0-2.208,1.792-4,4-4Z" fill="#102d5e"></path>
+                                <path
+                                  d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z"
+                                  opacity=".15"></path>
+                                <path
+                                  d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z"
+                                  fill="#fff" opacity=".2"></path>
+                                <path fill="#fff"
+                                  d="M4.601 7.463L5.193 7.033 4.462 7.033 4.236 6.338 4.01 7.033 3.279 7.033 3.87 7.463 3.644 8.158 4.236 7.729 4.827 8.158 4.601 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M7.58 7.463L8.172 7.033 7.441 7.033 7.215 6.338 6.989 7.033 6.258 7.033 6.849 7.463 6.623 8.158 7.215 7.729 7.806 8.158 7.58 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M10.56 7.463L11.151 7.033 10.42 7.033 10.194 6.338 9.968 7.033 9.237 7.033 9.828 7.463 9.603 8.158 10.194 7.729 10.785 8.158 10.56 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M6.066 9.283L6.658 8.854 5.927 8.854 5.701 8.158 5.475 8.854 4.744 8.854 5.335 9.283 5.109 9.979 5.701 9.549 6.292 9.979 6.066 9.283z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M9.046 9.283L9.637 8.854 8.906 8.854 8.68 8.158 8.454 8.854 7.723 8.854 8.314 9.283 8.089 9.979 8.68 9.549 9.271 9.979 9.046 9.283z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M12.025 9.283L12.616 8.854 11.885 8.854 11.659 8.158 11.433 8.854 10.702 8.854 11.294 9.283 11.068 9.979 11.659 9.549 12.251 9.979 12.025 9.283z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M6.066 12.924L6.658 12.494 5.927 12.494 5.701 11.799 5.475 12.494 4.744 12.494 5.335 12.924 5.109 13.619 5.701 13.19 6.292 13.619 6.066 12.924z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M9.046 12.924L9.637 12.494 8.906 12.494 8.68 11.799 8.454 12.494 7.723 12.494 8.314 12.924 8.089 13.619 8.68 13.19 9.271 13.619 9.046 12.924z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M12.025 12.924L12.616 12.494 11.885 12.494 11.659 11.799 11.433 12.494 10.702 12.494 11.294 12.924 11.068 13.619 11.659 13.19 12.251 13.619 12.025 12.924z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M13.539 7.463L14.13 7.033 13.399 7.033 13.173 6.338 12.947 7.033 12.216 7.033 12.808 7.463 12.582 8.158 13.173 7.729 13.765 8.158 13.539 7.463z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M4.601 11.104L5.193 10.674 4.462 10.674 4.236 9.979 4.01 10.674 3.279 10.674 3.87 11.104 3.644 11.799 4.236 11.369 4.827 11.799 4.601 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M7.58 11.104L8.172 10.674 7.441 10.674 7.215 9.979 6.989 10.674 6.258 10.674 6.849 11.104 6.623 11.799 7.215 11.369 7.806 11.799 7.58 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M10.56 11.104L11.151 10.674 10.42 10.674 10.194 9.979 9.968 10.674 9.237 10.674 9.828 11.104 9.603 11.799 10.194 11.369 10.785 11.799 10.56 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M13.539 11.104L14.13 10.674 13.399 10.674 13.173 9.979 12.947 10.674 12.216 10.674 12.808 11.104 12.582 11.799 13.173 11.369 13.765 11.799 13.539 11.104z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M4.601 14.744L5.193 14.315 4.462 14.315 4.236 13.619 4.01 14.315 3.279 14.315 3.87 14.744 3.644 15.44 4.236 15.01 4.827 15.44 4.601 14.744z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M7.58 14.744L8.172 14.315 7.441 14.315 7.215 13.619 6.989 14.315 6.258 14.315 6.849 14.744 6.623 15.44 7.215 15.01 7.806 15.44 7.58 14.744z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M10.56 14.744L11.151 14.315 10.42 14.315 10.194 13.619 9.968 14.315 9.237 14.315 9.828 14.744 9.603 15.44 10.194 15.01 10.785 15.44 10.56 14.744z">
+                                </path>
+                                <path fill="#fff"
+                                  d="M13.539 14.744L14.13 14.315 13.399 14.315 13.173 13.619 12.947 14.315 12.216 14.315 12.808 14.744 12.582 15.44 13.173 15.01 13.765 15.44 13.539 14.744z">
+                                </path>
+                              </svg></td>
+                            <td class="align-middle">$100</td>
+                            <td class="align-middle">10</td>
+                            <td class="align-middle">
+                              <i class="bi bi-star-fill text-star"></i>
+                              <i class="bi bi-star-fill text-star"></i>
+                              <i class="bi bi-star-fill text-star"></i>
+                              <i class="bi bi-star-half text-star"></i>
+                              <i class="bi bi-star text-star"></i>
+                            </td>
+                            <td class="align-middle">
+                              <div class="progress" role="progressbar" aria-label="Example 1px high" aria-valuenow="0"
+                                aria-valuemin="0" aria-valuemax="100" style="height: 8px;">
+                                <div class="progress-bar bg-accent" style="width: 75% "></div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 pe-0">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">New Users</h5>
+                    <div>
+                      <div class="d-flex justify-content-between px-4 my-4">
+                        <div class="d-flex gap-2">
+                          <img src="" alt="" style="width: 45px; height: 45px;" class="rounded-circle bg-secondary">
+                          <div class="d-flex flex-column">
+                            <span class="fw-medium">Ruby T. Curd</span>
+                            <small>Newyork</small>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-column align-items-center">
+                          <i class="bi bi-circle-fill text-success"></i>
+                          <small>Now</small>
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-between px-4 my-4">
+                        <div class="d-flex gap-2">
+                          <img src="" alt="" style="width: 45px; height: 45px;" class="rounded-circle bg-secondary">
+                          <div class="d-flex flex-column">
+                            <span class="fw-medium">Ruby T. Curd</span>
+                            <small>Newyork</small>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-column align-items-center">
+                          <i class="bi bi-circle-fill text-success"></i>
+                          <small>Now</small>
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-between px-4 my-4">
+                        <div class="d-flex gap-2">
+                          <img src="" alt="" style="width: 45px; height: 45px;" class="rounded-circle bg-secondary">
+                          <div class="d-flex flex-column">
+                            <span class="fw-medium">Ruby T. Curd</span>
+                            <small>Newyork</small>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-column align-items-center">
+                          <i class="bi bi-circle-fill text-success"></i>
+                          <small>Now</small>
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-between px-4 my-4">
+                        <div class="d-flex gap-2">
+                          <img src="" alt="" style="width: 45px; height: 45px;" class="rounded-circle bg-secondary">
+                          <div class="d-flex flex-column">
+                            <span class="fw-medium">Ruby T. Curd</span>
+                            <small>Newyork</small>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-column align-items-center">
+                          <i class="bi bi-circle-fill text-success"></i>
+                          <small>Now</small>
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-between px-4 my-4">
+                        <div class="d-flex gap-2">
+                          <img src="" alt="" style="width: 45px; height: 45px;" class="rounded-circle bg-secondary">
+                          <div class="d-flex flex-column">
+                            <span class="fw-medium">Ruby T. Curd</span>
+                            <small>Newyork</small>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-column align-items-center">
+                          <i class="bi bi-circle-fill text-success"></i>
+                          <small>Now</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <footer class="footer-bg border-top py-3 d-flex justify-content-center align-items-center">
+        <span>@ 2019 Annex by Mannatthemes.</span>
+      </footer>
+      <div></div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+
+
+</body>
+
+</html>
