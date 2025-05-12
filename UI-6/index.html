@@ -75,16 +75,16 @@
                         <div id="passwordField">
                             <label>Password: </label>
                             <input id="password" type="password" required oninput="checkPassword()">
-                            <span id="password-error" style="color: red; font-size: 14px;"></span><br>
-                            <button type="button" onclick="showField('cpasswordField','passwordField')">Next</button>
+                            <span id="strength-text" style="color: red; font-size: 14px;"></span><br>
+                            <button type="button" onclick="showField('confirmPasswordField','passwordField')">Next</button>
                         </div>
                         <br>
 
-                        <div id="cpasswordField">
+                        <div id="confirmPasswordField">
                             <label>Confirm Password: </label>
                             <input id="conpassword" type="password" required oninput="checkConfirmPassword()">
                             <span id="conpassword-error" style="color: red; font-size: 14px;"></span><br>
-                            <button type="button" onclick="showField('PhoneField','cpasswordField')">Next</button>
+                            <button type="button" onclick="showField('PhoneField','confirmPasswordField')">Next</button>
                         </div>
                         <br>
 

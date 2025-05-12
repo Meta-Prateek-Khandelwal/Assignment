@@ -49,38 +49,39 @@ function validateEmail() {
   if (erroremailDiv) erroremailDiv.textContent = "";
   return true;
 }
-
 function checkPassword() {
   const passwordInput = document.getElementById("password");
   const strengthText = document.getElementById("strength-text");
-  const errorDiv = document.getElementById("password-error");
+  // const errorDiv = document.getElementById("password-error");
   const password = passwordInput.value;
 
   const hasUpperCase = /[A-Z]/.test(password);
   const hasLowerCase = /[a-z]/.test(password);
   const hasNumbers = /[0-9]/.test(password);
   const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-  const isLongEnough = password.length > 8;
+  const isLongEnough = password.length >= 8; 
 
   let strength = "Weak";
   let borderColor = "red";
+  // let errorMessage = "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.";
 
   if (isLongEnough && hasUpperCase && hasLowerCase && hasNumbers && hasSpecialChar) {
     strength = "Strong";
     borderColor = "green";
-    return true;
+    errorMessage = "";
   } else if (isLongEnough && (hasUpperCase || hasLowerCase) && (hasNumbers || hasSpecialChar)) {
     strength = "Normal";
     borderColor = "orange";
-    return true;
+    errorMessage = "";
   }
 
   passwordInput.style.borderColor = borderColor;
   strengthText.textContent = `Password Strength: ${strength}`;
   strengthText.style.color = borderColor;
 
-  errorDiv.textContent = "";
-  return false;
+  // strengthText.textContent = errorMessage; 
+
+  return strength==='Strong';
 }
 
 function checkConfirmPassword() {
@@ -181,17 +182,17 @@ function generateCyclePlan() {
    `;
 }
 
-// const pricingINR = {
-//   Cycle: { Daily: 10, Monthly: 200, Yearly: 2000 },
-//   Motorcycle: { Daily: 30, Monthly: 500, Yearly: 5000 },
-//   FourWheeler: { Daily: 50, Monthly: 800, Yearly: 8000 }
-// };
+const pricingINR = {
+  Cycle: { Daily: 10, Monthly: 200, Yearly: 2000 },
+  Motorcycle: { Daily: 30, Monthly: 500, Yearly: 5000 },
+  FourWheeler: { Daily: 50, Monthly: 800, Yearly: 8000 }
+};
 
-// const exchangeRates = {
-//   INR: 1,
-//   USD: 0.012,
-//   YEN: 1.7
-// };
+const exchangeRates = {
+  INR: 1,
+  USD: 0.012,
+  YEN: 1.7
+};
 
 function calculateAndShowPass() {
   const vehicle = document.querySelector('input[name="vehicle-type"]:checked')?.value;
@@ -207,21 +208,21 @@ function calculateAndShowPass() {
     return;
   }
 
-  const pricingINR = {
-    Cycle: { Daily: 10, Monthly: 200, Yearly: 2000 },
-    Motorcycle: { Daily: 30, Monthly: 500, Yearly: 5000 },
-    FourWheeler: { Daily: 50, Monthly: 800, Yearly: 8000 }
-  };
+  // const pricingINR = {
+  //   Cycle: { Daily: 10, Monthly: 200, Yearly: 2000 },
+  //   Motorcycle: { Daily: 30, Monthly: 500, Yearly: 5000 },
+  //   FourWheeler: { Daily: 50, Monthly: 800, Yearly: 8000 }
+  // };
 
-  const exchangeRates = {
-    INR: 1,
-    USD: 0.012,
-    YEN: 1.7
-  };
+  // const exchangeRates = {
+  //   INR: 1,
+  //   USD: 0.012,
+  //   YEN: 1.7
+  // };
 
 
   const inrPrice = pricingINR[vehicle][plan];
-  console.log(inrPrice);
+  console.log(exchangeRates);
   const convertedPrice = (inrPrice * exchangeRates[currency]).toFixed(2);
   const usdPrice = (inrPrice * exchangeRates["USD"]).toFixed(2);
 
