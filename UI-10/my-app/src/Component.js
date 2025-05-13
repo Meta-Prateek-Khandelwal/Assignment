@@ -11,7 +11,6 @@ function App() {
   const [newTask, setNewTask] = useState('');
   const [selectedPriority, setSelectedPriority] = useState('Medium');
   const [activeColumn, setActiveColumn] = useState('new');
-//   const [draggedItem, setDraggedItem] = useState(null);
 
   const addNewTask = () => {
     if (newTask.trim() === '') return;
@@ -27,34 +26,8 @@ function App() {
     setNewTask('');
   };
 
-//   const removeTask = (columnId, taskId) => {
-//     const updatedColumns = { ...columns };
-//     updatedColumns[columnId].items = updatedColumns[columnId].items.filter(item => item.id !== taskId);
-//     setColumns(updatedColumns);
-//   };
-
-//   const handleDragStart = (columnId, item) => {
-//     if (columnId === 'completed') return;
-//     setDraggedItem({ columnId, item });
-//   };
-
-//   const handleDragOver = e => {
-//     e.preventDefault();
-//   };
-
   const handleDrop = (e, columnId) => {
     e.preventDefault();
-    // if (!draggedItem) return;
-
-    // const { columnId: sourceColumnId, item } = draggedItem;
-    // // if (sourceColumnId === columnId) return;
-
-    // // const updatedColumns = { ...columns };
-    // // updatedColumns[sourceColumnId].items = updatedColumns[sourceColumnId].items.filter(i => i.id !== item.id);
-    // updatedColumns[columnId].items.push(item);
-
-    // setColumns(updatedColumns);
-    // setDraggedItem(null);
   };
 
   return (
@@ -106,7 +79,6 @@ function App() {
                     >
                       <span>{item.content}</span>
                       <span>{item.priority}</span>
-                      {/* <button onClick={() => removeTask(columnId, item.id)}>✖</button> */}
                     </div>
                   ))
                 )}
