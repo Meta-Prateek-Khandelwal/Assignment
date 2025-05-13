@@ -47,26 +47,26 @@
                     <form id="emp">
                         <div id="nameField">
                             <label for="Name">Name: </label>
-                            <input oninput="validateName()" type="text" id="Name" name="User name"  required>
+                            <input oninput="validateName()" type="text" id="Name" name="User name" required>
                             <span id="name-error" style="color: red; font-size: 14px;"></span><br>
-                            <button type="button" onclick="showField('genderField', 'nameField')">Next</button>  
+                            <button type="button" onclick="showField('genderField', 'nameField')">Next</button>
                         </div>
                         <br>
 
                         <div id="genderField">
-                            <label id="gender">Gender: </label>
+                            <h3><span id="greetingMessage"></span></h3>
                             <input type="radio" name="choice" id="Male">
                             <label>Male</label>
                             <input type="radio" name="choice" id="Female">
                             <label>Female</label>
-                            
+
                             <button type="button" onclick="showField('emailField', 'genderField')">Next</button>
                         </div>
                         <br>
 
                         <div id="emailField">
                             <label>Email: </label>
-                            <input  id="email" type="email" required oninput="validateEmail()">
+                            <input id="email" type="email" required oninput="validateEmail()">
                             <span id="erroremailDiv" style="color: red; font-size: 14px;"></span><br>
                             <button type="button" onclick="showField('passwordField', 'emailField')">Next</button>
                         </div>
@@ -75,16 +75,16 @@
                         <div id="passwordField">
                             <label>Password: </label>
                             <input id="password" type="password" required oninput="checkPassword()">
-                            <span id="password-error" style="color: red; font-size: 14px;"></span><br>
-                            <button type="button" onclick="showField('cpasswordField','passwordField')">Next</button>
+                            <span id="strength-text" style="color: red; font-size: 14px;"></span><br>
+                            <button type="button" onclick="showField('confirmPasswordField','passwordField')">Next</button>
                         </div>
                         <br>
 
-                        <div id="cpasswordField">
+                        <div id="confirmPasswordField">
                             <label>Confirm Password: </label>
                             <input id="conpassword" type="password" required oninput="checkConfirmPassword()">
                             <span id="conpassword-error" style="color: red; font-size: 14px;"></span><br>
-                            <button type="button" onclick="showField('PhoneField','cpasswordField')">Next</button>
+                            <button type="button" onclick="showField('PhoneField','confirmPasswordField')">Next</button>
                         </div>
                         <br>
 
@@ -92,7 +92,7 @@
                             <label>Phone No: </label>
                             <input id="phone" type="tel" required oninput="validateContact()">
                             <span id="phone-error" style="color: red; font-size: 14px;"></span><br>
-                            <a onclick="handleSubmit()">Submit</a>
+                            <button type="button" onclick="handleSubmit()">Submit</button>
                         </div>
                         <br><br>
                     </form>
@@ -102,46 +102,67 @@
         </details>
 
         <!-- Vehicle information form -->
-        <details class="wraper">
+        <details id="newVec" class="wraper">
             <summary id="vehicle">Vehicle</summary>
             <div class="form">
                 <h1>ADD Vehicle Information</h1>
                 <div class="vehicle">
                     <img src="image/car.png" alt="">
                     <form>
-                    <div>
-                        <label>Vehicle Make(Company): </label>
-                        <input type="text">
-                        <br><br>
-                    </div>
 
-                        <label for="">Vehicle Model: </label>
-                        <input type="text">
-                        <br><br>
+                        <div id="makeField">
+                            <label>Vehicle Make(Company): </label>
+                            <input type="text">
+                            <br><br>
+                            <button type="button" onclick="showField('modelField','makeField')">Next</button>
+                            <!-- <button >Submit</button> -->
+                        </div>
 
-                        <label>Type: </label>
-                        <input type="radio" name="choice" id="car">
-                        <label for="car">car</label>
-                        <input type="radio" name="choice" id="bike">
-                        <label for="bike">Bike</label>
-                        <input type="radio" name="choice" id="cycle">
-                        <label for="cycle">Cycle</label>
-                        <br><br>
+                        <div id="modelField">
+                            <label for="">Vehicle Model: </label>
+                            <input type="text">
+                            <button type="button" onclick="showField('numberField','modelField')">Next</button>
+                        </div>
 
-                        <label>Vehicle number: </label>
-                        <input type="text">
-                        <br><br>
+                        <div id="numberField">
+                            <label>Vehicle number: </label>
+                            <input type="text">
+                            <button type="button" onclick="showField('idField','numberField')">Next</button>
+                        </div>
 
-                        <label>Employee id: </label>
-                        <input type="text">
-                        <br><br>
+                        <div id="idField">
+                            <label>Employee id: </label>
+                            <input type="text">
+                            <button type="button" onclick="showField('vecField', 'idField')">next</button>
+                        </div>
 
-                        <span class="message">
-                            <label for="">Identification: </label>
-                            <textarea placeholder="Decribe vehicle Information" id=""></textarea>
-                        </span>
-                        <br><br>
-                        <button>Submit</button>
+                        <div id="vecField">
+                            <h3 id="s-plan">Select Vehicle Type</h3>
+                            <label><input type="radio" name="vehicle-type" value="Cycle" id="cycle"> Cycle</label>
+                            <label><input type="radio" name="vehicle-type" value="Motorcycle" id="bike"> Motorcycle</label>
+                            <label><input type="radio" name="vehicle-type" value="Four Wheeler" id="car"> Four Wheeler</label>
+                            <div id="planDetails"></div>
+                        
+                            <h3 id="s-plan">Select Plan</h3>
+                            <label><input type="radio" name="plan-type" value="Daily"> Daily</label>
+                            <label><input type="radio" name="plan-type" value="Monthly"> Monthly</label>
+                            <label><input type="radio" name="plan-type" value="Yearly"> Yearly</label>
+                        
+                            <h3 id="s-plan">Select Currency</h3>
+                            <select id="currency-select">
+                                <option value="INR">INR</option>
+                                <option value="USD">USD</option>
+                                <option value="YEN">YEN</option>
+                            </select>
+                                                    
+                            <br><br>
+                            <button type="button" onclick="calculateAndShowPass()">Get Pass</button>
+                        
+                            <div id="final-pass" style="margin-top: 20px; font-size: 16px; font-weight: bold; display: block;" ></div>
+                        </div>
+
+                        
+                        <!-- <div id="planDetails"></div> -->
                     </form>
                 </div>
             </div>
@@ -238,8 +259,7 @@
 
         </div>
     </div>
-    <script src="script.js"></script>
-    <script src="validation.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 
 </html>
