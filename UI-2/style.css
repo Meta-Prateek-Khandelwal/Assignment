@@ -1,0 +1,231 @@
+/* Reset and global settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f0f8ff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navclass {
+    border-radius: 25px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+
+.navbar ul li {
+    padding: 0 40px;
+}
+
+nav ul li a {
+    color: #5a5aad; 
+    font-size: large;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #2a2a72;
+}
+
+.feedback button{
+    margin: 0 0;
+}
+
+.message{
+    justify-content: center;
+    align-items: center;
+}
+
+/* Parking Section */
+.parking {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px; 
+    padding: 40px 20px;
+    background-color: #e6f7ff;
+}
+
+.welcome {
+    font-size: 50px; 
+    color: #1a1a40; 
+}
+
+.parking img {
+    width: 40%;
+    border-radius: 10px; 
+}
+
+/* Forms Section */
+.form { 
+    border: 1px solid lightgray;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    width: 900px;
+    align-items: center;
+    margin: 20px auto; 
+    border-radius: 15px;
+    background-color: #ffffff;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.form form{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.form h1{
+    cursor: pointer;
+    padding: 15px 20px;
+    font-weight: bold;
+    margin: 0;
+    background-color: #5a5aad;
+}
+
+.employee, .feedback, .vehicle {
+    color: #5a5aad;
+    margin: 0 auto;
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Employee add section */
+.add {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Feedback Section */
+.feedback{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form table{
+    width: 100%;
+}
+
+/* Centering the headings */
+#feedback {
+    text-align: center;
+    display: block;
+}
+
+.feedback img {
+    width: 300px;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.vehicle img{
+    width: 300px;
+    height: auto;
+}
+
+.wraper summary{
+    font-size: .6cm;
+     font-weight: bold;
+     cursor: pointer;
+     padding: 10px 20px;
+     background-color: #5e4caf;
+     color: #fff;
+     border-radius: 10px;
+     margin-top: 10px;
+     margin-left: 20px;
+     margin-right: 20px;
+     transition-delay: 51s;
+}
+.feedback button{
+    margin: 0 220px;
+}
+
+/* Pricing Section */
+.booking {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20%; 
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f8ff; 
+    border-radius: 25px;
+    margin: 0 10px;
+}
+
+.priceTag{
+    text-align: center;
+    padding: 20px;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.price {
+    padding: 20px 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    background-color: #5a5aad;
+    text-align: center;
+    color: #1a1a40; 
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.price h1 {
+    margin: 0;
+    color: #2a2a72;
+    font-size: 24px;
+}
+
+/* for all button tag */
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #5a5aad;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2a2a72; 
+}
+
+/* text area size fix */
+textarea{
+    width: 200px;
+    height: 100px;
+    resize: none;
+    border: 1px solid;
+}

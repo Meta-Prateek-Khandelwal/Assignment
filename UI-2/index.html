@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Parking</title>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="container">
+        <div class="navclass">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="image/metacube-logo.png" alt="">
+                </div>
+                <ul>
+                    <li><a href="#Employee">Add Employee</a></li>
+                    <li><a href="#vehicle">Add Vehicle</a></li>
+                    <li><a href="#feedback">Give feedback</a></li>
+                    <li><a href="#price">Pricing</a></li>
+                </ul>
+            </nav>
+        </div>
+        <br>
+
+        <!-- Image -->
+        <div class="parking">
+            <img src="image/parking.png">
+            <div class="welcome">
+                <h1>WelCome to MetaRide</h1>
+            </div>
+        </div>
+        <br>
+
+        <!-- Employee information form -->
+        <details class="wraper" >
+            <summary id="Employee">Employee</summary>
+            <div class="form">
+                <h1 class="add">ADD Employee Details</h1>
+                <div class="employee">
+                    <img src="image/addemployee.png" alt="">
+
+                    <form>
+                        <label for="Name">Name: </label>
+                        <input type="text" id="Name" name="User name" id="" required>
+                        <br><br>
+
+                        <label>Gender: </label>
+                        <input type="radio" name="choice" value="male" id="male">
+                        <label for="male">Male</label>
+                        <input type="radio" name="choice" value="Female" id="female">
+                        <label for="female">Female</label>
+                        <br><br>
+
+                        <label>Email: </label>
+                        <input type="email" required>
+                        <br><br>
+
+                        <label>Password: </label>
+                        <input type="password" required>
+                        <br><br>
+
+                        <label>Confirm Password: </label>
+                        <input type="password" required>
+                        <br><br>
+
+                        <label></label>Phone No: </label>
+                        <input type="tel" required>
+                        <br><br>
+                        <button>Submit</button>
+                    </form>
+                </div>
+            </div>
+            <br>
+        </details>
+
+        <!-- Vehicle information form -->
+        <details class="wraper">
+            <summary id="vehicle">Vehicle</summary>
+            <div class="form">
+                <h1>ADD Vehicle Information</h1>
+                <div class="vehicle">
+                    <img src="image/car.png" alt="">
+                    <form>
+                        <label>Vehicle Make(Company): </label>
+                        <input type="text">
+                        <br><br>
+
+                        <label for="">Vehicle Model: </label>
+                        <input type="text">
+                        <br><br>
+
+                        <label>Type: </label>
+                        <input type="radio" name="choice" id="car">
+                        <label for="car">car</label>
+                        <input type="radio" name="choice" id="bike">
+                        <label for="bike">Bike</label>
+                        <input type="radio" name="choice" id="cycle">
+                        <label for="cycle">Cycle</label>
+                        <br><br>
+
+                        <label>Vehicle number: </label>
+                        <input type="text">
+                        <br><br>
+
+                        <label>Employee id: </label>
+                        <input type="text">
+                        <br><br>
+
+                        <span class="message">
+                            <label for="">Identification: </label>
+                            <textarea placeholder="Decribe vehicle Information" id=""></textarea>
+                        </span>
+                        <br><br>
+                        <button>Submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <br>
+        </details>
+
+        <!-- feedback form -->
+        <div id="feedback" class="form">
+            <h1>Get in touch</h1>
+            <div class="feedback">
+                <table>
+                    <tr>
+                        <td>
+                            <img src="image/feedback.jpg" alt="">
+                        </td>
+                        <td>
+                            <form action="">
+                                <input type="text" placeholder="User name" required>
+                                <br><br>
+                                <input type="email" placeholder="E-mail" required>
+                                <br><br>
+                                <input type="text" placeholder="Subject" required>
+                                <br><br>
+                                <textarea name="" placeholder="Message"></textarea>
+                                <br><br>
+                                <button>Send Email</button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <br>
+
+
+        <div id="price" class="booking">
+            <div class="priceTag">
+                <h3>Cycle</h3>
+                <br>
+                <div class="price">
+                    <h1>$100</h1>
+                    <p>/month</p>
+                </div>
+                <br>
+                <p>
+                    $5 Daily <br>
+                    $100 Monthly <br>
+                    $500 Yearly
+                </p>
+                <br>
+                <button>Purchase Now</button>
+                <br>
+            </div>
+
+
+            <div class="priceTag">
+                <h3>MotorCycle</h3>
+                <br>
+                <div class="price">
+                    <h1>$200</h1>
+                    <p>/month</p>
+                </div>
+                <br>
+                <p>
+                    $10 Daily <br>
+                    $200 Monthly <br>
+                    $200 Yearly
+                </p>
+                <br>
+                <button>Purchase Now</button>
+                <br>
+            </div>
+
+
+            <div class="priceTag">
+                <h3>Four Wheelers </h3>
+                <br>
+                <div class="price">
+                    <h1>$500</h1>
+                    <p>/month</p>
+                </div>
+                <br>
+                <p>
+                    $20 Daily <br>
+                    $500 Monthly <br>
+                    $3500 Yearly
+                </p>
+                <br>
+                <button>Purchase Now</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
