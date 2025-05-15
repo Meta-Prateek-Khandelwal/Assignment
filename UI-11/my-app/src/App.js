@@ -2,12 +2,7 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [columns, setColumns] = useState({
-    new: { name: 'New', items: [] },
-    inProgress: { name: 'In Progress', items: [] },
-    completed: { name: 'Done', items: [] },
-  });
-
+  const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
   const [selectedPriority, setSelectedPriority] = useState('Medium');
   const [activeColumn, setActiveColumn] = useState('new');
@@ -16,45 +11,46 @@ function App() {
   const addNewTask = () => {
     if (newTask.trim() === '') return;
 
-    const updatedColumns = { ...columns };
-    updatedColumns[activeColumn].items.push({
-      id: Date.now().toString(),
-      content: newTask,
-      priority: selectedPriority,
-    });
+    setTasks([
+      ...tasks,
+      {
+        id: Date.now().toString(),
+        content: newTask,
+        priority: selectedPriority,
+        status: activeColumn,
+      }
+    ]);
 
-    setColumns(updatedColumns);
     setNewTask('');
   };
 
-  const removeTask = (columnId, taskId) => {
-    const updatedColumns = { ...columns };
-    updatedColumns[columnId].items = updatedColumns[columnId].items.filter(item => item.id !== taskId);
-    setColumns(updatedColumns);
+  const removeTask = taskId => {
+    setTasks(tasks.filter(task => task.id !== taskId));
   };
 
-  const handleDragStart = (columnId, item) => {
-    if (columnId === 'completed') return;
-    setDraggedItem({ columnId, item });
+  const handleDragStart = item => {
+    if (item.status === 'completed') return;
+    setDraggedItem(item);
   };
 
   const handleDragOver = e => {
     e.preventDefault();
   };
 
-  const handleDrop = (e, columnId) => {
+  const handleDrop = (e, newStatus) => {
     e.preventDefault();
-    if (!draggedItem) return;
+    if (!draggedItem || draggedItem.status === newStatus) return;
 
-    const { columnId: sourceColumnId, item } = draggedItem;
-    if (sourceColumnId === columnId) return;
-
-    const updatedColumns = { ...columns };
-    updatedColumns[sourceColumnId].items = updatedColumns[sourceColumnId].items.filter(i => i.id !== item.id);
-    updatedColumns[columnId].items.push(item);
-
-    setColumns(updatedColumns);
+    setTasks(tasks.map(task =>
+      task.id === draggedItem.id ? { ...task, status: newStatus } : task
+    ));
     setDraggedItem(null);
+  };
+
+  const columns = {
+    new: 'New',
+    inProgress: 'In Progress',
+    completed: 'Done',
   };
 
   return (
@@ -73,9 +69,7 @@ function App() {
 
           <select value={activeColumn} onChange={e => setActiveColumn(e.target.value)}>
             {Object.keys(columns).map(columnId => (
-              <option value={columnId} key={columnId}>
-                {columns[columnId].name}
-              </option>
+              <option value={columnId} key={columnId}>{columns[columnId]}</option>
             ))}
           </select>
 
@@ -91,24 +85,26 @@ function App() {
         <div className="columns">
           {Object.keys(columns).map(columnId => (
             <div key={columnId} className="column" onDragOver={handleDragOver} onDrop={e => handleDrop(e, columnId)}>
-              <div className="column-title">{columns[columnId].name}</div>
+              <div className="column-title">{columns[columnId]}</div>
 
               <div>
-                {columns[columnId].items.length === 0 ? (
+                {tasks.filter(task => task.status === columnId).length === 0 ? (
                   <p className="text-center">No tasks</p>
                 ) : (
-                  columns[columnId].items.map(item => (
-                    <div
-                      key={item.id}
-                      className={`task ${item.priority.toLowerCase()}`}
-                      draggable
-                      onDragStart={() => handleDragStart(columnId, item)}
-                    >
-                      <span>{item.content}</span>
-                      <span>{item.priority}</span>
-                      <button onClick={() => removeTask(columnId, item.id)}>✖</button>
-                    </div>
-                  ))
+                  tasks
+                    .filter(task => task.status === columnId)
+                    .map(task => (
+                      <div
+                        key={task.id}
+                        className={`task ${task.priority.toLowerCase()}`}
+                        draggable
+                        onDragStart={() => handleDragStart(task)}
+                      >
+                        <span>{task.content}</span>
+                        <span>{task.priority}</span>
+                        <button onClick={() => removeTask(task.id)}>✖</button>
+                      </div>
+                    ))
                 )}
               </div>
             </div>
