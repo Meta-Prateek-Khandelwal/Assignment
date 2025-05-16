@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Parking</title>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="container">
+        <div class="navclass">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="image/metacube-logo.png" alt="">
+                </div>
+                <ul>
+                    <li><a href="#Employee">Add Employee</a></li>
+                    <li><a href="#vehicle">Add Vehicle</a></li>
+                    <li><a href="#feedback">Give feedback</a></li>
+                    <li><a href="#price">Pricing</a></li>
+                </ul>
+            </nav>
+        </div>
+        <br>
+
+        <!-- Image -->
+        <div class="parking">
+            <img src="image/parking.png">
+            <div class="welcome">
+                <h1>WelCome to MetaRide</h1>
+            </div>
+        </div>
+        <br>
+
+        <!-- Employee information form -->
+        <details class="wraper">
+            <summary id="Employee">Employee</summary>
+            <div class="form">
+                <h1 class="add">ADD Employee Details</h1>
+                <div class="employee">
+                    <img src="image/addemployee.png" alt="">
+                    <h2 id="employee-id-display" style="color:green;"></h2>
+
+                    <form id="emp">
+                        <div id="nameField">
+                            <label for="Name">Name: </label>
+                            <input oninput="validateName()" type="text" id="Name" name="User name" required>
+                            <span id="name-error" style="color: red; font-size: 14px;"></span><br>
+                            <button type="button" onclick="showField('genderField', 'nameField')">Next</button>
+                        </div>
+                        <br>
+
+                        <div id="genderField">
+                            <h3><span id="greetingMessage"></span></h3>
+                            <input type="radio" name="choice" id="Male">
+                            <label>Male</label>
+                            <input type="radio" name="choice" id="Female">
+                            <label>Female</label>
+
+                            <button type="button" onclick="showField('emailField', 'genderField')">Next</button>
+                        </div>
+                        <br>
+
+                        <div id="emailField">
+                            <label>Email: </label>
+                            <input id="email" type="email" required oninput="validateEmail()">
+                            <span id="erroremailDiv" style="color: red; font-size: 14px;"></span><br>
+                            <button type="button" onclick="showField('passwordField', 'emailField')">Next</button>
+                        </div>
+                        <br>
+
+                        <div id="passwordField">
+                            <label>Password: </label>
+                            <input id="password" type="password" required oninput="checkPassword()">
+                            <span id="strength-text" style="color: red; font-size: 14px;"></span><br>
+                            <button type="button" onclick="showField('confirmPasswordField','passwordField')">Next</button>
+                        </div>
+                        <br>
+
+                        <div id="confirmPasswordField">
+                            <label>Confirm Password: </label>
+                            <input id="conpassword" type="password" required oninput="checkConfirmPassword()">
+                            <span id="conpassword-error" style="color: red; font-size: 14px;"></span><br>
+                            <button type="button" onclick="showField('PhoneField','confirmPasswordField')">Next</button>
+                        </div>
+                        <br>
+
+                        <div id="PhoneField">
+                            <label>Phone No: </label>
+                            <input id="phone" type="tel" required oninput="validateContact()">
+                            <span id="phone-error" style="color: red; font-size: 14px;"></span><br>
+                            <button type="button" onclick="handleSubmit()">Submit</button>
+                        </div>
+                        <br><br>
+                    </form>
+                </div>
+            </div>
+            <br>
+        </details>
+
+        <!-- Vehicle information form -->
+        <details id="newVec" class="wraper">
+            <summary id="vehicle">Vehicle</summary>
+            <div class="form">
+                <h1>ADD Vehicle Information</h1>
+                <div class="vehicle">
+                    <img src="image/car.png" alt="">
+                    <form>
+
+                        <div id="makeField">
+                            <label>Vehicle Make(Company): </label>
+                            <input type="text">
+                            <br><br>
+                            <button type="button" onclick="showField('modelField','makeField')">Next</button>
+                            <!-- <button >Submit</button> -->
+                        </div>
+
+                        <div id="modelField">
+                            <label for="">Vehicle Model: </label>
+                            <input type="text">
+                            <button type="button" onclick="showField('numberField','modelField')">Next</button>
+                        </div>
+
+                        <div id="numberField">
+                            <label>Vehicle number: </label>
+                            <input type="text">
+                            <button type="button" onclick="showField('idField','numberField')">Next</button>
+                        </div>
+
+                        <div id="idField">
+                            <label>Employee id: </label>
+                            <input type="text">
+                            <button type="button" onclick="showField('vecField', 'idField')">next</button>
+                        </div>
+
+                        <div id="vecField">
+                            <h3 id="s-plan">Select Vehicle Type</h3>
+                            <label><input type="radio" name="vehicle-type" value="Cycle" id="cycle"> Cycle</label>
+                            <label><input type="radio" name="vehicle-type" value="Motorcycle" id="bike"> Motorcycle</label>
+                            <label><input type="radio" name="vehicle-type" value="Four Wheeler" id="car"> Four Wheeler</label>
+                            <div id="planDetails"></div>
+                        
+                            <h3 id="s-plan">Select Plan</h3>
+                            <label><input type="radio" name="plan-type" value="Daily"> Daily</label>
+                            <label><input type="radio" name="plan-type" value="Monthly"> Monthly</label>
+                            <label><input type="radio" name="plan-type" value="Yearly"> Yearly</label>
+                        
+                            <h3 id="s-plan">Select Currency</h3>
+                            <select id="currency-select">
+                                <option value="INR">INR</option>
+                                <option value="USD">USD</option>
+                                <option value="YEN">YEN</option>
+                            </select>
+                                                    
+                            <br><br>
+                            <button type="button" onclick="calculateAndShowPass()">Get Pass</button>
+                        
+                            <div id="final-pass" style="margin-top: 20px; font-size: 16px; font-weight: bold; display: block;" ></div>
+                        </div>
+
+                        
+                        <!-- <div id="planDetails"></div> -->
+                    </form>
+                </div>
+            </div>
+
+            <br>
+        </details>
+
+        <!-- feedback form -->
+        <div id="feedback" class="form">
+            <h1>Get in touch</h1>
+            <div class="feedback">
+                <table>
+                    <tr>
+                        <td>
+                            <img src="image/feedback.jpg" alt="">
+                        </td>
+                        <td>
+                            <form action="">
+                                <input type="text" placeholder="User name" required>
+                                <br><br>
+                                <input type="email" placeholder="E-mail" required>
+                                <br><br>
+                                <input type="text" placeholder="Subject" required>
+                                <br><br>
+                                <textarea name="" placeholder="Message"></textarea>
+                                <br><br>
+                                <button>Send Email</button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <br>
+
+
+        <div id="price" class="booking">
+            <div class="priceTag">
+                <h3>Cycle</h3>
+                <br>
+                <div class="price">
+                    <h1>$100</h1>
+                    <p>/month</p>
+                </div>
+                <br>
+                <p>
+                    $5 Daily <br>
+                    $100 Monthly <br>
+                    $500 Yearly
+                </p>
+                <br>
+                <button>Purchase Now</button>
+                <br>
+            </div>
+
+
+            <div class="priceTag">
+                <h3>MotorCycle</h3>
+                <br>
+                <div class="price">
+                    <h1>$200</h1>
+                    <p>/month</p>
+                </div>
+                <br>
+                <p>
+                    $10 Daily <br>
+                    $200 Monthly <br>
+                    $200 Yearly
+                </p>
+                <br>
+                <button>Purchase Now</button>
+                <br>
+            </div>
+
+
+            <div class="priceTag">
+                <h3>Four Wheelers </h3>
+                <br>
+                <div class="price">
+                    <h1>$500</h1>
+                    <p>/month</p>
+                </div>
+                <br>
+                <p>
+                    $20 Daily <br>
+                    $500 Monthly <br>
+                    $3500 Yearly
+                </p>
+                <br>
+                <button>Purchase Now</button>
+            </div>
+
+        </div>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
