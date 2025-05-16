@@ -5,8 +5,13 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
   const [selectedPriority, setSelectedPriority] = useState('Medium');
-  const [activeColumn, setActiveColumn] = useState('new');
-  const [draggedItem, setDraggedItem] = useState(null);
+  const [activeColumn, setActiveColumn] = useState('col_1');
+
+  const columns = {
+    col_1: 'New',
+    col_2: 'In Progress',
+    col_3: 'Done',
+  };
 
   const addNewTask = () => {
     if (newTask.trim() === '') return;
@@ -17,8 +22,8 @@ function App() {
         id: Date.now().toString(),
         content: newTask,
         priority: selectedPriority,
-        status: activeColumn,
-      }
+        columnId: activeColumn,
+      },
     ]);
 
     setNewTask('');
@@ -29,7 +34,7 @@ function App() {
   };
 
   const handleDragStart = item => {
-    if (item.status === 'completed') return;
+    if (item.columnId === 'col_3') return;
     setDraggedItem(item);
   };
 
@@ -37,20 +42,14 @@ function App() {
     e.preventDefault();
   };
 
-  const handleDrop = (e, newStatus) => {
+  const handleDrop = (e, newColumnId) => {
     e.preventDefault();
-    if (!draggedItem || draggedItem.status === newStatus) return;
+    if (!draggedItem || draggedItem.columnId === newColumnId) return;
 
     setTasks(tasks.map(task =>
-      task.id === draggedItem.id ? { ...task, status: newStatus } : task
+      task.id === draggedItem.id ? { ...task, columnId: newColumnId } : task
     ));
     setDraggedItem(null);
-  };
-
-  const columns = {
-    new: 'New',
-    inProgress: 'In Progress',
-    completed: 'Done',
   };
 
   return (
@@ -84,15 +83,20 @@ function App() {
 
         <div className="columns">
           {Object.keys(columns).map(columnId => (
-            <div key={columnId} className="column" onDragOver={handleDragOver} onDrop={e => handleDrop(e, columnId)}>
+            <div
+              key={columnId}
+              className="column"
+              onDragOver={handleDragOver}
+              onDrop={e => handleDrop(e, columnId)}
+            >
               <div className="column-title">{columns[columnId]}</div>
 
               <div>
-                {tasks.filter(task => task.status === columnId).length === 0 ? (
+                {tasks.filter(task => task.columnId === columnId).length === 0 ? (
                   <p className="text-center">No tasks</p>
                 ) : (
                   tasks
-                    .filter(task => task.status === columnId)
+                    .filter(task => task.columnId === columnId)
                     .map(task => (
                       <div
                         key={task.id}
