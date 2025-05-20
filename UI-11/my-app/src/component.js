@@ -6,6 +6,7 @@ function App() {
   const [newTask, setNewTask] = useState('');
   const [selectedPriority, setSelectedPriority] = useState('Medium');
   const [activeColumn, setActiveColumn] = useState('col_1');
+  const [activeStatus, setActiveStatus] = useState('New');
 
   const columns = {
     col_1: 'New',
@@ -13,16 +14,23 @@ function App() {
     col_3: 'Done',
   };
 
+  const status = {
+    New: 'New',
+    In_progress: 'In Progress',
+    Done: 'Done',
+  }
+
   const addNewTask = () => {
     if (newTask.trim() === '') return;
 
     setTasks([
-      ...tasks,
+      tasks,
       {
         id: Date.now().toString(),
         content: newTask,
         priority: selectedPriority,
         columnId: activeColumn,
+        status: activeStatus,
       },
     ]);
 
@@ -47,7 +55,7 @@ function App() {
     if (!draggedItem || draggedItem.columnId === newColumnId) return;
 
     setTasks(tasks.map(task =>
-      task.id === draggedItem.id ? { ...task, columnId: newColumnId } : task
+      task.id === draggedItem.id ? { ...task, columnId: newColumnId, status: columns[newColumnId] } : task
     ));
     setDraggedItem(null);
   };
