@@ -5,5 +5,3 @@ manifest/
 .forceignore/
 README.md/
 sdfx-project.json
-
-node_modules/
