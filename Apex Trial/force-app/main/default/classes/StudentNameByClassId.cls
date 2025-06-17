@@ -1,4 +1,4 @@
-public class abc {
+public class StudentNameByClassId {
     public static List<String> getStudentNameByClassId(Id classID){
         List<Student__c> students = [
             SELECT Name 
