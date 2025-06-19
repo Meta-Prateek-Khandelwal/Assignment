@@ -1,5 +1,5 @@
 public class AccountContact {
-    public static void updateAccountContactIds(){
+    public static void updateAccountContactIds(Id contactId){
        Contact con = [SELECT Id,Name,AccountId 
                       FROM Contact 
                       WHERE Id = :contactId LIMIT 1] ;
