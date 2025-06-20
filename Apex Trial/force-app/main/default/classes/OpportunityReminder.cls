@@ -13,10 +13,10 @@ public class OpportunityReminder{
         System.debug('opportunityList' +opportunityList);
         
         List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
+        Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
 
         for(Opportunity opp : opportunityList){
-            if(opp.Owner.Email != null){
-                Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
+            if(opp.owner.email != null){
                 email.setToAddresses(new String[] {opp.Owner.Email});
                 email.setSubject('Reminder: Oppertunity"'+opp.Name+'" has not been updated');
                 email.setPlainTextBody(
@@ -27,10 +27,10 @@ public class OpportunityReminder{
                 );
                 mails.add(email);
             }
+        }
 
-            if(!mails.isEmpty()){
-                Messaging.sendEmail(mails);
-            }
+        if(!mails.isEmpty()){
+            Messaging.sendEmail(mails);
         }
     }
 }
