@@ -1,5 +1,5 @@
-public class OpportunityScheduler implements Schedulable{
-    public void execute(SchedulableContext sc){
+global class OpportunityScheduler implements Schedulable{
+    global void execute(SchedulableContext sc){
         OpportunityReminder.sendReminder();
     }
 }

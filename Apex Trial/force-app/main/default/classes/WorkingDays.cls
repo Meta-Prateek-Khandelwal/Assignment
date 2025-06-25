@@ -1,4 +1,5 @@
 public class WorkingDays{
+public  class WorkingDays {
     public static Integer getWorkingDays(Date startDate, Date endDate) {
         Integer workingDays = 0;
         Date current = startDate.addDays(1);
@@ -13,4 +14,4 @@ public class WorkingDays{
         return workingDays;
     }
 }
-
+}

@@ -2,17 +2,21 @@
 public class OpportunityReminder{
     
     public static void sendReminder(){
+        DateTime last30Days = System.now().addDays(-30);
+        
         List<Opportunity> opportunityList = [
             SELECT Owner.Email,LastModifiedDate 
             FROM Opportunity 
-            WHERE LastModifiedDate = :System.today().addDays(-30)
+            WHERE LastModifiedDate <= :last30Days
         ];
         
+        System.debug('opportunityList' +opportunityList);
+        
         List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
+        Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
 
         for(Opportunity opp : opportunityList){
-            if(opp.Owner.Email != null){
-                Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
+            if(opp.owner.email != null){
                 email.setToAddresses(new String[] {opp.Owner.Email});
                 email.setSubject('Reminder: Oppertunity"'+opp.Name+'" has not been updated');
                 email.setPlainTextBody(
@@ -21,12 +25,12 @@ public class OpportunityReminder{
                     'please take necessary action now.\n\n'+
                     'Thanks,\n'+''
                 );
-                emails.add(email);
+                mails.add(email);
             }
+        }
 
-            if(!emails.isEmpty()){
-                Messaging.sendEmail(emails);
-            }
+        if(!mails.isEmpty()){
+            Messaging.sendEmail(mails);
         }
     }
 }
