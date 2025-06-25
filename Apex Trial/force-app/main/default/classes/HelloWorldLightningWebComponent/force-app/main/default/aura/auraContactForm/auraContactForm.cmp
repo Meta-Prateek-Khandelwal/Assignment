@@ -1,0 +1,37 @@
+<aura:component controller="ContactController" >
+    <aura:attribute name="contact" type="Contact" default="{'sobjectType': 'Contact'}"/>
+    <aura:attribute name="message" type="String"/>
+    <aura:attribute name="isSuccess" type="Boolean" default="false"/>
+    <aura:attribute name="isError" type="Boolean" default="false"/>
+
+    <lightning:card title="Create Contact" iconName="standard:contact">
+        <div class="slds-p-around_medium">
+
+            <lightning:input label="First Name" value="{!v.contact.FirstName}" />
+            <lightning:input label="Last Name" value="{!v.contact.LastName}" />
+            <lightning:input label="Email" value="{!v.contact.Email}" />
+            <lightning:input label="Phone" value="{!v.contact.Phone}" />
+            <lightning:input label="Fax" value="{!v.contact.Fax}" />
+
+            <lightning:button label="Save Contact" variant="brand" onclick="{!c.saveContact}" class="slds-m-top_medium" />
+
+            <!-- Success Message -->
+            <aura:if isTrue="{!v.isSuccess}">
+                <div class="slds-text-color_success slds-m-top_medium">{!v.message}</div>
+                <div class="slds-m-top_small">
+                    <strong>Saved Contact:</strong><br/>
+                    First Name: {!v.contact.FirstName}<br/>
+                    Last Name: {!v.contact.LastName}<br/>
+                    Email: {!v.contact.Email}<br/>
+                    Phone: {!v.contact.Phone}<br/>
+                    Fax: {!v.contact.Fax}
+                </div>
+            </aura:if>
+
+            <!-- Error Message -->
+            <aura:if isTrue="{!v.isError}">
+                <div class="slds-text-color_error slds-m-top_medium">{!v.message}</div>
+            </aura:if>
+        </div>
+    </lightning:card>
+</aura:component>
