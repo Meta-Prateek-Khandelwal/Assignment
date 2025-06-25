@@ -1,4 +1,5 @@
 public class StudentNameByClassId {
+
     public static List<String> getStudentNameByClassId(Id classID){
         List<Student__c> students = [
             SELECT Name 
@@ -6,6 +7,7 @@ public class StudentNameByClassId {
             WHERE class__c = :classID
         ];
         
+        List<String> studentName = new List<String>();
         List<String> studentNames = new List<String>();
         for(Student__c student: students){
             StudentName.add(Student.Name);
