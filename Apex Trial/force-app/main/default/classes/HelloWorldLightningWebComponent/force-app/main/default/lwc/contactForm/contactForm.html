@@ -1,20 +1,15 @@
 <template>
-    <lightning-card title="Create Contact" icon-name="custom:custom63">
-        <div class="slds-p-around_medium">
-            <lightning-input label="First Name" value={firstName} onchange={handleChange} name="FirstName"></lightning-input>
-            <lightning-input label="Last Name" value={lastName} onchange={handleChange} name="LastName"></lightning-input>
-            <lightning-input label="Email" value={email} onchange={handleChange} name="email"></lightning-input>
-            <lightning-input label="Phone" value={Phone} onchange={handleChange} name="Phone"></lightning-input>
-            <lightning-input label="Fax" value={fax} onchange={handleChange} name="Fax"></lightning-input>
+    <lightning-card title="Create New Contact" icon-name="custom:custom63">
+        <lightning-input label="First Name" value={firstName} onchange={handleFirstNameChange}></lightning-input>
+        <lightning-input label="Last Name" value={lastName} onchange={handleLastNameChange} required></lightning-input>
+        <lightning-input type="email" label="Email" value={email} onchange={handleEmailChange}></lightning-input>
+        <lightning-input type="tel" label="Phone" value={phone} onchange={handlePhoneChange}></lightning-input>
+        <lightning-input label="Fax" value={fax} onchange={handleFaxChange}></lightning-input>
 
-            <lightning-button variant="brand" label="Save Contact" onclick={saveContact} class="slds-m-top-medium"></lightning-button>
+        <lightning-button label="Save Contact" variant="brand" onclick={saveContact}></lightning-button>
 
-            <template if:true={isSuccess}>
-                <div class="slds-text-color_success slds-m-top_medium">Save Conatct Successfully</div>
-            </template>
-            <template if:true={isError}>
-                <div class="slds-text-color_error slds-m-top_medium">some error occor</div>
-            </template>
-        </div>
+        <template if:true={message}>
+            <div class={messageClass} style="margin-top:10px;">{message}</div>
+        </template>
     </lightning-card>
 </template>

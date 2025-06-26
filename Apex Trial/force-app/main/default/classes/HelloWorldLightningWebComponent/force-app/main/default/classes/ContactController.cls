@@ -1,11 +1,11 @@
 public with sharing class ContactController {
     @AuraEnabled
-    public static Contact saveTeacherRecord(Contact contactRecord){
+    public static Contact saveContact(Contact contactObj){
         try {
-            insert contactRecord;
-            return contactRecord;
+            insert contactObj;
+            return contactObj;
         } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
+            throw new AuraHandledException('Error saving contact: '+e.getMessage());
         }
     }
 }

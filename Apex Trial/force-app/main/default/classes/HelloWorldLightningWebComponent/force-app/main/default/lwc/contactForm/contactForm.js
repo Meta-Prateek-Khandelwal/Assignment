@@ -1,52 +1,59 @@
 import { LightningElement, track } from 'lwc';
-import { createRecord } from 'lightning/uiRecordApi';
-import CONTACT_OBJECT from '@salesforce/schema/Contact';
-import FIRSTNAME_FIELD from '@salesforce/schema/Contact.FirstName';
-import LASTNAME_FIELD from '@salesforce/schema/Contact.LastName';
-import EMAIL_FIELD from '@salesforce/schema/Contact.Email';
-import PHONE_FIELD from '@salesforce/schema/Contact.Phone';
-import FAX_FIELD from '@salesforce/schema/Contact.Fax';
+import saveContact from '@salesforce/apex/ContactController.saveContact';
 
-export default class CreateContactForm extends LightningElement {
+export default class ContactForm extends LightningElement {
     @track firstName = '';
     @track lastName = '';
     @track email = '';
     @track phone = '';
     @track fax = '';
     @track message = '';
-    @track isSuccess = false;
-    @track isError = false;
+    @track messageClass = '';
 
-    handleChange(event) {
-        const {name, value} = event.target;
-        this[name] = value;
+    handleFirstNameChange(event) {
+        this.firstName = event.target.value;
     }
 
-    saveContact(){
-        const fields = {};
-        fields[FIRSTNAME_FIELD.fieldApiName] = this.firstName;
-        fields[LASTNAME_FIELD.fieldApiName] = this.lastName;
-        fields[EMAIL_FIELD.fieldApiName] = this.email;
-        fields[PHONE_FIELD.fieldApiName] = this.phone;
-        fields[FAX_FIELD.fieldApiName] = this.fax;
-    
-        const recordInput = { apiName: CONTACT_OBJECT.objectApiName, fields };
-        createRecord(recordInput)   
-        .then(Contact => {
-            this.isSuccess = true; 
-            this.isError = false; 
-            this.message = 'Contact saved successfully! Record Id: '+Contact.id;
+    handleLastNameChange(event) {
+        this.lastName = event.target.value;
+    }
 
-            this.firstName = '';
-            this.lastName = '';
-            this.email = '';
-            this.phone = '';
-            this.fax = '';
-        })
-        .catch(error => {
-            this.isSuccess = false;
-            this.isError = true;
-            this.message = 'Error: '+error.body.message || 'unkonwn error';
-        });
+    handleEmailChange(event) {
+        this.email = event.target.value;
+    }
+
+    handlePhoneChange(event) {
+        this.phone = event.target.value;
+    }
+
+    handleFaxChange(event) {
+        this.fax = event.target.value;
+    }
+
+    saveContact() {
+        let contactRecord = {
+            FirstName: this.firstName,
+            LastName: this.lastName,
+            Email: this.email,
+            Phone: this.phone,
+            Fax: this.fax
+        };
+
+        saveContact({ contactObj: contactRecord })
+            .then(result => {
+                this.message = 'Contact "' + result.LastName + '" was successfully saved!';
+                this.messageClass = 'slds-text-color_success';
+
+                this.firstName = '';
+                this.lastName = '';
+                this.email = '';
+                this.phone = '';
+                this.fax = '';
+            })
+            .catch(error => {
+                this.message = 'Error saving contact: ' + (error.body ? error.body.message : error.message);
+                this.messageClass = 'slds-text-color_error';
+            }
+        );
     }
 }
