@@ -1,0 +1,21 @@
+<apex:page >
+    <apex:includeLightning />
+    <h1>
+        VF page for Contact Form
+    </h1>
+    
+    <div id = "contactFormDiv">
+        
+    </div>
+    
+    
+    <script>
+    $Lightning.use("c:demoApp", function(){
+                   $Lightning.createComponent("c:contactForm", {}, "contactFormDiv" , function(cmp){
+            console.log("Component Created");
+        });
+    });
+    </script>
+    
+    
+</apex:page>

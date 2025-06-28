@@ -9,6 +9,7 @@ export default class ContactForm extends LightningElement {
     @track fax = '';
     @track message = '';
     @track messageClass = '';
+    @track messageText = '';
 
     handleFirstNameChange(event) {
         this.firstName = event.target.value;
@@ -42,7 +43,12 @@ export default class ContactForm extends LightningElement {
         saveContact({ contactObj: contactRecord })
             .then(result => {
                 this.message = 'Contact "' + result.LastName + '" was successfully saved!';
+                this.messageText = 'Name: ' + result.FirstName + ' ' + result.LastName  + '\n' + 'Email:' + result.Email + '\n' + ' Phone:' + result.Phone + '\n ' + 'Fax:' + result.Fax;
+                console.log(this.messageText);
+                
+
                 this.messageClass = 'slds-text-color_success';
+                
 
                 this.firstName = '';
                 this.lastName = '';
